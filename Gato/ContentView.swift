@@ -146,22 +146,23 @@ struct ContentView : View {
                 VStack {
                     
                     HStack {
-                        Text("Register to make reservation")
+                        Text("Click on the paw to log In or sign In")
                             .font(.caption)
                         .foregroundColor(.indigo)
                     }
             
                     Button(action: {} ) {
                         
-                                Text("Register")
-                            .foregroundColor(.white)
+                              Image("paw")
+                       /* Text("Register")
+                            .foregroundColor(.white)*/
                            
                            
                           
                             }
                     .padding()
                     .background(Color(red: 0.8, green: 0.4, blue: 0.8))
-                    .clipShape(RoundedRectangle(cornerRadius :  30))
+                    .clipShape(RoundedRectangle(cornerRadius :  80))
                 }
 
         
