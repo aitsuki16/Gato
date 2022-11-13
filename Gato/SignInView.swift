@@ -13,7 +13,7 @@ struct SignInView: View {
     var screenSize = UIScreen.main.bounds
     var body: some View {
         NavigationView {
-        ZStack {
+            ZStack {
             //custom background color here
             LinearGradient(
                 colors: [Color("Color-1"), Color("Color")],
@@ -41,7 +41,7 @@ struct SignInView: View {
                     }
                     Button(action: {
                         self.Log = 1
-
+                        
                         print("Log in button clicked") }) {
                             Text("Log In")
                                 .foregroundColor(.white)
