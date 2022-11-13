@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct signIn: View {
-    
+struct SignInView: View {
+    @State var Log : Int? = 0
+
     var screenSize = UIScreen.main.bounds
     var body: some View {
+        NavigationView {
         ZStack {
             //custom background color here
             LinearGradient(
@@ -28,8 +30,18 @@ struct signIn: View {
                 .shadow(radius: 15)
                 .overlay(Circle().stroke(Color.white, lineWidth: 5))
                 
+                //trying
+               
+
                 VStack(spacing: 20) {
+                    NavigationLink(destination : LogIn(),
+                                   tag: 1, selection: $Log) {
+                        EmptyView()
+                        
+                    }
                     Button(action: {
+                        self.Log = 1
+
                         print("Log in button clicked") }) {
                             Text("Log In")
                                 .foregroundColor(.white)
@@ -38,7 +50,10 @@ struct signIn: View {
                         .background(Color(red: 0.6, green: 0.4, blue: 0.8))
                         .clipShape(RoundedRectangle(cornerRadius :  30))
                     
+                    //here
+                    
                     Button(action: {
+
                         print("Sign Up button clicked") }) {
                             Text("Sign Up")
                                 .foregroundColor(.white)
@@ -47,14 +62,15 @@ struct signIn: View {
                         .background(Color(red: 0.6, green: 0.4, blue: 0.8))
                         .clipShape(RoundedRectangle(cornerRadius :  30))
                 }
+                }
                 Spacer()
             }.padding(.top, 50)
         }
     }
 }
 
-struct signIn_Previews: PreviewProvider {
+struct SigInview_Previews: PreviewProvider {
     static var previews: some View {
-        signIn()
+        SignInView()
     }
 }
