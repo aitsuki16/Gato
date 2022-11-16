@@ -34,7 +34,7 @@ struct LogIn: View {
                 VStack {
                 TextField("Name",
                           text: $name ,
-                          prompt: Text("Login").foregroundColor(.purple)
+                          prompt: Text("Login").foregroundColor(.red)
                 )
                 .padding(10)
                 .overlay {
@@ -61,6 +61,7 @@ struct LogIn: View {
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.white, lineWidth: 1) // How to add rounded corner to a TextField and change it colour
                     }
+                   
                    Button {
                         showPassword.toggle()
                     } label: {
