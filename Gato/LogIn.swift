@@ -34,7 +34,7 @@ struct LogIn: View {
                 VStack {
                 TextField("Name",
                           text: $name ,
-                          prompt: Text("Login").foregroundColor(.red)
+                          prompt: Text("Login").foregroundColor(.purple)
                 )
                 .padding(10)
                 .overlay {
@@ -53,7 +53,7 @@ struct LogIn: View {
                         } else {
                             SecureField("Password", // how to create a secure text field
                                         text: $password,
-                                        prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
+                                        prompt: Text("Password").foregroundColor(.whites)) // How to change the color of the TextField Placeholder
                         }
                     }
                     .padding(10)
