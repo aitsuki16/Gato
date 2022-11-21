@@ -13,7 +13,7 @@ struct ContentView : View {
     var body: some View {
         NavigationView {
             
-            VStack(spacing: 120) {
+            VStack(spacing: 60) {
                 ZStack {
                     LinearGradient(
                         colors: [Color("Color-1"), Color("Color")],
@@ -25,24 +25,19 @@ struct ContentView : View {
                     .ignoresSafeArea()
                     
                     //alingment change to the left after...
-                    VStack(alignment: .center) {
-                        
-                        
-                        HStack(alignment: .center, spacing: 10) {
+                    VStack {
+                        //text here
+                        HStack {
                             Text("Do you want to play with fluffy cats while enjoying drinking delicious and cute drinks?")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
                                 .padding(10)
-                            
                                 .lineLimit(5)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .shadow(radius: 10)
-                            
-                            
-                            
                         }
-                        
+                    
                         GeometryReader { geometry in
                             VStack(spacing: 5) {
                                 Image(systemName: "pawprint")
@@ -58,8 +53,6 @@ struct ContentView : View {
                                 Image(systemName: "pawprint")
                                     .font(.system(size : 30 ))
                                     .frame(width :  50, height: 50)
-                                
-                                
                             }
                         }
                         HStack(alignment: .center) {
@@ -69,6 +62,7 @@ struct ContentView : View {
                                 .overlay(Circle().stroke(Color.white, lineWidth: 5))
                             
                         }
+                        
                     }
                 }
                 
@@ -148,9 +142,11 @@ struct ContentView : View {
                 VStack {
                     
                     HStack {
+                
                         Text("Click on the paw to log In or sign In")
                             .font(.caption)
                             .foregroundColor(.indigo)
+                            .padding()
                     }
                     
                     NavigationLink(destination : SignInView(),
@@ -164,13 +160,8 @@ struct ContentView : View {
                     }) {
                         
                         Image("paw")
-                        /* Text("Register")
-                         .foregroundColor(.white)*/
-                        
-                        
-                        
                     }
-                    .padding()
+                    .padding(3)
                     .background(Color(red: 0.8, green: 0.4, blue: 0.8))
                     .clipShape(RoundedRectangle(cornerRadius :  80))
                 }

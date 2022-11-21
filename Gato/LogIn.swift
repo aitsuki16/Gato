@@ -30,19 +30,24 @@ struct LogIn: View {
                                 )
                     .ignoresSafeArea()
         
-            
-                VStack {
+            //added some alingment just in case
+                VStack (alignment: .leading, spacing: 0.7){
                 TextField("Name",
                           text: $name ,
-                          prompt: Text("Login").foregroundColor(.purple)
+                          prompt: Text("Login").foregroundColor(.gray)
                 )
+                    
                 .padding(10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 15)
-                    .stroke(.white, lineWidth: 1)
+                        .stroke(.white, lineWidth: 1)
+                    
+                
+                    
                         
                 }
-                .padding(.horizontal)
+                    
+                .padding(.vertical)
 
                 HStack {
                     Group {
@@ -53,44 +58,59 @@ struct LogIn: View {
                         } else {
                             SecureField("Password", // how to create a secure text field
                                         text: $password,
-                                        prompt: Text("Password").foregroundColor(.whites)) // How to change the color of the TextField Placeholder
+                                        prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
                         }
                     }
                     .padding(10)
                     .overlay {
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.white, lineWidth: 1) // How to add rounded corner to a TextField and change it colour
-                    }
-                   
-                   Button {
-                        showPassword.toggle()
-                    } label: {
-                        Image(systemName: showPassword ? "eye.slash" : "eye")
-                            .foregroundColor(.yellow) // how to change image based in a State variable
-                    }
+                        
+                        Button {
+                             showPassword.toggle()
+                         } label: {
+                             Image(systemName: showPassword ? "eye.slash" : "eye")
+                                 .foregroundColor(.yellow) // how to change image based in a State variable
+                             
+                             .frame(maxWidth: .infinity, alignment: .topTrailing)
 
-                }.padding(.vertical)
+                             
+
+                         }.padding()
+                    }
+                    
+                    
+                   //here eye button
+                   
+               
+                         .padding(.vertical)
+                    }
                     //here was horizontal
 
                 //maybe a Spacer
-                
+            
                 Button {
                     print("do login action")
                 } label: {
                     Text("LogIn")
                         .font(.title2)
                         .bold()
-                        .foregroundColor(.purple)
+                        .foregroundColor(.white)
                 }
                 .frame(height: 50)
                 .frame(maxWidth: .infinity) // how to make a button fill all the space available horizontaly
                .background(
                     isSignInButtonDisabled ? // how to add a gradient to a button in SwiftUI if the button is disabled
-                    LinearGradient(colors: [.yellow], startPoint: .topLeading, endPoint: .bottomTrailing) :
-                        LinearGradient(colors: [.brown, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
+                        LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    
+                    
                 )
                 .cornerRadius(20)
                 .disabled(isSignInButtonDisabled) // how to disable while some condition is applied
+                    
+                    //
+                    
                     
                 }
                 .padding()

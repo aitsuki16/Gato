@@ -78,7 +78,6 @@
 		CE8748C329023E65000D40FC = {
 			isa = PBXGroup;
 			children = (
-				CECE21792920A4A9002986AF /* LogIn.swift */,
 				CE8748CE29023E65000D40FC /* Gato */,
 				CE8748DF29023E68000D40FC /* GatoTests */,
 				CE8748E929023E68000D40FC /* GatoUITests */,
@@ -99,6 +98,7 @@
 		CE8748CE29023E65000D40FC /* Gato */ = {
 			isa = PBXGroup;
 			children = (
+				CECE21792920A4A9002986AF /* LogIn.swift */,
 				CE8748CF29023E65000D40FC /* GatoApp.swift */,
 				CECE2175290FA468002986AF /* SignInView.swift */,
 				CE8748D129023E65000D40FC /* ContentView.swift */,

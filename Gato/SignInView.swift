@@ -64,7 +64,7 @@ struct SignInView: View {
                 }
                 }
                 Spacer()
-            }.padding(.top, 50)
+            }//.padding(.top)
         }
     }
 }
