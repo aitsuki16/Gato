@@ -25,9 +25,9 @@ struct ContentView : View {
                     .ignoresSafeArea()
                     
                     //alingment change to the left after...
-                    VStack (alignment: .center, spacing: 16) {
+                    VStack (alignment: .center, spacing: 60) {
                         //text here
-                        HStack(alignment: .top) {
+                        HStack {
                             Text("Do you want to play with fluffy cats while enjoying drinking delicious and cute drinks?")
                                 .font(.title3)
                                 .fontWeight(.semibold)
@@ -36,6 +36,7 @@ struct ContentView : View {
                                 .lineLimit(5)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .shadow(radius: 10)
+                            
                             
                         }
                     
@@ -140,7 +141,7 @@ struct ContentView : View {
                 
                 
                 
-                VStack {
+                VStack{
                     
                     HStack {
                 
@@ -166,6 +167,7 @@ struct ContentView : View {
                     .background(Color(red: 0.8, green: 0.4, blue: 0.8))
                     .clipShape(RoundedRectangle(cornerRadius :  80))
                 }
+                Spacer()
                 
             }
         }

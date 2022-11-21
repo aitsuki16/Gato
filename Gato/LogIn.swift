@@ -48,6 +48,7 @@ struct LogIn: View {
                             .frame(width :  50, height: 50)
                     }
                 }
+                Spacer()
         
             //added some alingment just in case
                 VStack (alignment: .leading, spacing: 0.7){

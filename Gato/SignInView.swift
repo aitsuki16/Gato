@@ -63,8 +63,8 @@ struct SignInView: View {
                         .clipShape(RoundedRectangle(cornerRadius :  30))
                 }
                 }
-                Spacer()
-            }//.padding(.top)
+            }
+            Spacer()
         }
     }
 }
