@@ -29,6 +29,25 @@ struct LogIn: View {
                         endPoint: .top
                                 )
                     .ignoresSafeArea()
+                
+                //try paws
+                GeometryReader { geometry in
+                    VStack(spacing: 10) {
+                        Image(systemName: "pawprint")
+                            .font(.system(size: 50 ))
+                            .frame(width: 0)
+                        
+                        Image(systemName: "pawprint")
+                            .font(.system(size: 30 ))
+                            .frame(width: 50, height: 40 )
+                        Image(systemName: "pawprint")
+                            .font(.system(size :  30 ))
+                            .frame(width :  60, height: 40 )
+                        Image(systemName: "pawprint")
+                            .font(.system(size : 30 ))
+                            .frame(width :  50, height: 50)
+                    }
+                }
         
             //added some alingment just in case
                 VStack (alignment: .leading, spacing: 0.7){

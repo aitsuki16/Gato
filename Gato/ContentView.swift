@@ -25,9 +25,9 @@ struct ContentView : View {
                     .ignoresSafeArea()
                     
                     //alingment change to the left after...
-                    VStack {
+                    VStack (alignment: .center, spacing: 16) {
                         //text here
-                        HStack {
+                        HStack(alignment: .top) {
                             Text("Do you want to play with fluffy cats while enjoying drinking delicious and cute drinks?")
                                 .font(.title3)
                                 .fontWeight(.semibold)
@@ -36,6 +36,7 @@ struct ContentView : View {
                                 .lineLimit(5)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .shadow(radius: 10)
+                            
                         }
                     
                         GeometryReader { geometry in
@@ -44,7 +45,7 @@ struct ContentView : View {
                                     .font(.system(size: 40 ))
                                     .frame(width: 0)
                                 
-                                Image(systemName: "pawprint")
+                                Image(systemName: "pawprint").foregroundColor(.purple)
                                     .font(.system(size: 30 ))
                                     .frame(width: 50, height: 40 )
                                 Image(systemName: "pawprint")
