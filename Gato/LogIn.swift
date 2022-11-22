@@ -47,7 +47,7 @@ struct LogIn: View {
                             .font(.system(size : 30 ))
                             .frame(width :  50, height: 50)
                     }
-                }
+                }.padding()
         
             //added some alingment just in case
                 VStack (alignment: .leading, spacing: 0.7){
@@ -85,21 +85,20 @@ struct LogIn: View {
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.white, lineWidth: 1) // How to add rounded corner to a TextField and change it colour
                         
-                        Button {
-                             showPassword.toggle()
-                         } label: {
-                             Image(systemName: showPassword ? "eye.slash" : "eye")
-                                 .foregroundColor(.yellow) // how to change image based in a State variable
-                             
-                             .frame(maxWidth: .infinity, alignment: .topTrailing)
+                        HStack {
+                            Button {
+                                 showPassword.toggle()
+                             } label: {
+                                 Image(systemName: showPassword ? "eye.slash" : "eye")
+                                     .foregroundColor(.yellow) // how to change image based in a State variable
+                                 
+                                 .frame(maxWidth: .infinity, alignment: .topTrailing)
 
-                             
+                                 
 
                          }.padding()
-                    }
-                    
-               
-                         .padding(.vertical)
+                        }
+                    }.padding(.vertical)
                     }
                     
                 Button {
