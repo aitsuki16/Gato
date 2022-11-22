@@ -48,7 +48,6 @@ struct LogIn: View {
                             .frame(width :  50, height: 50)
                     }
                 }
-                Spacer()
         
             //added some alingment just in case
                 VStack (alignment: .leading, spacing: 0.7){
@@ -99,16 +98,10 @@ struct LogIn: View {
                          }.padding()
                     }
                     
-                    
-                   //here eye button
-                   
                
                          .padding(.vertical)
                     }
-                    //here was horizontal
-
-                //maybe a Spacer
-            
+                    
                 Button {
                     print("do login action")
                 } label: {
