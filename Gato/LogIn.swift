@@ -38,7 +38,7 @@ struct LogIn: View {
                         VStack(spacing: 10) {
                             Image(systemName: "pawprint")
                                 .font(.system(size: 50 ))
-                                .frame(width: 0)
+                                .frame(width: 10)
                             
                             Image(systemName: "pawprint")
                                 .font(.system(size: 30 ))
@@ -87,7 +87,7 @@ struct LogIn: View {
                                         prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
                         }
                     }
-                    .font(Font.system(size: 3))
+                    .font(Font.system(size: 23))
 
                     .padding(10)
                     .overlay {
