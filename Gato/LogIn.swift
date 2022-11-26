@@ -29,27 +29,32 @@ struct LogIn: View {
                     LinearGradient(
                         colors: [Color("Color-1"), Color("Color")],
                         startPoint: .trailing,
-                        endPoint: .top
+                        endPoint: .bottomTrailing
                                 )
                     .ignoresSafeArea()
                 
                 //try paws
+                VStack{
                     GeometryReader { geometry in
-                        VStack(spacing: 10) {
-                            Image(systemName: "pawprint")
-                                .font(.system(size: 50 ))
-                                .frame(width: 10)
-                            
-                            Image(systemName: "pawprint")
-                                .font(.system(size: 30 ))
-                                .frame(width: 50, height: 40 )
-                            Image(systemName: "pawprint")
-                                .font(.system(size :  30 ))
-                                .frame(width :  60, height: 40 )
-                            Image(systemName: "pawprint")
-                                .font(.system(size : 30 ))
-                                .frame(width :  50, height: 50)
-                    
+                            VStack(spacing: 10) {
+                                Image(systemName: "pawprint")
+                                    .font(.system(size: 50 ))
+                                    .frame(width: 10)
+                                
+                                Image(systemName: "pawprint")
+                                    .font(.system(size: 30 ))
+                                    .frame(width: 50, height: 40 )
+                                Image(systemName: "pawprint")
+                                    .font(.system(size :  30 ))
+                                    .frame(width :  60, height: 40 )
+                                Image(systemName: "pawprint")
+                                    .font(.system(size : 30 ))
+                                    .frame(width :  50, height: 50)
+                                    
+                                
+                                //
+                        
+                            }
                     }
                 }
                 Spacer()
