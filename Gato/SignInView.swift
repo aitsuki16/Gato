@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
     @State var Log : Int? = 0
+    @State var Sign: Int? = 0
     
     var screenSize = UIScreen.main.bounds
     var body: some View {
@@ -50,9 +51,12 @@ struct SignInView: View {
                             .clipShape(RoundedRectangle(cornerRadius :  30))
                         
                         //here
-                        
+                        NavigationLink(destination : SignUp(),
+                                       tag: 1, selection: $Sign) {
+                            EmptyView()
+                        }
                         Button(action: {
-                            
+                            self.Sign = 1
                             print("Sign Up button clicked") }) {
                                 Text("Sign Up")
                                     .foregroundColor(.white)

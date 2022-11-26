@@ -20,6 +20,7 @@ struct LogIn: View {
     var body: some View {
         //added a navigationView "to change"
         NavigationView {
+            
 
         VStack {
 
@@ -34,29 +35,25 @@ struct LogIn: View {
                     .ignoresSafeArea()
                 
                 //try paws
-                VStack{
-                    GeometryReader { geometry in
-                            VStack(spacing: 10) {
-                                Image(systemName: "pawprint")
-                                    .font(.system(size: 50 ))
-                                    .frame(width: 10)
-                                
-                                Image(systemName: "pawprint")
-                                    .font(.system(size: 30 ))
-                                    .frame(width: 50, height: 40 )
-                                Image(systemName: "pawprint")
-                                    .font(.system(size :  30 ))
-                                    .frame(width :  60, height: 40 )
-                                Image(systemName: "pawprint")
-                                    .font(.system(size : 30 ))
-                                    .frame(width :  50, height: 50)
-                                    
-                                
-                                //
+                
+                GeometryReader { geometry in
+                    VStack(spacing: 6) {
+                        Image(systemName: "pawprint").foregroundColor(.black)
+                            .font(.system(size: 40 ))
+                            .frame(width: 0)
                         
-                            }
+                        Image(systemName: "pawprint").foregroundColor(.white)
+                            .font(.system(size: 30 ))
+                            .frame(width: 50, height: 40 )
+                        Image(systemName: "pawprint").foregroundColor(.black)
+                            .font(.system(size :  30 ))
+                            .frame(width :  60, height: 40 )
+                        Image(systemName: "pawprint").foregroundColor(.white)
+                            .font(.system(size : 30 ))
+                            .frame(width :  50, height: 50)
                     }
                 }
+                
                 Spacer()
         
             //added some alingment just in case

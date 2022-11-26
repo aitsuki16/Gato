@@ -14,6 +14,7 @@
 		CE8748E129023E68000D40FC /* GatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748E029023E68000D40FC /* GatoTests.swift */; };
 		CE8748EB29023E68000D40FC /* GatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748EA29023E68000D40FC /* GatoUITests.swift */; };
 		CE8748ED29023E68000D40FC /* GatoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */; };
+		CEB4C7142931CE56003421BF /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4C7132931CE56003421BF /* SignUp.swift */; };
 		CECE2176290FA469002986AF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2175290FA468002986AF /* SignInView.swift */; };
 		CECE217A2920A4A9002986AF /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE21792920A4A9002986AF /* LogIn.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		CE8748E629023E68000D40FC /* GatoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8748EA29023E68000D40FC /* GatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoUITests.swift; sourceTree = "<group>"; };
 		CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEB4C7132931CE56003421BF /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		CECE2175290FA468002986AF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CECE21792920A4A9002986AF /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 				CE8748D129023E65000D40FC /* ContentView.swift */,
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
+				CEB4C7132931CE56003421BF /* SignUp.swift */,
 			);
 			path = Gato;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
 				CECE2176290FA469002986AF /* SignInView.swift in Sources */,
 				CECE217A2920A4A9002986AF /* LogIn.swift in Sources */,
+				CEB4C7142931CE56003421BF /* SignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
