@@ -7,10 +7,13 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State var zoomed = false
     @State var page : Int? = 0
     
     var body: some View {
+        
+        //
+        
+        
         NavigationView {
             
             VStack(spacing: 60) {
@@ -172,6 +175,17 @@ struct ContentView : View {
             }
         }
     }
+    ////////////////
+    func link() {
+        Link(destination: URL (string: "https://www.facebook.com/")!) // <- Add your link here
+               {
+                   Image(systemName: "link.circle.fill") // <- Change icon to your preferred one
+                       .font(.largeTitle)
+               }
+
+    }
+    
+    
 }
 
 struct ContentView_Previews : PreviewProvider {

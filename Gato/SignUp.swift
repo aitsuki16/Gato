@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SignUp: View {
     //tryin
+    @State var zoom = false
+    @State var isAtMaxScale = false
 
     @State var nickname: String = ""
     @State var email: String = ""
@@ -16,36 +18,61 @@ struct SignUp: View {
     @State var comfirmPassword = ""
     @State var showPassword: Bool = false
     @State var phoneNumber: String = ""
-    
+    let timer = Timer.publish(every: 3.2, on: .main, in: .common).autoconnect()
     var isSignUpButtonDisabled: Bool {
         [email, password,phoneNumber,].contains(where: \.isEmpty)
     }
     
+    //added to try
+    private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
+     private let maxScale: CGFloat = 2
+  
     var body: some View {
         //added a navigationView "to change"
         NavigationView {
 
-            VStack {
-
             ZStack {
+                //custom background color here
+                LinearGradient(
+                    colors: [Color("Color-1"), Color("Color")],
+                    startPoint: .trailing,
+                    endPoint: .center
+                )
+                .cornerRadius(18)
+                .ignoresSafeArea()
                 
-                    //custom background color here
-                    LinearGradient(
-                        colors: [Color("Color-1"), Color("Color")],
-                        startPoint: .trailing,
-                        endPoint: .bottomTrailing
-                                )
-                    .ignoresSafeArea()
-                
-                //try paws
-         
-                
-                //Spacer()
-        
-            //added some alingment just in case
-                VStack {
+                VStack(spacing: 17) {
+                   
+                    ZStack {
+                        Image("moff")
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .frame(width: 130)
+                            
+                            
+                        //try
+                            .scaleEffect(isAtMaxScale ? maxScale : 1)
+                                        .onAppear {
+                                            withAnimation(self.animation, {
+                                                self.isAtMaxScale.toggle()
+                                            })
+                                    }
+                    }
+                        /*.shadow(radius: 15)
+                        .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                        .offset(x: zoom ? -15.0 : 0.0)
+                        .background(Circle().foregroundColor(.blue).opacity(zoom ? 0.2 : 0.4))
+                        .animation(zoom ? Animation.default.repeatForever(autoreverses: true) : Animation.easeOut(duration: 0.5) )
+                        .onReceive(timer) { _ in
+                            self.zoom.toggle()
+                        }*/
                     
+                    
+
                     //
+                    Spacer()
+                    
                     TextField("Nick",
                               text: $nickname ,
                               prompt: Text("Nick Name").foregroundColor(.gray)
@@ -156,11 +183,13 @@ struct SignUp: View {
                 
                 .padding()
             }
-        }
             
+                
+                
         }
     }
-}
+    }
+
 
 struct SignUp_Previews: PreviewProvider {
     static var previews: some View {

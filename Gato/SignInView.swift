@@ -67,7 +67,8 @@ struct SignInView: View {
                     }
                 }
             }
-            Spacer()
+            //Spacer()
+            .ignoresSafeArea()
         }
         
 
