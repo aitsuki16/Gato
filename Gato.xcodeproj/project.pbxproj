@@ -17,6 +17,7 @@
 		CEB4C7142931CE56003421BF /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4C7132931CE56003421BF /* SignUp.swift */; };
 		CECE2176290FA469002986AF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2175290FA468002986AF /* SignInView.swift */; };
 		CECE217A2920A4A9002986AF /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE21792920A4A9002986AF /* LogIn.swift */; };
+		CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFB7942956A78A002B4762 /* SignUpModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		CEB4C7132931CE56003421BF /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		CECE2175290FA468002986AF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CECE21792920A4A9002986AF /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		CEDFB7942956A78A002B4762 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +106,10 @@
 				CE8748CF29023E65000D40FC /* GatoApp.swift */,
 				CECE2175290FA468002986AF /* SignInView.swift */,
 				CE8748D129023E65000D40FC /* ContentView.swift */,
+				CEB4C7132931CE56003421BF /* SignUp.swift */,
+				CEDFB7942956A78A002B4762 /* SignUpModel.swift */,
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
-				CEB4C7132931CE56003421BF /* SignUp.swift */,
 			);
 			path = Gato;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				CE8748D229023E65000D40FC /* ContentView.swift in Sources */,
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
 				CECE2176290FA469002986AF /* SignInView.swift in Sources */,
+				CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */,
 				CECE217A2920A4A9002986AF /* LogIn.swift in Sources */,
 				CEB4C7142931CE56003421BF /* SignUp.swift in Sources */,
 			);

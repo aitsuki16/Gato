@@ -20,7 +20,7 @@ struct SignUp: View {
     @State var phoneNumber: String = ""
     let timer = Timer.publish(every: 3.2, on: .main, in: .common).autoconnect()
     var isSignUpButtonDisabled: Bool {
-        [email, password,phoneNumber,].contains(where: \.isEmpty)
+        [email, password,phoneNumber].contains(where: \.isEmpty)
     }
     
     //added to try

@@ -12,16 +12,18 @@ struct LogIn: View {
     @State var name: String = ""
     @State var password: String = ""
     @State var showPassword: Bool = false
+    @State private var joke: String = ""
+    
     
     var isSignInButtonDisabled: Bool {
         [name, password].contains(where: \.isEmpty)
     }
     
+let loginUrl = "ttps://divine-flower-4961.fly.dev/api/register?email=test@a.com&name=test&password=passss"
     var body: some View {
         //added a navigationView "to change"
         NavigationView {
             
-
         VStack {
 
             ZStack {
@@ -99,6 +101,13 @@ struct LogIn: View {
                         HStack {
                             Button {
                                  showPassword.toggle()
+                            //
+                                Task {
+                                    let (data, _) = try await URLSession.shared.data(from: URL(string:"https://divine-flower-4961.fly.dev/api/register?email=test@a.com&name=test&password=passss")!)
+                                    let decodedResponse = try? JSONDecoder().decode(joke.self, from: data)
+                                    joke = decodedResponse?.value ?? ""
+                                }
+                                //
                              } label: {
                                  Image(systemName: showPassword ? "pawprint" : "pawprint")
                                      .foregroundColor(.white) // how to change image based in a State variable
