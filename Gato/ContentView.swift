@@ -49,7 +49,7 @@ struct ContentView : View {
                                     .font(.system(size: 40 ))
                                     .frame(width: 0)
                                 
-                                Image(systemName: "pawprint").foregroundColor(.purple)
+                                Image(systemName: "pawprint").foregroundColor(.black)
                                     .font(.system(size: 30 ))
                                     .frame(width: 50, height: 40 )
                                 Image(systemName: "pawprint")
@@ -176,14 +176,16 @@ struct ContentView : View {
         }
     }
     ////////////////
-    func link() {
+   /* func link() {
         Link(destination: URL (string: "https://www.facebook.com/")!) // <- Add your link here
                {
                    Image(systemName: "link.circle.fill") // <- Change icon to your preferred one
                        .font(.largeTitle)
                }
+    
+    
 
-    }
+    }*/
     
     
 }

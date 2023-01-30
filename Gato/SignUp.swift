@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignUp: View {
     //tryin
@@ -18,7 +19,8 @@ struct SignUp: View {
     @State var comfirmPassword = ""
     @State var showPassword: Bool = false
     @State var phoneNumber: String = ""
-    let timer = Timer.publish(every: 3.2, on: .main, in: .common).autoconnect()
+   
+    let timer = Timer.publish(every: 2.1, on: .main, in: .common).autoconnect()
     var isSignUpButtonDisabled: Bool {
         [email, password,phoneNumber].contains(where: \.isEmpty)
     }
@@ -83,7 +85,7 @@ struct SignUp: View {
                     .padding(10)
                     .overlay {
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(.white, lineWidth: 0.5)
+                            .stroke(.white, lineWidth: 1)
                     }
                     
                     TextField("Email",
@@ -95,7 +97,7 @@ struct SignUp: View {
                     .padding(10)
                     .overlay {
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(.white, lineWidth: 0.5)
+                            .stroke(.white, lineWidth: 1)
                     }
                            
                         //phone textfield
@@ -106,9 +108,20 @@ struct SignUp: View {
                         .font(Font.system(size: 25))
 
                         .padding(10)
+                    //allow only numbers
+                        .onReceive(Just(phoneNumber)) {
+                            newValue in
+                            let allowedCharacters = "0123456789"
+                            let filtered = newValue.filter { allowedCharacters.contains($0) }
+                            if filtered != newValue {
+                                self.phoneNumber = filtered
+                            }
+                        }
+
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(.white, lineWidth: 0.5)
+                                .stroke(.white, lineWidth: 1)
+                                
                         
                     
                         
@@ -136,7 +149,7 @@ struct SignUp: View {
                         .padding(10)
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(.white, lineWidth: 0.5) // How to add rounded corner to a TextField and change it colour
+                                .stroke(.white, lineWidth: 1) // How to add rounded corner to a TextField and change it colour
                             
                             HStack {
                                 Button {

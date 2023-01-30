@@ -7,28 +7,42 @@
 
 import Foundation
 
-struct SignUpUser: Decodable {
-    
-    let data: [User]
-    
-    {　//
-        "data":
-            “email”: “test@a.com”,
-            “name”: “test”,
-            “password”: “$2y$10$7mkdxs4qjqx4iSpRZXIwQuT71XambJ0nrlkHvddiR03t1wqyyXO0K”,
-            “updated_at”: “2022-12-20T12:07:43.000000Z”,
-            “created_at”: “2022-12-20T12:07:43.000000Z”,
-            “id”: 15
-    }
-            
 
+
+struct User: Decodable {
+    
+    let nickname: String?
+    let email: String?
+    let password: String?
+    let phoneNumber: Int?
     
 }
 
-struct User: Decodable {
-
-let name: String?
-let email: String?
-let pass: String?
+class SignUpViewModel {
+    
+    
+    //added new function to try json
+    func login(email: String, password: String) {
+        let request = URLRequest(url: URL(string: "https://divine-flower-4961.fly.dev/api/register?email=test@a.com&name=test&password=passss/\(email)/\(password)")!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            if let response = response {
+                print(response)
+            }
+            if let data = data {
+                do {
+                    let user = try JSONDecoder().decode(User.self, from: data)
+                  
+                }
+                catch {
+                    print("Could not decode the data. Error: \(error)")
+                }
+            }
+        }
+        task.resume()
+    }
 }
 
