@@ -10,12 +10,7 @@ struct ContentView : View {
     @State var page : Int? = 0
     
     var body: some View {
-        
-        //
-        
-        
         NavigationView {
-            
             VStack(spacing: 60) {
                 ZStack {
                     LinearGradient(
