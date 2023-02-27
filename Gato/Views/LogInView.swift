@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogIn: View {
+struct LogInView: View {
     
     @State var name: String = ""
     @State var password: String = ""
@@ -157,6 +157,6 @@ let loginUrl = "ttps://divine-flower-4961.fly.dev/api/register?email=test@a.com&
 
 struct LogIn_Previews: PreviewProvider {
     static var previews: some View {
-        LogIn()
+        LogInView()
     }
 }

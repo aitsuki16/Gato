@@ -34,7 +34,7 @@ struct SignInView: View {
                     //trying
                     
                     VStack(spacing: 20) {
-                        NavigationLink(destination : LogIn(),
+                        NavigationLink(destination : LogInView(),
                                        tag: 1, selection: $Log) {
                             EmptyView()
                             
