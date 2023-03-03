@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF529AB8A7A00404A7E /* ImageView.swift */; };
+		CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */; };
 		CE8748D029023E65000D40FC /* GatoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748CF29023E65000D40FC /* GatoApp.swift */; };
 		CE8748D229023E65000D40FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748D129023E65000D40FC /* ContentView.swift */; };
 		CE8748D429023E68000D40FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8748D329023E68000D40FC /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		CE6E8AF529AB8A7A00404A7E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInImageView.swift; sourceTree = "<group>"; };
 		CE8748CC29023E65000D40FC /* Gato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8748CF29023E65000D40FC /* GatoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoApp.swift; sourceTree = "<group>"; };
 		CE8748D129023E65000D40FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				CE6E8AF729AB8AC200404A7E /* Views */,
 				CE8748CF29023E65000D40FC /* GatoApp.swift */,
 				CEDFB7942956A78A002B4762 /* SignUpModel.swift */,
+				CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */,
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
 			);
@@ -286,6 +289,7 @@
 				CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */,
 				CECE217A2920A4A9002986AF /* LogInView.swift in Sources */,
 				CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */,
+				CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */,
 				CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

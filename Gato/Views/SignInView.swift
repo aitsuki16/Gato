@@ -10,7 +10,8 @@ import SwiftUI
 struct SignInView: View {
     @State var Log : Int? = 0
     @State var Sign: Int? = 0
-    
+    @State var ImageKit = false
+
     var screenSize = UIScreen.main.bounds
     var body: some View {
 
@@ -26,10 +27,8 @@ struct SignInView: View {
                 
                 VStack(spacing: 150) {
                     //image here
-                    Image("kit")
-                        .clipShape(Circle())
-                        .shadow(radius: 15)
-                        .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                    SignInImageView(ImageKit: $ImageKit)
+
                     
                     //trying
                     

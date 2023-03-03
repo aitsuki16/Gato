@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LogInView: View {
-    
+    //link with binding
+    @State var isAtMaxScale = false
     @State var name: String = ""
     @State var password: String = ""
     @State var showPassword: Bool = false
@@ -19,15 +20,16 @@ struct LogInView: View {
         [name, password].contains(where: \.isEmpty)
     }
     
-let loginUrl = "ttps://divine-flower-4961.fly.dev/api/register?email=test@a.com&name=test&password=passss"
+
     var body: some View {
         //added a navigationView "to change"
         NavigationView {
             
         VStack {
 
+
             ZStack {
-                
+
                     //custom background color here
                     LinearGradient(
                         colors: [Color("Color-1"), Color("Color")],
@@ -60,6 +62,12 @@ let loginUrl = "ttps://divine-flower-4961.fly.dev/api/register?email=test@a.com&
         
             //added some alingment just in case
                 VStack (alignment: .center, spacing: 1){
+                    
+                    //added same image
+                    ImageView(isAtMaxScale: $isAtMaxScale)
+                    
+                    Spacer()
+
                 TextField("Name",
                           text: $name ,
                           prompt: Text("Login").foregroundColor(.gray)
@@ -101,15 +109,6 @@ let loginUrl = "ttps://divine-flower-4961.fly.dev/api/register?email=test@a.com&
                         HStack {
                             Button {
                                  showPassword.toggle()
-                            //
-                              /*  Task {
-                                    let (data, _) = try await URLSession.shared.data(from: URL(string:"https://divine-flower-4961.fly.dev/api/register?email=test@a.com&name=test&password=passss")!)
-                                    let decodedResponse = try? JSONDecoder().decode(joke.self, from: data)
-                                    joke = decodedResponse?.value ?? ""
-                                }
-                               
-                               */
-                                //
                              } label: {
                                  Image(systemName: showPassword ? "pawprint" : "pawprint")
                                      .foregroundColor(.white) // how to change image based in a State variable

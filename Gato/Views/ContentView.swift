@@ -65,20 +65,8 @@ struct ContentView : View {
                         
                     }
                 }
-                
-                //delated a zstack
-                
-                
+            
                 VStack {
-                    
-                    /* Text("Moff Cafe")
-                     
-                     .font(.title)
-                     .fontWeight(.medium)
-                     .shadow(radius: 5)
-                     .foregroundColor(.teal)*/
-                    
-                    //
                     Text("Moff Cafe")
                         .font(Font.system(size: 30, weight: .bold))
                         .multilineTextAlignment(.center)
@@ -134,10 +122,6 @@ struct ContentView : View {
                  
                  }
                  */
-                
-                
-                
-                
                 
                 VStack{
                     
