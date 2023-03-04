@@ -38,29 +38,12 @@ struct LogInView: View {
                                 )
                     .ignoresSafeArea()
                 
-                //try paws
-                
-                GeometryReader { geometry in
-                    VStack(spacing: 6) {
-                        Image(systemName: "pawprint").foregroundColor(.black)
-                            .font(.system(size: 40 ))
-                            .frame(width: 0)
-                        
-                        Image(systemName: "pawprint").foregroundColor(.white)
-                            .font(.system(size: 30 ))
-                            .frame(width: 50, height: 40 )
-                        Image(systemName: "pawprint").foregroundColor(.black)
-                            .font(.system(size :  30 ))
-                            .frame(width :  60, height: 40 )
-                        Image(systemName: "pawprint").foregroundColor(.white)
-                            .font(.system(size : 30 ))
-                            .frame(width :  50, height: 50)
-                    }
-                }
-                
+                //paws
+                Geometric()
+                    
                 Spacer()
         
-            //added some alingment just in case
+            //added some alingment
                 VStack (alignment: .center, spacing: 1){
                     
                     //added same image
@@ -90,13 +73,16 @@ struct LogInView: View {
                 HStack {
                     Group {
                         if showPassword {
-                            TextField("Password", // how to create a secure text field
+                            TextField("Password",
+                                            // how to create a secure text field
                                         text: $password,
                                         prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
                         } else {
-                            SecureField("Password", // how to create a secure text field
+                            SecureField("Password",
+                            // how to create a secure text field
                                         text: $password,
-                                        prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
+                                        prompt: Text("Password").foregroundColor(.white))
+                            // How to change the color of the TextField Placeholder
                         }
                     }
                     .font(Font.system(size: 23))
@@ -104,14 +90,16 @@ struct LogInView: View {
                     .padding(10)
                     .overlay {
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(.white, lineWidth: 0.5) // How to add rounded corner to a TextField and change it colour
+                            .stroke(.white, lineWidth: 0.5)
+                        // How to add rounded corner to a TextField and change it colour
                         
                         HStack {
                             Button {
                                  showPassword.toggle()
                              } label: {
                                  Image(systemName: showPassword ? "pawprint" : "pawprint")
-                                     .foregroundColor(.white) // how to change image based in a State variable
+                                     .foregroundColor(.white)
+                                 // how to change image based in a State variable
                                  
                                  .frame(maxWidth: .infinity, alignment: .topTrailing)
 
@@ -157,5 +145,6 @@ struct LogInView: View {
 struct LogIn_Previews: PreviewProvider {
     static var previews: some View {
         LogInView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

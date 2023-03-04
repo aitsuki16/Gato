@@ -9,9 +9,8 @@ import SwiftUI
 import Combine
 
 struct SignUp: View {
-    //tryin
+    //trying
     @State var zoom = false
-//    @State var isAtMaxScale = false
     @State var nickname: String = ""
     @State var email: String = ""
     @State var password: String = ""
@@ -99,31 +98,36 @@ struct SignUp: View {
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.white, lineWidth: 1)
                     }
-                    // .padding(.vertical)
                     HStack {
                         Group {
                             if showPassword {
-                                TextField("Password", // how to create a secure text field
+                                TextField("Password",
+                               // how to create a secure text field
                                           text: $password,
-                                          prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
+                                          prompt: Text("Password").foregroundColor(.white))
+                                // How to change the color of the TextField Placeholder
                             } else {
-                                SecureField("Password", // how to create a secure text field
+                                SecureField("Password",
+                                // how to create a secure text field
                                             text: $password,
-                                            prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
+                                            prompt: Text("Password").foregroundColor(.white))
+                                // How to change the color of the TextField Placeholder
                             }
                         }
                         .font(Font.system(size: 23))
                         .padding(10)
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(.white, lineWidth: 1) // How to add rounded corner to a TextField and change it colour
+                                .stroke(.white, lineWidth: 1)
+                                // How to add rounded corner to a TextField and change it colour
                             
                             HStack {
                                 Button {
                                     showPassword.toggle()
                                 } label: {
                                     Image(systemName: showPassword ? "pawprint" : "pawprint")
-                                        .foregroundColor(.white) // how to change image based in a State variable
+                                        .foregroundColor(.white)
+                                    // how to change image based in a State variable
                                     
                                         .frame(maxWidth: .infinity, alignment: .topTrailing)
                                 }.padding()
@@ -139,9 +143,11 @@ struct SignUp: View {
                             .foregroundColor(.white)
                     }
                     .frame(height: 50)
-                    .frame(maxWidth: .infinity) // how to make a button fill all the space available horizontaly
+                    .frame(maxWidth: .infinity)
+                    // how to make a button fill all the space available horizontaly
                     .background(
-                        isSignUpButtonDisabled ? // how to add a gradient to a button in SwiftUI if the button is disabled
+                        isSignUpButtonDisabled ?
+                    // how to add a gradient to a button in SwiftUI if the button is disabled
                         LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
                             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                         
@@ -152,7 +158,6 @@ struct SignUp: View {
                 }
                 // how to disable while some condition is applied
                 
-                //
                 .padding()
             }
         }

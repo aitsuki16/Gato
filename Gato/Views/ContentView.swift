@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct ContentView : View {
-//    @State var geometric: Bool = false
     @State var page : Int? = 0
     @State var ImageKono: Bool = false
 
@@ -48,7 +47,7 @@ struct ContentView : View {
                         //
                         HStack(alignment: .center) {
                            //here kono
-                            ImageFirstView(ImageKono:$ImageKono)
+                            ImageFirstView()
                             
                         }
                         

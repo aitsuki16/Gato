@@ -9,13 +9,13 @@ import SwiftUI
 
 struct Geometric: View {
     
-//    @Binding var geometric: Bool
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 5) {
                 Image(systemName: "pawprint")
                     .font(.system(size: 40 ))
                     .frame(width: 0)
+                
                 
                 Image(systemName: "pawprint").foregroundColor(.black)
                     .font(.system(size: 30 ))
@@ -32,9 +32,7 @@ struct Geometric: View {
 }
 
 struct Geometric_Previews: PreviewProvider {
-//    @State static var geometric: Bool = false
-
     static var previews: some View {
-        Gato.Geometric()
+        Geometric()
     }
 }

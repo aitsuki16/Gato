@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ImageFirstView: View {
     
-    @Binding var ImageKono: Bool
     var body: some View {
         VStack {
         Image("kono")
@@ -21,8 +20,8 @@ struct ImageFirstView: View {
 }
 
 struct ImageFirstView_Previews: PreviewProvider {
-    @State static var ImageKono: Bool = false
 static var previews: some View {
-        ImageFirstView(ImageKono: $ImageKono)
+    
+    ImageFirstView()
     }
 }
