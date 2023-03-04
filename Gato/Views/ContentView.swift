@@ -41,7 +41,7 @@ struct ContentView : View {
                             
                         }
                     //geometry was here
-                        Gato.Geometric()
+                        Geometric()
 
 
                         
