@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImageView: View {
-    @Binding var isAtMaxScale: Bool
+    @State private var isAtMaxScale: Bool = false
     private let maxScale: CGFloat = 2
     private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
     var body: some View {
@@ -34,6 +34,6 @@ struct ImageView: View {
 struct ImageView_Previews: PreviewProvider {
     @State static var isAtMaxScale: Bool = false
     static var previews: some View {
-        ImageView(isAtMaxScale: $isAtMaxScale)
+        ImageView()
     }
 }

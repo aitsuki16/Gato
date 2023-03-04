@@ -7,7 +7,10 @@
 import SwiftUI
 
 struct ContentView : View {
+//    @State var geometric: Bool = false
     @State var page : Int? = 0
+    @State var ImageKono: Bool = false
+
     
     var body: some View {
         NavigationView {
@@ -37,29 +40,15 @@ struct ContentView : View {
                             
                             
                         }
-                    
-                        GeometryReader { geometry in
-                            VStack(spacing: 5) {
-                                Image(systemName: "pawprint")
-                                    .font(.system(size: 40 ))
-                                    .frame(width: 0)
-                                
-                                Image(systemName: "pawprint").foregroundColor(.black)
-                                    .font(.system(size: 30 ))
-                                    .frame(width: 50, height: 40 )
-                                Image(systemName: "pawprint")
-                                    .font(.system(size :  30 ))
-                                    .frame(width :  60, height: 40 )
-                                Image(systemName: "pawprint")
-                                    .font(.system(size : 30 ))
-                                    .frame(width :  50, height: 50)
-                            }
-                        }
+                    //geometry was here
+                        Gato.Geometric()
+
+
+                        
+                        //
                         HStack(alignment: .center) {
-                            Image("kono")
-                                .clipShape(Circle())
-                                .shadow(radius: 15)
-                                .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                           //here kono
+                            ImageFirstView(ImageKono:$ImageKono)
                             
                         }
                         

@@ -11,7 +11,7 @@ import Combine
 struct SignUp: View {
     //tryin
     @State var zoom = false
-    @State var isAtMaxScale = false
+//    @State var isAtMaxScale = false
     @State var nickname: String = ""
     @State var email: String = ""
     @State var password: String = ""
@@ -40,7 +40,7 @@ struct SignUp: View {
                 
                 VStack(spacing: 17) {
                     
-                    ImageView(isAtMaxScale: $isAtMaxScale)
+                    ImageView()
                     /*.shadow(radius: 15)
                      .overlay(Circle().stroke(Color.white, lineWidth: 5))
                      .offset(x: zoom ? -15.0 : 0.0)

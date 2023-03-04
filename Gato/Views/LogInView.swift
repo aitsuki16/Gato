@@ -64,7 +64,7 @@ struct LogInView: View {
                 VStack (alignment: .center, spacing: 1){
                     
                     //added same image
-                    ImageView(isAtMaxScale: $isAtMaxScale)
+                    ImageView()
                     
                     Spacer()
 
