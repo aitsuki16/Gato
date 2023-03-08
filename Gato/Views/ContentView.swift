@@ -9,7 +9,7 @@ import SwiftUI
 struct ContentView : View {
     @State var page : Int? = 0
     @State var ImageKono: Bool = false
-
+    
     
     var body: some View {
         NavigationView {
@@ -39,21 +39,21 @@ struct ContentView : View {
                             
                             
                         }
-                    //geometry was here
+                        //geometry was here
                         Geometric()
-
-
+                        
+                        
                         
                         //
                         HStack(alignment: .center) {
-                           //here kono
+                            //here kono
                             ImageFirstView()
                             
                         }
                         
                     }
                 }
-            
+                
                 VStack {
                     Text("Moff Cafe")
                         .font(Font.system(size: 30, weight: .bold))
@@ -114,7 +114,7 @@ struct ContentView : View {
                 VStack{
                     
                     HStack {
-                
+                        
                         Text("Click on the paw to log In or sign In")
                             .font(.caption)
                             .foregroundColor(.indigo)
@@ -143,16 +143,16 @@ struct ContentView : View {
         }
     }
     ////////////////
-   /* func link() {
-        Link(destination: URL (string: "https://www.facebook.com/")!) // <- Add your link here
-               {
-                   Image(systemName: "link.circle.fill") // <- Change icon to your preferred one
-                       .font(.largeTitle)
-               }
-    
-    
-
-    }*/
+    /* func link() {
+     Link(destination: URL (string: "https://www.facebook.com/")!) // <- Add your link here
+     {
+     Image(systemName: "link.circle.fill") // <- Change icon to your preferred one
+     .font(.largeTitle)
+     }
+     
+     
+     
+     }*/
     
     
 }

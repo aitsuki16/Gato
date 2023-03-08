@@ -11,17 +11,17 @@ struct ImageFirstView: View {
     
     var body: some View {
         VStack {
-        Image("kono")
-            .clipShape(Circle())
-            .shadow(radius: 15)
-            .overlay(Circle().stroke(Color.white, lineWidth: 5))
+            Image("kono")
+                .clipShape(Circle())
+                .shadow(radius: 15)
+                .overlay(Circle().stroke(Color.white, lineWidth: 5))
         }
     }
 }
 
 struct ImageFirstView_Previews: PreviewProvider {
-static var previews: some View {
-    
-    ImageFirstView()
+    static var previews: some View {
+        
+        ImageFirstView()
     }
 }

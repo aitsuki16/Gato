@@ -102,13 +102,13 @@ struct SignUp: View {
                         Group {
                             if showPassword {
                                 TextField("Password",
-                               // how to create a secure text field
+                                          // how to create a secure text field
                                           text: $password,
                                           prompt: Text("Password").foregroundColor(.white))
                                 // How to change the color of the TextField Placeholder
                             } else {
                                 SecureField("Password",
-                                // how to create a secure text field
+                                            // how to create a secure text field
                                             text: $password,
                                             prompt: Text("Password").foregroundColor(.white))
                                 // How to change the color of the TextField Placeholder
@@ -119,7 +119,7 @@ struct SignUp: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.white, lineWidth: 1)
-                                // How to add rounded corner to a TextField and change it colour
+                            // How to add rounded corner to a TextField and change it colour
                             
                             HStack {
                                 Button {
@@ -147,7 +147,7 @@ struct SignUp: View {
                     // how to make a button fill all the space available horizontaly
                     .background(
                         isSignUpButtonDisabled ?
-                    // how to add a gradient to a button in SwiftUI if the button is disabled
+                        // how to add a gradient to a button in SwiftUI if the button is disabled
                         LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
                             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                         

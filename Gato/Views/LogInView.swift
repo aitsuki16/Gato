@@ -20,123 +20,123 @@ struct LogInView: View {
         [name, password].contains(where: \.isEmpty)
     }
     
-
+    
     var body: some View {
         //added a navigationView "to change"
         NavigationView {
             
-        VStack {
-
-
-            ZStack {
-
+            VStack {
+                
+                
+                ZStack {
+                    
                     //custom background color here
                     LinearGradient(
                         colors: [Color("Color-1"), Color("Color")],
                         startPoint: .trailing,
                         endPoint: .bottomTrailing
-                                )
+                    )
                     .ignoresSafeArea()
-                
-                //paws
-                Geometric()
                     
-                Spacer()
-        
-            //added some alingment
-                VStack (alignment: .center, spacing: 1){
-                    
-                    //added same image
-                    ImageView()
+                    //paws
+                    Geometric()
                     
                     Spacer()
-
-                TextField("Name",
-                          text: $name ,
-                          prompt: Text("Login").foregroundColor(.gray)
-                )
-                .font(Font.system(size: 25))
-
-                .padding(10)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(.white, lineWidth: 0.5)
+                    
+                    //added some alingment
+                    VStack (alignment: .center, spacing: 1){
                         
-                    
-                
-                    
+                        //added same image
+                        ImageView()
                         
-                }
-                    
-                .padding(.vertical)
-
-                HStack {
-                    Group {
-                        if showPassword {
-                            TextField("Password",
-                                            // how to create a secure text field
-                                        text: $password,
-                                        prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
-                        } else {
-                            SecureField("Password",
-                            // how to create a secure text field
-                                        text: $password,
-                                        prompt: Text("Password").foregroundColor(.white))
-                            // How to change the color of the TextField Placeholder
+                        Spacer()
+                        
+                        TextField("Name",
+                                  text: $name ,
+                                  prompt: Text("Login").foregroundColor(.gray)
+                        )
+                        .font(Font.system(size: 25))
+                        
+                        .padding(10)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.white, lineWidth: 0.5)
+                            
+                            
+                            
+                            
+                            
                         }
-                    }
-                    .font(Font.system(size: 23))
-
-                    .padding(10)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(.white, lineWidth: 0.5)
-                        // How to add rounded corner to a TextField and change it colour
+                        
+                        .padding(.vertical)
                         
                         HStack {
-                            Button {
-                                 showPassword.toggle()
-                             } label: {
-                                 Image(systemName: showPassword ? "pawprint" : "pawprint")
-                                     .foregroundColor(.white)
-                                 // how to change image based in a State variable
-                                 
-                                 .frame(maxWidth: .infinity, alignment: .topTrailing)
-
-                                 
-
-                             }.padding()
+                            Group {
+                                if showPassword {
+                                    TextField("Password",
+                                              // how to create a secure text field
+                                              text: $password,
+                                              prompt: Text("Password").foregroundColor(.white)) // How to change the color of the TextField Placeholder
+                                } else {
+                                    SecureField("Password",
+                                                // how to create a secure text field
+                                                text: $password,
+                                                prompt: Text("Password").foregroundColor(.white))
+                                    // How to change the color of the TextField Placeholder
+                                }
+                            }
+                            .font(Font.system(size: 23))
+                            
+                            .padding(10)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke(.white, lineWidth: 0.5)
+                                // How to add rounded corner to a TextField and change it colour
+                                
+                                HStack {
+                                    Button {
+                                        showPassword.toggle()
+                                    } label: {
+                                        Image(systemName: showPassword ? "pawprint" : "pawprint")
+                                            .foregroundColor(.white)
+                                        // how to change image based in a State variable
+                                        
+                                            .frame(maxWidth: .infinity, alignment: .topTrailing)
+                                        
+                                        
+                                        
+                                    }.padding()
+                                }
+                            }.padding(.vertical)
                         }
-                    }.padding(.vertical)
-                }
                         Button {
-                        print("do login action")
-                    } label: {
-                        Text("LogIn")
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(.white)
-                    }
-                    .frame(height: 50)
-                    .frame(maxWidth: .infinity) // how to make a button fill all the space available horizontaly
-                   .background(
-                        isSignInButtonDisabled ? // how to add a gradient to a button in SwiftUI if the button is disabled
-                        LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
-                            LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                        
-                        
-                    )
-                    .cornerRadius(22)
-                .disabled(isSignInButtonDisabled)
+                            print("do login action")
+                        } label: {
+                            Text("LogIn")
+                                .font(.title2)
+                                .bold()
+                                .foregroundColor(.white)
+                        }
+                        .frame(height: 50)
+                        .frame(maxWidth: .infinity) // how to make a button fill all the space available horizontaly
+                        .background(
+                            isSignInButtonDisabled ? // how to add a gradient to a button in SwiftUI if the button is disabled
+                            LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
+                                LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                            
+                            
+                        )
+                        .cornerRadius(22)
+                        .disabled(isSignInButtonDisabled)
                     } // how to disable while some condition is applied
                     
                     //
                     
                     
-                
-                .padding()
+                    
+                    .padding()
+                }
             }
-        }
             
         }
     }

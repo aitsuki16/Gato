@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignInImageView: View {
-
+    
     var body: some View {
         ZStack {
             Image("kit")
@@ -21,7 +21,7 @@ struct SignInImageView: View {
 
 struct SignInImageView_Previews: PreviewProvider {
     @State static var ImageKit: Bool = false
-
+    
     static var previews: some View {
         SignInImageView()
     }
