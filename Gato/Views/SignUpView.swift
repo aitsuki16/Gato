@@ -36,6 +36,8 @@ struct SignUp: View {
                 )
                 .cornerRadius(18)
                 .ignoresSafeArea()
+               
+            
                 
                 VStack(spacing: 17) {
                     

@@ -23,6 +23,7 @@ struct LogInView: View {
     
     var body: some View {
         //added a navigationView "to change"
+        
         NavigationView {
             
             VStack {
@@ -131,8 +132,6 @@ struct LogInView: View {
                     } // how to disable while some condition is applied
                     
                     //
-                    
-                    
                     
                     .padding()
                 }

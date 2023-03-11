@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ImageView: View {
     @State private var isAtMaxScale: Bool = false
-    private let maxScale: CGFloat = 2
+    private let maxScale: CGFloat = 1
     private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
     var body: some View {
         ZStack {

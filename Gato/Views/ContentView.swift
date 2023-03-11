@@ -56,7 +56,7 @@ struct ContentView : View {
                 
                 VStack {
                     Text("Moff Cafe")
-                        .font(Font.system(size: 30, weight: .bold))
+                        .font(Font.system(size: 50, weight: .heavy))
                         .multilineTextAlignment(.center)
                         .overlay {
                             LinearGradient(
@@ -66,7 +66,7 @@ struct ContentView : View {
                             )
                             .mask(
                                 Text("Moff Cafe")
-                                    .font(Font.system(size: 30, weight: .bold))
+                                    .font(Font.system(size: 50, weight: .heavy))
                                     .multilineTextAlignment(.center)
                             )
                         }
@@ -158,5 +158,6 @@ struct ContentView : View {
 }
 
 struct ContentView_Previews : PreviewProvider {
-    static var previews: some View { ContentView() }
+    static var previews: some View { ContentView()
+    }
 }
