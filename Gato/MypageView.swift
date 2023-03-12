@@ -8,29 +8,34 @@
 import SwiftUI
 
 struct MypageView: View {
-    var screenSize = UIScreen.main.bounds
-
+    
     var body: some View {
-        
-        
-        VStack {
-            ZStack {
+        HStack {
+            ZStack(alignment: .topLeading) {
                 LinearGradient(
                     colors: [Color("Color-1"), Color("Color")],
                     startPoint: .trailing,
                     endPoint: .topLeading
                 )
-                .ignoresSafeArea()
+                .ignoresSafeArea(.all)
                 .scaledToFill()
                 
-                VStack() {
+                Spacer()
+                
+                VStack(alignment: .leading) {
                     Button(action: {
                         // action to perform when button is tapped
                     }) {
+                        Image(systemName: "pawprint")
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.gray)
+                            .cornerRadius(16)
+                        
+                        
+                        
                         HStack {
-                            Image("paw")
-                                .resizable()
-                                .frame(width: 20, height: 20)
                             Text("Reserve")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -43,10 +48,13 @@ struct MypageView: View {
                     Button(action: {
                         // action to perform when button is tapped
                     }) {
+                        Image(systemName: "pawprint")
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.gray)
+                            .cornerRadius(16)
                         HStack {
-                            Image("paw")
-                                .resizable()
-                                .frame(width: 20, height: 20)
                             Text("Points")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -54,7 +62,6 @@ struct MypageView: View {
                         .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
                         .background(Color.indigo)
                         .cornerRadius(8)
-                        .frame(width: screenSize.width - 40, height: 50)
                     }
                     
                     //
@@ -62,10 +69,13 @@ struct MypageView: View {
                     Button(action: {
                         // action to perform when button is tapped
                     }) {
+                        Image(systemName: "pawprint")
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.gray)
+                            .cornerRadius(16)
                         HStack {
-                            Image("paw")
-                                .resizable()
-                                .frame(width: 20, height: 20)
                             Text("My account")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -75,14 +85,14 @@ struct MypageView: View {
                         .cornerRadius(8)
                     }
                 }
+                
             }
-            .padding()
-            .ignoresSafeArea()
-            }
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+        }
+        Spacer()
     }
     
 }
-
 struct MypageView_Previews: PreviewProvider {
     static var previews: some View {
         MypageView()

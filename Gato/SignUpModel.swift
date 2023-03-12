@@ -6,20 +6,32 @@
 //
 
 import Foundation
+import Combine
 
-
-
-struct User: Decodable {
+struct User: Decodable, Encodable {
     
     let nickname: String?
     let email: String?
     let password: String?
-    let phoneNumber: Int?
-    
+    let phoneNumber: String?
 }
 
-class SignUpViewModel {
-    
+class SignUpModel {
+    func signUp(user: User) -> AnyPublisher<User, Error> {
+        let url = URL(string: "https://example.com/api/register")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        do {
+            request.httpBody = try JSONEncoder().encode(user)
+            return URLSession.shared.dataTaskPublisher(for: request)
+                .map { $0.data }
+                .decode(type: User.self, decoder: JSONDecoder())
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
     
     //added new function to try json
     func login(email: String, password: String) {

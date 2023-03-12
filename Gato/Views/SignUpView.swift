@@ -11,17 +11,20 @@ import Combine
 struct SignUp: View {
     //trying
     @State var zoom = false
-    @State var nickname: String = ""
+    @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
     @State var comfirmPassword = ""
     @State var showPassword: Bool = false
-    @State var phoneNumber: String = ""
+    @State var phone: String = ""
+    @State var signUpResult: Result<User, Error>? = nil as Result<User, Error>?
+    @State var cancellable: AnyCancellable?
     
     let timer = Timer.publish(every: 2.1, on: .main, in: .common).autoconnect()
     var isSignUpButtonDisabled: Bool {
-        [email, password,phoneNumber].contains(where: \.isEmpty)
+        [name,email, password,phone].contains(where: \.isEmpty)
     }
+    let model = SignUpModel()
     
     var body: some View {
         //added a navigationView "to change"
@@ -36,8 +39,8 @@ struct SignUp: View {
                 )
                 .cornerRadius(18)
                 .ignoresSafeArea()
-               
-            
+                
+                
                 
                 VStack(spacing: 17) {
                     
@@ -53,9 +56,9 @@ struct SignUp: View {
                     //
                     Spacer()
                     
-                    TextField("Nick",
-                              text: $nickname ,
-                              prompt: Text("Nick Name").foregroundColor(.gray)
+                    TextField("Name",
+                              text: $name ,
+                              prompt: Text("Name").foregroundColor(.white)
                               
                     )
                     .font(Font.system(size: 25))
@@ -68,7 +71,7 @@ struct SignUp: View {
                     
                     TextField("Email",
                               text: $email ,
-                              prompt: Text("Email").foregroundColor(.gray)
+                              prompt: Text("Email").foregroundColor(.white)
                     )
                     .font(Font.system(size: 25))
                     
@@ -80,19 +83,19 @@ struct SignUp: View {
                     
                     //phone textfield
                     TextField("Phone",
-                              text: $phoneNumber,
-                              prompt: Text("Phone number").foregroundColor(.gray)
+                              text: $phone,
+                              prompt: Text("Phone number").foregroundColor(.white)
                     )
                     .font(Font.system(size: 25))
                     
                     .padding(10)
                     //allow only numbers
-                    .onReceive(Just(phoneNumber)) {
+                    .onReceive(Just(phone)) {
                         newValue in
                         let allowedCharacters = "0123456789"
                         let filtered = newValue.filter { allowedCharacters.contains($0) }
                         if filtered != newValue {
-                            self.phoneNumber = filtered
+                            self.phone = filtered
                         }
                     }
                     
@@ -104,16 +107,16 @@ struct SignUp: View {
                         Group {
                             if showPassword {
                                 TextField("Password",
-                                          // how to create a secure text field
+                                          // create a secure text field
                                           text: $password,
                                           prompt: Text("Password").foregroundColor(.white))
-                                // How to change the color of the TextField Placeholder
+                                // change the color of the TextField Placeholder
                             } else {
                                 SecureField("Password",
-                                            // how to create a secure text field
+                                            //  create a secure text field
                                             text: $password,
                                             prompt: Text("Password").foregroundColor(.white))
-                                // How to change the color of the TextField Placeholder
+                                // change the color of the TextField Placeholder
                             }
                         }
                         .font(Font.system(size: 23))
@@ -121,7 +124,7 @@ struct SignUp: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.white, lineWidth: 1)
-                            // How to add rounded corner to a TextField and change it colour
+                            // add rounded corner to a TextField and change it colour
                             
                             HStack {
                                 Button {
@@ -129,7 +132,7 @@ struct SignUp: View {
                                 } label: {
                                     Image(systemName: showPassword ? "pawprint" : "pawprint")
                                         .foregroundColor(.white)
-                                    // how to change image based in a State variable
+                                    // change image based in a State variable
                                     
                                         .frame(maxWidth: .infinity, alignment: .topTrailing)
                                 }.padding()
@@ -138,6 +141,20 @@ struct SignUp: View {
                     }
                     Button {
                         print("do sign Up action")
+                        cancellable = model.signUp(user: User(nickname: name, email: email, password: password, phoneNumber: phone))
+                            .sink(
+                                receiveCompletion: { result in
+                                    switch result {
+                                    case .failure(let error):
+                                        signUpResult = .failure(error)
+                                        print("Sign-up failed with error: \(error)")
+                                    case .finished:
+                                        break
+                                    }
+                                }, receiveValue: { user in
+                                    signUpResult = .success(user)
+                                    print("Sign-up successful. User: \(user)")
+                                })
                     } label: {
                         Text("Sign Up")
                             .font(.title2)
@@ -146,11 +163,11 @@ struct SignUp: View {
                     }
                     .frame(height: 50)
                     .frame(maxWidth: .infinity)
-                    // how to make a button fill all the space available horizontaly
+                    // make a button fill all the space available horizontaly
                     .background(
                         isSignUpButtonDisabled ?
-                        // how to add a gradient to a button in SwiftUI if the button is disabled
-                        LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
+                        //add a gradient to a button in SwiftUI if the button is disabled
+                        LinearGradient(colors: [.indigo], startPoint: .topLeading, endPoint: .bottomTrailing) :
                             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                         
                         
@@ -158,7 +175,7 @@ struct SignUp: View {
                     .cornerRadius(22)
                     .disabled(isSignUpButtonDisabled)
                 }
-                // how to disable while some condition is applied
+                // disable while some condition is applied
                 
                 .padding()
             }
@@ -172,3 +189,4 @@ struct SignUp_Previews: PreviewProvider {
         SignUp()
     }
 }
+
