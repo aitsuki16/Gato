@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		537F966F29B8CF7600D6BF16 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F966E29B8CF7600D6BF16 /* MypageView.swift */; };
+		53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC205F29CAF0D10012303B /* AppDelegate.swift */; };
 		CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF529AB8A7A00404A7E /* ImageView.swift */; };
 		CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */; };
 		CE6E8AFB29B1868500404A7E /* ImageFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		537F966E29B8CF7600D6BF16 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
+		53AC205F29CAF0D10012303B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6E8AF529AB8A7A00404A7E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInImageView.swift; sourceTree = "<group>"; };
 		CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFirstView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				537F966E29B8CF7600D6BF16 /* MypageView.swift */,
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
+				53AC205F29CAF0D10012303B /* AppDelegate.swift */,
 			);
 			path = Gato;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */,
 				CE8748D229023E65000D40FC /* ContentView.swift in Sources */,
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
 				CECE2176290FA469002986AF /* SignInView.swift in Sources */,
@@ -458,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gato/Preview Content\"";
@@ -487,12 +492,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gato/Preview Content\"";
 				DEVELOPMENT_TEAM = W2HXTK2662;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
