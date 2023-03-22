@@ -19,6 +19,7 @@ struct SignUp: View {
     @State var phone: String = ""
     @State var signUpResult: Result<User, Error>? = nil as Result<User, Error>?
     @State var cancellable: AnyCancellable?
+    @State var isSignUpSuccessful = false
     
     let timer = Timer.publish(every: 2.1, on: .main, in: .common).autoconnect()
     var isSignUpButtonDisabled: Bool {
@@ -141,7 +142,7 @@ struct SignUp: View {
                     }
                     Button {
                         print("do sign Up action")
-                        cancellable = model.signUp(user: User(nickname: name, email: email, password: password, phoneNumber: phone))
+                        cancellable = model.signUp(user: User(name: name, email: email, password: password, phone: phone))
                             .sink(
                                 receiveCompletion: { result in
                                     switch result {
@@ -153,6 +154,7 @@ struct SignUp: View {
                                     }
                                 }, receiveValue: { user in
                                     signUpResult = .success(user)
+                                    isSignUpSuccessful = true
                                     print("Sign-up successful. User: \(user)")
                                 })
                     } label: {
@@ -178,6 +180,11 @@ struct SignUp: View {
                 // disable while some condition is applied
                 
                 .padding()
+                
+                //navigationlink
+                NavigationLink(destination: MypageView(), isActive: $isSignUpSuccessful) {
+                    EmptyView()
+                }
             }
         }
     }
@@ -189,4 +196,6 @@ struct SignUp_Previews: PreviewProvider {
         SignUp()
     }
 }
+
+
 

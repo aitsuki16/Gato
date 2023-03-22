@@ -14,25 +14,9 @@
             filePath = "Gato/SignUpModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "login(email:password:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "428E692A-DCAF-452F-AD1A-5ED99025A52A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Gato/SignUpModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "login(email:password:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "login(email:name:phone:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,9 +30,9 @@
             filePath = "Gato/SignUpModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "login(email:password:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "login(email:name:phone:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

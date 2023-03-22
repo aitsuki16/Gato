@@ -11,7 +11,7 @@ struct MypageView: View {
     
     var body: some View {
         HStack {
-            ZStack(alignment: .topLeading) {
+            ZStack(alignment: .center) {
                 LinearGradient(
                     colors: [Color("Color-1"), Color("Color")],
                     startPoint: .trailing,
@@ -73,7 +73,7 @@ struct MypageView: View {
                             .font(.system(size: 24))
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color.gray)
+                            .background(Color.black)
                             .cornerRadius(16)
                         HStack {
                             Text("My account")
