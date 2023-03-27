@@ -18,16 +18,20 @@ struct User: Decodable, Encodable {
 
 class SignUpModel {
     func signUp(user: User) -> AnyPublisher<User, Error> {
-        let url = URL(string: "https://example.com/api/register")!
+        let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
             request.httpBody = try JSONEncoder().encode(user)
-            return URLSession.shared.dataTaskPublisher(for: request)
+            let response = URLSession.shared.dataTaskPublisher(for: request)
+            let decoded = response
                 .map { $0.data }
                 .decode(type: User.self, decoder: JSONDecoder())
                 .eraseToAnyPublisher()
+            print(response)
+            print(decoded)
+            return decoded
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }
@@ -37,6 +41,7 @@ class SignUpModel {
     func login(email: String,name: String,phone: String?, password: String) {
         var request = URLRequest(url: URL(string: "https://divine-flower-4961.fly.dev/api/register")!)
         request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: [
             "name": "test2",
             "email": "test2@a.com",

@@ -131,6 +131,6 @@ struct LogInView: View {
 struct LogIn_Previews: PreviewProvider {
     static var previews: some View {
         LogInView()
-            .previewInterfaceOrientation(.landscapeLeft)
+          
     }
 }

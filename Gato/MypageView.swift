@@ -11,14 +11,17 @@ struct MypageView: View {
     
     var body: some View {
         HStack {
-            ZStack(alignment: .center) {
+            
+            ZStack(alignment: .leading) {
                 LinearGradient(
                     colors: [Color("Color-1"), Color("Color")],
                     startPoint: .trailing,
                     endPoint: .topLeading
                 )
                 .ignoresSafeArea(.all)
-                .scaledToFill()
+                
+                //scale to fit prevent the buttons from being at the leading so NG
+               // .scaledToFill()
                 
                 Spacer()
                 
