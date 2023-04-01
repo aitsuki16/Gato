@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		531B181629D8678E005731B1 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B181529D8678E005731B1 /* AuthModel.swift */; };
 		537F966F29B8CF7600D6BF16 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F966E29B8CF7600D6BF16 /* MypageView.swift */; };
 		53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC205F29CAF0D10012303B /* AppDelegate.swift */; };
 		CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF529AB8A7A00404A7E /* ImageView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		531B181529D8678E005731B1 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		537F966E29B8CF7600D6BF16 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		53AC205F29CAF0D10012303B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6E8AF529AB8A7A00404A7E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		531B181729D8679A005731B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				531B181529D8678E005731B1 /* AuthModel.swift */,
+				CEDFB7942956A78A002B4762 /* SignUpModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CE6E8AF729AB8AC200404A7E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +141,9 @@
 			children = (
 				CE6E8AF729AB8AC200404A7E /* Views */,
 				CE8748CF29023E65000D40FC /* GatoApp.swift */,
-				CEDFB7942956A78A002B4762 /* SignUpModel.swift */,
 				CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */,
 				537F966E29B8CF7600D6BF16 /* MypageView.swift */,
+				531B181729D8679A005731B1 /* Model */,
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
 				53AC205F29CAF0D10012303B /* AppDelegate.swift */,
@@ -298,6 +309,7 @@
 				53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */,
 				CE8748D229023E65000D40FC /* ContentView.swift in Sources */,
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
+				531B181629D8678E005731B1 /* AuthModel.swift in Sources */,
 				CECE2176290FA469002986AF /* SignInView.swift in Sources */,
 				CE6E8AFD29B19D4900404A7E /* Geometric.swift in Sources */,
 				CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */,

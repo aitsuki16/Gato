@@ -41,20 +41,9 @@ struct SignUp: View {
                 .cornerRadius(18)
                 .ignoresSafeArea()
                 
-                
-                
                 VStack(spacing: 17) {
                     
                     ImageView()
-                    /*.shadow(radius: 15)
-                     .overlay(Circle().stroke(Color.white, lineWidth: 5))
-                     .offset(x: zoom ? -15.0 : 0.0)
-                     .background(Circle().foregroundColor(.blue).opacity(zoom ? 0.2 : 0.4))
-                     .animation(zoom ? Animation.default.repeatForever(autoreverses: true) : Animation.easeOut(duration: 0.5) )
-                     .onReceive(timer) { _ in
-                     self.zoom.toggle()
-                     }*/
-                    //
                     Spacer()
                     
                     TextField("Name",
@@ -187,6 +176,7 @@ struct SignUp: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

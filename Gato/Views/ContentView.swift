@@ -10,8 +10,8 @@ struct ContentView : View {
     @State var page : Int? = 0
     @State var ImageKono: Bool = false
     
-    
     var body: some View {
+        
         NavigationView {
             VStack(spacing: 60) {
                 ZStack {

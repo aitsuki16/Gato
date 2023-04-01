@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LogInView: View {
-    //link with binding
+    
     @State var isAtMaxScale = false
     @State var name: String = ""
     @State var password: String = ""
@@ -20,7 +20,7 @@ struct LogInView: View {
         [name, password].contains(where: \.isEmpty)
     }
     
-    
+
     var body: some View {
         //added a navigationView "to change"
         

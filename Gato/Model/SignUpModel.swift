@@ -9,14 +9,16 @@ import Foundation
 import Combine
 
 struct User: Decodable, Encodable {
-    
+
     let name: String?
     let email: String?
     let password: String?
     let phone: String?
 }
 
-class SignUpModel {
+class SignUpModel: ObservableObject {
+    @Published var isLoggedIn: Bool = false
+
     func signUp(user: User) -> AnyPublisher<User, Error> {
         let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
         var request = URLRequest(url: url)
@@ -31,11 +33,17 @@ class SignUpModel {
                 .eraseToAnyPublisher()
             print(response)
             print(decoded)
+            loginStatusToTrue()
             return decoded
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }
     }
+    
+    func loginStatusToTrue() {
+        isLoggedIn = true
+    }
+
     
     //added new function to try json
     func login(email: String,name: String,phone: String?, password: String) {
