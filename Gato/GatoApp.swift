@@ -9,10 +9,18 @@ import SwiftUI
 @main
 struct App: SwiftUI.App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
+    @ObservedObject var authModel: AuthModel = AuthModel()
+    
     var body: some Scene {
-    WindowGroup(content: ContentView.init)
-  }
+        WindowGroup{
+            if authModel.isLoggedIn {
+                MypageView()
+            } else {
+                ContentView()
+            }
+            
+        }
+    }
 }
 
 

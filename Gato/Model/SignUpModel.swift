@@ -19,6 +19,7 @@ struct User: Decodable, Encodable {
 class SignUpModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
 
+ 
     func signUp(user: User) -> AnyPublisher<User, Error> {
         let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
         var request = URLRequest(url: url)
@@ -41,9 +42,10 @@ class SignUpModel: ObservableObject {
     }
     
     func loginStatusToTrue() {
+        let loggedInKey = "isLoggedIn"
         isLoggedIn = true
+        UserDefaults.standard.set(true, forKey: loggedInKey)
     }
-
     
     //added new function to try json
     func login(email: String,name: String,phone: String?, password: String) {

@@ -10,7 +10,6 @@ import SwiftUI
 struct MypageView: View {
     var body: some View {
         HStack {
-            
             ZStack(alignment: .leading) {
                 LinearGradient(
                     colors: [Color("Color-1"), Color("Color")],
@@ -95,6 +94,7 @@ struct MypageView: View {
     }
     
 }
+
 struct MypageView_Previews: PreviewProvider {
     static var previews: some View {
         MypageView()

@@ -14,8 +14,8 @@
             filePath = "Gato/Model/SignUpModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "signUp(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Gato/Model/SignUpModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "signUp(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,13 +46,13 @@
             filePath = "Gato/Model/SignUpModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "signUp(user:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9A86874C-E411-48F3-AD8B-293671AE9F87 - 11be25e878c891ed"
+                  uuid = "9A86874C-E411-48F3-AD8B-293671AE9F87 - 11be25e878c891b2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -62,12 +62,12 @@
                   urlString = "file:///Users/aidaigarashi/Gato/Gato/Model/SignUpModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
                   offsetFromSymbolStart = "1407">
                </Location>
                <Location
-                  uuid = "9A86874C-E411-48F3-AD8B-293671AE9F87 - cd449b3eccfcf9bc"
+                  uuid = "9A86874C-E411-48F3-AD8B-293671AE9F87 - cd449b3eccfcf9e3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -77,8 +77,8 @@
                   urlString = "file:///Users/aidaigarashi/Gato/Gato/Model/SignUpModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
                   offsetFromSymbolStart = "73">
                </Location>
             </Locations>
