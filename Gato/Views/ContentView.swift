@@ -73,43 +73,7 @@ struct ContentView : View {
                     
                     
                 }
-                // use it for the next screen...
-                /*.offset(
-                 x: zoomed ? 500 : 30,
-                 y: -30
-                 )
-                 
-                 .animation(.default, value: zoomed)
-                 
-                 
-                 GeometryReader { geometry in
-                 Image("gat")
-                 
-                 .clipShape(
-                 RoundedRectangle(cornerRadius: zoomed ? 40 : 500)
-                 )
-                 .overlay(
-                 Circle()
-                 .fill(
-                 zoomed
-                 ? Color.clear
-                 : Color(white: 1, opacity: 0.4)
-                 )
-                 .scaleEffect(0.8)
-                 )
-                 .saturation(zoomed ? 1 : 0)
-                 .position(
-                 x: zoomed ? geometry.frame(in: .local).midX : 600,
-                 y: 50
-                 )
-                 .scaleEffect((zoomed ? 4 : 1) / 3)
-                 .shadow(radius: 10)
-                 
-                 .animation(.spring(), value: zoomed)
-                 .onTapGesture { zoomed.toggle() }
-                 
-                 }
-                 */
+               
                 
                 VStack{
                     

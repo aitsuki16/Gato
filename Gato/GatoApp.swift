@@ -8,6 +8,7 @@
 import SwiftUI
 @main
 struct App: SwiftUI.App {
+    @StateObject private var authModelSignOut = AuthModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @ObservedObject var authModel: AuthModel = AuthModel()
     
@@ -17,7 +18,12 @@ struct App: SwiftUI.App {
                 MypageView()
             } else {
                 ContentView()
+                
+            .environmentObject(authModel)
+
             }
+            
+
             
         }
     }

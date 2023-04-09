@@ -28,7 +28,6 @@ struct SignUp: View {
     let model = SignUpModel()
     
     var body: some View {
-        //added a navigationView "to change"
         NavigationView {
             
             ZStack {
@@ -71,7 +70,6 @@ struct SignUp: View {
                             .stroke(.white, lineWidth: 1)
                     }
                     
-                    //phone textfield
                     TextField("Phone",
                               text: $phone,
                               prompt: Text("Phone number").foregroundColor(.white)
@@ -79,7 +77,7 @@ struct SignUp: View {
                     .font(Font.system(size: 25))
                     
                     .padding(10)
-                    //allow only numbers
+                    
                     .onReceive(Just(phone)) {
                         newValue in
                         let allowedCharacters = "0123456789"
@@ -100,13 +98,13 @@ struct SignUp: View {
                                           // create a secure text field
                                           text: $password,
                                           prompt: Text("Password").foregroundColor(.white))
-                                // change the color of the TextField Placeholder
+
                             } else {
                                 SecureField("Password",
-                                            //  create a secure text field
+
                                             text: $password,
                                             prompt: Text("Password").foregroundColor(.white))
-                                // change the color of the TextField Placeholder
+
                             }
                         }
                         .font(Font.system(size: 23))
@@ -114,7 +112,6 @@ struct SignUp: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.white, lineWidth: 1)
-                            // add rounded corner to a TextField and change it colour
                             
                             HStack {
                                 Button {
@@ -122,7 +119,6 @@ struct SignUp: View {
                                 } label: {
                                     Image(systemName: showPassword ? "pawprint" : "pawprint")
                                         .foregroundColor(.white)
-                                    // change image based in a State variable
                                     
                                         .frame(maxWidth: .infinity, alignment: .topTrailing)
                                 }.padding()

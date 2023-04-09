@@ -18,4 +18,7 @@ class AuthModel: ObservableObject {
             objectWillChange.send()
         }
     }
+    
+
+
 }

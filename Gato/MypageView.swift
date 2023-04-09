@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-struct MypageView: View {
+struct MypageView: View {    
+    let signOutModel = SignOutModel()
+
+
     var body: some View {
         HStack {
+            
+            
             ZStack(alignment: .leading) {
                 LinearGradient(
                     colors: [Color("Color-1"), Color("Color")],
@@ -17,15 +22,15 @@ struct MypageView: View {
                     endPoint: .topLeading
                 )
                 .ignoresSafeArea(.all)
-                
-                //scale to fit prevent the buttons from being at the leading so NG
-               // .scaledToFill()
-                
+
                 Spacer()
+                
+                //
+
                 
                 VStack(alignment: .leading) {
                     Button(action: {
-                        // action to perform when button is tapped
+
                     }) {
                         Image(systemName: "pawprint")
                             .font(.system(size: 24))
@@ -47,7 +52,7 @@ struct MypageView: View {
                     }
                     //
                     Button(action: {
-                        // action to perform when button is tapped
+
                     }) {
                         Image(systemName: "pawprint")
                             .font(.system(size: 24))
@@ -68,7 +73,7 @@ struct MypageView: View {
                     //
                     
                     Button(action: {
-                        // action to perform when button is tapped
+
                     }) {
                         Image(systemName: "pawprint")
                             .font(.system(size: 24))
@@ -85,10 +90,34 @@ struct MypageView: View {
                         .background(Color.indigo)
                         .cornerRadius(8)
                     }
+                    
+                    ZStack {
+                        VStack(alignment: .center) {
+                            Button(action: {
+                                signOutModel.signOut()
+
+
+                            }) {
+                                Text("Sign Out")
+
+                                Image(systemName: "pawprint")
+                                    .font(.system(size: 24))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.indigo)
+                                    .cornerRadius(16)
+
+                                    
+                        }
+                        }
+                    }
+
                 }
                 
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
+            
+            
         }
         Spacer()
     }
