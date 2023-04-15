@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Combine
+
 @main
 struct App: SwiftUI.App {
     @StateObject private var authModelSignOut = AuthModel()
@@ -22,11 +24,6 @@ struct App: SwiftUI.App {
             .environmentObject(authModel)
 
             }
-            
-
-            
         }
     }
 }
-
-

@@ -115,6 +115,7 @@
 				CE6E8AF529AB8A7A00404A7E /* ImageView.swift */,
 				CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */,
 				CE6E8AFC29B19D4900404A7E /* Geometric.swift */,
+				537F966E29B8CF7600D6BF16 /* MypageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,7 +146,6 @@
 				CE6E8AF729AB8AC200404A7E /* Views */,
 				CE8748CF29023E65000D40FC /* GatoApp.swift */,
 				CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */,
-				537F966E29B8CF7600D6BF16 /* MypageView.swift */,
 				531B181729D8679A005731B1 /* Model */,
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
