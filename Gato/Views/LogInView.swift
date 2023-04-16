@@ -16,13 +16,13 @@ struct LogInView: View {
     @State private var joke: String = ""
     
     
+    
     var isSignInButtonDisabled: Bool {
         [name, password].contains(where: \.isEmpty)
     }
     
 
     var body: some View {
-        //added a navigationView "to change"
         
         NavigationView {
             ZStack {
@@ -43,10 +43,8 @@ struct LogInView: View {
                     Spacer()
                     
                     ZStack {
-                        //paws
-                        Geometric()
+                    ImageView()
                         
-                        ImageView()
                     }.frame(height: 195)
                     
                     Spacer()
