@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MypageView: View {
     @State private var shouldNavigateBack: Bool = false
+    @State private var isClicked = false
+    
     
     let signOutModel = SignOutModel()
     var body: some View {
@@ -24,7 +26,7 @@ struct MypageView: View {
                     )
                     .ignoresSafeArea(.all)
                     //Spacer()
-                   
+                    
                     VStack(alignment: .leading) {
                         Button(action: {
                         }) {
@@ -78,30 +80,34 @@ struct MypageView: View {
                             .background(Color.indigo)
                             .cornerRadius(8)
                         }
-                        /////
-                        VStack {
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    VStack {
+                        Spacer()
+                        HStack(alignment: .center) {
                             Spacer()
-                            HStack(alignment: .center) {
-                                Button(action: {
-                                    signOutModel.signOut()
-                                    shouldNavigateBack = true
-                                }) {
-                                    Text("Sign Out")
-                                        .foregroundColor(.indigo)
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 8)
-                                        .background(
-                                            ZStack {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .fill(Color.white)})
-                                }
+                            Button(action: {
+                                
+                                self.isClicked.toggle()
+                                signOutModel.signOut()
+                                shouldNavigateBack = true
+                            }) {
+                                Text("Sign Out")
+                                    .foregroundColor(.indigo)
+                                    .padding(.horizontal, 11)
+                                    .padding(.vertical, 7)
+                                    .background(
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.white.opacity(isClicked ?0.2 : 1.0))
+                                        })
                             }
                         }
-                        
-                        NavigationLink("",destination: ContentView(),isActive: $shouldNavigateBack).opacity(0)
-                        
+                        .padding(.trailing, 20)
                     }
-                    .padding(.leading)
+                    
+                    NavigationLink("",destination: ContentView(),isActive: $shouldNavigateBack).opacity(0)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
