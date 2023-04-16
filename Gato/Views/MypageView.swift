@@ -99,10 +99,10 @@ struct MypageView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
-            .ignoresSafeArea()
         }
-        .navigationBarBackButtonHidden(true) 
-        Spacer()
+        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea()
+
         
     }
 }

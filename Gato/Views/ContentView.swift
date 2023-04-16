@@ -104,8 +104,11 @@ struct ContentView : View {
                 Spacer()
                 
             }
+
         }
-        .navigationBarBackButtonHidden(true) 
+        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea()
+
     }
     ////////////////
     /* func link() {
