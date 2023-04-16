@@ -10,15 +10,22 @@ import SwiftUI
 struct LogInView: View {
     
     @State var isAtMaxScale = false
-    @State var name: String = ""
+    @State var email: String = ""
     @State var password: String = ""
     @State var showPassword: Bool = false
     @State private var joke: String = ""
     
+    //for the sign in ---maybe to use
+    @State private var shouldNavigateToMyPage = false
+    @State private var isSignedIn = false
+    @State private var isSignInSuccessful = false
+
+
+
     
     
     var isSignInButtonDisabled: Bool {
-        [name, password].contains(where: \.isEmpty)
+        [email, password].contains(where: \.isEmpty)
     }
     
 
@@ -49,9 +56,9 @@ struct LogInView: View {
                     
                     Spacer()
                     
-                    TextField("Name",
-                              text: $name ,
-                              prompt: Text("Login").foregroundColor(.gray)
+                    TextField("Email",
+                              text: $email ,
+                              prompt: Text("Email").foregroundColor(.gray)
                     )
                     .font(Font.system(size: 25))
                     .padding(10)
@@ -100,8 +107,13 @@ struct LogInView: View {
                             }
                         }.padding(.vertical)
                     }
+                   
+                    
                     Button {
                         print("do login action")
+                        if email == "myemail" && password == "mypassword" {
+                                           isSignInSuccessful = true
+                                       }
                     } label: {
                         Text("LogIn")
                             .font(.title2)
@@ -119,8 +131,15 @@ struct LogInView: View {
                     )
                     .cornerRadius(22)
                     .disabled(isSignInButtonDisabled)
+                    if isSignInSuccessful {
+                                    // Navigate to MyPageView if sign in is successful
+                                    NavigationLink(destination: MypageView()) {
+                                        Text("Go to My Page")
+                                    }
+                                }
                 }
                 .padding()
+                
             }
         }
     }
