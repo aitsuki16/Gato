@@ -105,6 +105,7 @@ struct ContentView : View {
                 
             }
         }
+        .navigationBarBackButtonHidden(true) 
     }
     ////////////////
     /* func link() {
