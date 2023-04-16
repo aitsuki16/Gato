@@ -120,8 +120,8 @@ struct SignUp: View {
                                     Image(systemName: showPassword ? "pawprint" : "pawprint")
                                         .foregroundColor(.white)
                                     
-                                        .frame(maxWidth: .infinity, alignment: .topTrailing)
-                                }.padding()
+                                }.padding(.leading, 300)
+
                             }
                         }.padding(.vertical)
                     }
