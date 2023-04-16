@@ -12,97 +12,103 @@ struct MypageView: View {
     
     let signOutModel = SignOutModel()
     var body: some View {
+        
         NavigationView {
-        HStack {
-            ZStack(alignment: .leading) {
-                LinearGradient(
-                    colors: [Color("Color-1"), Color("Color")],
-                    startPoint: .trailing,
-                    endPoint: .topLeading
-                )
-                .ignoresSafeArea(.all)
-                Spacer()
-                VStack(alignment: .leading) {
-                    Button(action: {
-                    }) {
-                        Image(systemName: "pawprint")
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.gray)
-                            .cornerRadius(16)
-                        HStack {
-                            Text("Reserve")
-                                .fontWeight(.bold)
+            HStack {
+                
+                ZStack(alignment: .leading) {
+                    LinearGradient(
+                        colors: [Color("Color-1"), Color("Color")],
+                        startPoint: .trailing,
+                        endPoint: .topLeading
+                    )
+                    .ignoresSafeArea(.all)
+                    //Spacer()
+                   
+                    VStack(alignment: .leading) {
+                        Button(action: {
+                        }) {
+                            Image(systemName: "pawprint")
+                                .font(.system(size: 24))
                                 .foregroundColor(.white)
-                        }
-                        .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
-                        .background(Color.indigo)
-                        .cornerRadius(8)
-                    }
-                    Button(action: {
-                    }) {
-                        Image(systemName: "pawprint")
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.gray)
-                            .cornerRadius(16)
-                        HStack {
-                            Text("Points")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                        }
-                        .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
-                        .background(Color.indigo)
-                        .cornerRadius(8)
-                    }
-                    Button(action: {
-                    }) {
-                        Image(systemName: "pawprint")
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.black)
-                            .cornerRadius(16)
-                        HStack {
-                            Text("My account")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                        }
-                        .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
-                        .background(Color.indigo)
-                        .cornerRadius(8)
-                    }
-                    ZStack {
-                        VStack(alignment: .center) {
-                            Button(action: {
-                                signOutModel.signOut()
-                                shouldNavigateBack = true
-                            }) {
-                                Text("Sign Out")
-                                Image(systemName: "pawprint")
-                                    .font(.system(size: 24))
+                                .padding()
+                                .background(Color.gray)
+                                .cornerRadius(16)
+                            HStack {
+                                Text("Reserve")
+                                    .fontWeight(.bold)
                                     .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.indigo)
-                                    .cornerRadius(16)
+                            }
+                            .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
+                            .background(Color.indigo)
+                            .cornerRadius(8)
+                        }
+                        
+                        Button(action: {
+                        }) {
+                            Image(systemName: "pawprint")
+                                .font(.system(size: 24))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.gray)
+                                .cornerRadius(16)
+                            HStack {
+                                Text("Points")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }
+                            .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
+                            .background(Color.indigo)
+                            .cornerRadius(8)
+                        }
+                        Button(action: {
+                        }) {
+                            Image(systemName: "pawprint")
+                                .font(.system(size: 24))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.black)
+                                .cornerRadius(16)
+                            HStack {
+                                Text("My account")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }
+                            .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
+                            .background(Color.indigo)
+                            .cornerRadius(8)
+                        }
+                        /////
+                        VStack {
+                            Spacer()
+                            HStack(alignment: .center) {
+                                Button(action: {
+                                    signOutModel.signOut()
+                                    shouldNavigateBack = true
+                                }) {
+                                    Text("Sign Out")
+                                        .foregroundColor(.indigo)
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 8)
+                                        .background(
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(Color.white)})
+                                }
                             }
                         }
-                    }
-                    
-              
+                        
                         NavigationLink("",destination: ContentView(),isActive: $shouldNavigateBack).opacity(0)
-
+                        
                     }
-//                        .background(NavigationLink("", destination: ContentView(), isActive: $shouldNavigateBack).opacity(0))
+                    .padding(.leading)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
         }
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
-
+        
         
     }
 }

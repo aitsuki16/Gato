@@ -118,7 +118,7 @@ struct SignUp: View {
                                     showPassword.toggle()
                                 } label: {
                                     Image(systemName: showPassword ? "pawprint" : "pawprint")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(showPassword ? .black : .white)
                                     
                                 }.padding(.leading, 300)
 
