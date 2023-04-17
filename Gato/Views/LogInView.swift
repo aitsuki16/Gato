@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct LogInView: View {
-    
+
+       
     @State var isAtMaxScale = false
-    @State var email: String = ""
-    @State var password: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
     @State var showPassword: Bool = false
     @State private var joke: String = ""
     
     //for the sign in ---maybe to use
+    @ObservedObject var signInModel = SignInModel()
+
+    
     @State private var shouldNavigateToMyPage = false
     @State private var isSignedIn = false
     @State private var isSignInSuccessful = false
@@ -89,8 +93,6 @@ struct LogInView: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.white, lineWidth: 0.5)
-                            // How to add rounded corner to a TextField and change it colour
-                            
                             HStack {
                                 Button {
                                     showPassword.toggle()
@@ -110,10 +112,12 @@ struct LogInView: View {
                    
                     
                     Button {
-                        print("do login action")
-                        if email == "myemail" && password == "mypassword" {
-                                           isSignInSuccessful = true
-                                       }
+                        if signInModel.signIn() {
+                            isSignInSuccessful = true
+                            print("do login action")
+                        } else {
+                            isSignInSuccessful = false
+                        }
                     } label: {
                         Text("LogIn")
                             .font(.title2)
@@ -121,9 +125,9 @@ struct LogInView: View {
                             .foregroundColor(.white)
                     }
                     .frame(height: 50)
-                    .frame(maxWidth: .infinity) // how to make a button fill all the space available horizontaly
+                    .frame(maxWidth: .infinity)
                     .background(
-                        isSignInButtonDisabled ? // how to add a gradient to a button in SwiftUI if the button is disabled
+                        isSignInButtonDisabled ?
                         LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
                             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                         

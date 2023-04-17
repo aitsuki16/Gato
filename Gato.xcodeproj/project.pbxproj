@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		531B181629D8678E005731B1 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B181529D8678E005731B1 /* AuthModel.swift */; };
 		537F966F29B8CF7600D6BF16 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F966E29B8CF7600D6BF16 /* MypageView.swift */; };
+		539E4E6D29ECFB9D007158EF /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539E4E6C29ECFB9D007158EF /* SignInModel.swift */; };
 		53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC205F29CAF0D10012303B /* AppDelegate.swift */; };
 		53F60A1A29E296DC009B10A9 /* SignOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F60A1929E296DC009B10A9 /* SignOutModel.swift */; };
 		CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF529AB8A7A00404A7E /* ImageView.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		531B181529D8678E005731B1 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		537F966E29B8CF7600D6BF16 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
+		539E4E6C29ECFB9D007158EF /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		53AC205F29CAF0D10012303B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53F60A1929E296DC009B10A9 /* SignOutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutModel.swift; sourceTree = "<group>"; };
 		CE6E8AF529AB8A7A00404A7E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				531B181529D8678E005731B1 /* AuthModel.swift */,
 				CEDFB7942956A78A002B4762 /* SignUpModel.swift */,
 				53F60A1929E296DC009B10A9 /* SignOutModel.swift */,
+				539E4E6C29ECFB9D007158EF /* SignInModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */,
 				CE6E8AFB29B1868500404A7E /* ImageFirstView.swift in Sources */,
 				CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */,
+				539E4E6D29ECFB9D007158EF /* SignInModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
