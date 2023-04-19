@@ -23,7 +23,7 @@ import Foundation
             
             if email == user.email && password == user.password {
                 
-                // Here it Save user info to UserDefaults
+                // to save user info to UserDefaults
                 do {
                     let encoder = JSONEncoder()
                     let data = try encoder.encode(user)

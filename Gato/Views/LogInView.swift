@@ -16,7 +16,6 @@ struct LogInView: View {
     @State var showPassword: Bool = false
     @State private var joke: String = ""
     
-    //for the sign in ---maybe to use
     @ObservedObject var signInModel = SignInModel()
 
     
@@ -54,7 +53,7 @@ struct LogInView: View {
                     Spacer()
                     
                     ZStack {
-                    ImageView()
+                        ImageView()
                         
                     }.frame(height: 195)
                     
@@ -83,7 +82,7 @@ struct LogInView: View {
                                 SecureField("Password",
                                             // how to create a secure text field
                                             text: $password,
-                                            prompt: Text("Password").foregroundColor(.white))
+                                            prompt: Text("Password").foregroundColor(.gray))
                                 // How to change the color of the TextField Placeholder
                             }
                         }
@@ -109,38 +108,38 @@ struct LogInView: View {
                             }
                         }.padding(.vertical)
                     }
-                   
                     
-                    Button {
-                        if signInModel.signIn() {
-                            isSignInSuccessful = true
-                            print("do login action")
-                        } else {
-                            isSignInSuccessful = false
+                    
+                    Button(
+                        action: {
+                            if signInModel.signIn() {
+                                isSignInSuccessful = true
+                            } else {
+                                isSignInSuccessful = false
+                            }
+                        },
+                        label: {
+                            Text("Log In")
+                                .font(.title2)
+                                .bold()
+                                .foregroundColor(.white)
                         }
-                    } label: {
-                        Text("LogIn")
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(.white)
-                    }
+                    )
                     .frame(height: 50)
                     .frame(maxWidth: .infinity)
                     .background(
                         isSignInButtonDisabled ?
                         LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
                             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                        
-                        
                     )
                     .cornerRadius(22)
                     .disabled(isSignInButtonDisabled)
+                    
                     if isSignInSuccessful {
-                                    // Navigate to MyPageView if sign in is successful
-                                    NavigationLink(destination: MypageView()) {
-                                        Text("Go to My Page")
-                                    }
-                                }
+                        NavigationLink(destination: MypageView(), isActive: $isSignInSuccessful) {
+                           //
+                        }
+                    }
                 }
                 .padding()
                 
