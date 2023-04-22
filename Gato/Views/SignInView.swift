@@ -71,14 +71,16 @@ struct SignInView: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(.white, lineWidth: 0.5)
+                            
                             HStack {
                                 Button {
                                     showPassword.toggle()
                                 } label: {
                                     Image(systemName: showPassword ? "pawprint" : "pawprint")
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity, alignment: .topTrailing)
-                                }.padding()
+                                        .foregroundColor(showPassword ? .black : .white)
+                                    
+                                }.padding(.leading, 300)
+
                             }
                         }.padding(.vertical)
                     }

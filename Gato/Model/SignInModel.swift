@@ -28,7 +28,6 @@ class SignInModel: ObservableObject {
     }
     
     // Call Api
-    // 成功したらsaveCurrentUser
     func signIn(completion: @escaping (Result<Void, Error>) -> Void) {
         // Construct the request URL with the user's email and password
         let url = URL(string: "https://divine-flower-4961.fly.dev/api/signin/")!
@@ -70,7 +69,8 @@ class SignInModel: ObservableObject {
         }.resume()
     }
     
-    private func saveCurrentUser(_ user: User) {
+    // 成功したらsaveCurrentUser
+     private func saveCurrentUser(_ user: User) {
         // Here it Save user info to UserDefaults
         do {
             let encoder = JSONEncoder()
