@@ -85,7 +85,7 @@ struct ContentView : View {
                             .padding()
                     }
                     
-                    NavigationLink(destination : SignInView(),
+                    NavigationLink(destination : AuthSelectionView(),
                                    tag: 1, selection: $page) {
                         EmptyView()
                         
