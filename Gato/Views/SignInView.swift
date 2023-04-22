@@ -125,6 +125,8 @@ struct SignInView: View {
                 .padding()
             }
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 

@@ -70,7 +70,7 @@ struct AuthSelectionView: View {
                 }
                 
             }
-            
+            .navigationBarBackButtonHidden(true)
             .ignoresSafeArea()
         }
         
