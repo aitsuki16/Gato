@@ -1,83 +1,143 @@
 //
-//  signIn.swift
+//  LogIn.swift
 //  Gato
 //
-//  Created by Ai on 2022/10/31.
+//  Created by Ai on 2022/11/13.
 //
 
 import SwiftUI
 
 struct SignInView: View {
-    @State var Log : Int? = 0
-    @State var Sign: Int? = 0
-    var screenSize = UIScreen.main.bounds
+    @State var isAtMaxScale = false
+    @State var showPassword: Bool = false
+    @State private var joke: String = ""
+
+    @ObservedObject var signInModel = SignInModel()
+
+    @State private var shouldNavigateToMyPage = false
+    @State private var isSignedIn = false
+    @State private var isSignInSuccessful = false
+
+    var isSignInButtonDisabled: Bool {
+        [signInModel.email, signInModel.password].contains(where: \.isEmpty)
+    }
+
     var body: some View {
-        
-        VStack {
+        NavigationView {
             ZStack {
-                //custom background color here
                 LinearGradient(
                     colors: [Color("Color-1"), Color("Color")],
                     startPoint: .trailing,
-                    endPoint: .center
+                    endPoint: .bottomTrailing
                 )
-                .cornerRadius(18)
                 .ignoresSafeArea()
-                
-                VStack(spacing: 150) {
-                    //image here
-                    SignInImageView()
+
+                VStack(spacing: 1) {
+                    Spacer()
                     
+                    ZStack {
+                        ImageView()
+                    }.frame(height: 195)
                     
-                    //trying
+                    Spacer()
                     
-                    VStack(spacing: 20) {
-                        NavigationLink(destination : LogInView(),
-                                       tag: 1, selection: $Log) {
-                            EmptyView()
+                    TextField("Email",
+                              text: $signInModel.email,
+                              prompt: Text("Email").foregroundColor(.gray)
+                    )
+                    .font(Font.system(size: 25))
+                    .padding(10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(.white, lineWidth: 0.5)
+                    }
+                    .padding(.vertical)
+                    
+                    HStack {
+                        Group {
+                            if showPassword {
+                                TextField("Password",
+                                          text: $signInModel.password,
+                                          prompt: Text("Password").foregroundColor(.white))
+                            } else {
+                                SecureField("Password",
+                                            text: $signInModel.password,
+                                            prompt: Text("Password").foregroundColor(.gray))
+                            }
+                        }
+                        .font(Font.system(size: 23))
+                        .keyboardType(.emailAddress)
+                        .padding(10)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(.white, lineWidth: 0.5)
+                            
+                            HStack {
+                                Button {
+                                    showPassword.toggle()
+                                } label: {
+                                    Image(systemName: showPassword ? "pawprint" : "pawprint")
+                                        .foregroundColor(showPassword ? .black : .white)
+                                    
+                                }.padding(.leading, 300)
+                                
+                            }
+                        }.padding(.vertical)
+                    }
+                    
+                    Button(
+                        action: {
+                            signInModel.signIn { result in
+                                DispatchQueue.main.async {
+                                    switch result {
+                                    case .success():
+                                        isSignInSuccessful = true
+                                    case .failure(let error):
+                                        signInModel.errorMessage = "Failed to sign in"
+                                        isSignInSuccessful = false
+                                        print("Sign-in failed with error: \(error.localizedDescription)")
+
+                                    }
+                                }
+                            }
+                        },
+                        label: {
+                            Text("Log In")
+                                .font(.title2)
+                                .bold()
+                                .foregroundColor(.white)
+                        }
+                    )
+                    .frame(height: 50)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        isSignInButtonDisabled ?
+                        LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
+                            LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    )
+                    .cornerRadius(22)
+                    .disabled(isSignInButtonDisabled)
+                    
+                    if !signInModel.errorMessage.isEmpty {
+                        signInModel.validationErrorView(signInModel.errorMessage)
+                    }
+                    
+                    if isSignInSuccessful {
+                        NavigationLink(destination: MypageView(), isActive: $isSignInSuccessful) {
                             
                         }
-                        Button(action: {
-                            self.Log = 1
-                            
-                            print("Log in button clicked") }) {
-                                Text("Log In")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 22))
-                            }.frame(width: screenSize.width - 40, height: 50)
-                            .background(Color(red: 0.6, green: 0.4, blue: 0.8))
-                            .clipShape(RoundedRectangle(cornerRadius :  30))
-                        
-                        //here
-                        NavigationLink(destination : SignUp(),
-                                       tag: 1, selection: $Sign) {
-                            EmptyView()
-                        }
-                        Button(action: {
-                            self.Sign = 1
-                            print("Sign Up button clicked")
-                            UserDefaults.standard.set(Log, forKey:"logData")
-                        }) {
-                                Text("Sign Up")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 22))
-                            }.frame(width: screenSize.width - 40, height: 50)
-                            .background(Color(red: 0.6, green: 0.4, blue: 0.8))
-                            .clipShape(RoundedRectangle(cornerRadius :  30))
-
-
                     }
                 }
-                
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
             }
-            
-            .ignoresSafeArea()
         }
-        
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 
-struct SigInview_Previews: PreviewProvider {
+struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
     }

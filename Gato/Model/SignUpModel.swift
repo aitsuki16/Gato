@@ -49,7 +49,7 @@ class SignUpModel: ObservableObject {
     
     //added new function to try json
     func login(email: String,name: String,phone: String?, password: String) {
-        var request = URLRequest(url: URL(string: "https://divine-flower-4961.fly.dev/api/register")!)
+        var request = URLRequest(url: URL(string: "https://divine-flower-4961.fly.dev/api/signin/?email=a@a.com&password=hoge")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: [

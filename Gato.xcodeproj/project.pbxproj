@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		531B181629D8678E005731B1 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B181529D8678E005731B1 /* AuthModel.swift */; };
 		537F966F29B8CF7600D6BF16 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F966E29B8CF7600D6BF16 /* MypageView.swift */; };
+		539E4E6D29ECFB9D007158EF /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539E4E6C29ECFB9D007158EF /* SignInModel.swift */; };
+		539E4E7429EFB61A007158EF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 539E4E7329EFB61A007158EF /* FirebaseAnalytics */; };
+		539E4E7629EFB61A007158EF /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 539E4E7529EFB61A007158EF /* FirebaseAnalyticsOnDeviceConversion */; };
+		539E4E7829EFB61A007158EF /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 539E4E7729EFB61A007158EF /* FirebaseAnalyticsSwift */; };
+		539E4E7A29EFB61A007158EF /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 539E4E7929EFB61A007158EF /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		539E4E7C29EFB61A007158EF /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 539E4E7B29EFB61A007158EF /* FirebaseAppCheck */; };
+		539E4E7E29EFB61A007158EF /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 539E4E7D29EFB61A007158EF /* FirebaseAppDistribution-Beta */; };
 		53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC205F29CAF0D10012303B /* AppDelegate.swift */; };
 		53F60A1A29E296DC009B10A9 /* SignOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F60A1929E296DC009B10A9 /* SignOutModel.swift */; };
 		CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF529AB8A7A00404A7E /* ImageView.swift */; };
@@ -23,8 +30,8 @@
 		CE8748EB29023E68000D40FC /* GatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748EA29023E68000D40FC /* GatoUITests.swift */; };
 		CE8748ED29023E68000D40FC /* GatoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */; };
 		CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4C7132931CE56003421BF /* SignUpView.swift */; };
-		CECE2176290FA469002986AF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2175290FA468002986AF /* SignInView.swift */; };
-		CECE217A2920A4A9002986AF /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE21792920A4A9002986AF /* LogInView.swift */; };
+		CECE2176290FA469002986AF /* AuthSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2175290FA468002986AF /* AuthSelectionView.swift */; };
+		CECE217A2920A4A9002986AF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE21792920A4A9002986AF /* SignInView.swift */; };
 		CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFB7942956A78A002B4762 /* SignUpModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +55,7 @@
 /* Begin PBXFileReference section */
 		531B181529D8678E005731B1 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		537F966E29B8CF7600D6BF16 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
+		539E4E6C29ECFB9D007158EF /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		53AC205F29CAF0D10012303B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53F60A1929E296DC009B10A9 /* SignOutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutModel.swift; sourceTree = "<group>"; };
 		CE6E8AF529AB8A7A00404A7E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -65,8 +73,8 @@
 		CE8748EA29023E68000D40FC /* GatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoUITests.swift; sourceTree = "<group>"; };
 		CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CEB4C7132931CE56003421BF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		CECE2175290FA468002986AF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		CECE21792920A4A9002986AF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		CECE2175290FA468002986AF /* AuthSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSelectionView.swift; sourceTree = "<group>"; };
+		CECE21792920A4A9002986AF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CEDFB7942956A78A002B4762 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +83,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539E4E7829EFB61A007158EF /* FirebaseAnalyticsSwift in Frameworks */,
+				539E4E7429EFB61A007158EF /* FirebaseAnalytics in Frameworks */,
+				539E4E7629EFB61A007158EF /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				539E4E7C29EFB61A007158EF /* FirebaseAppCheck in Frameworks */,
+				539E4E7A29EFB61A007158EF /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				539E4E7E29EFB61A007158EF /* FirebaseAppDistribution-Beta in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +115,7 @@
 				531B181529D8678E005731B1 /* AuthModel.swift */,
 				CEDFB7942956A78A002B4762 /* SignUpModel.swift */,
 				53F60A1929E296DC009B10A9 /* SignOutModel.swift */,
+				539E4E6C29ECFB9D007158EF /* SignInModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				CEB4C7132931CE56003421BF /* SignUpView.swift */,
-				CECE21792920A4A9002986AF /* LogInView.swift */,
-				CECE2175290FA468002986AF /* SignInView.swift */,
+				CECE21792920A4A9002986AF /* SignInView.swift */,
+				CECE2175290FA468002986AF /* AuthSelectionView.swift */,
 				CE8748D129023E65000D40FC /* ContentView.swift */,
 				CE6E8AF529AB8A7A00404A7E /* ImageView.swift */,
 				CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */,
@@ -195,6 +210,14 @@
 			dependencies = (
 			);
 			name = Gato;
+			packageProductDependencies = (
+				539E4E7329EFB61A007158EF /* FirebaseAnalytics */,
+				539E4E7529EFB61A007158EF /* FirebaseAnalyticsOnDeviceConversion */,
+				539E4E7729EFB61A007158EF /* FirebaseAnalyticsSwift */,
+				539E4E7929EFB61A007158EF /* FirebaseAnalyticsWithoutAdIdSupport */,
+				539E4E7B29EFB61A007158EF /* FirebaseAppCheck */,
+				539E4E7D29EFB61A007158EF /* FirebaseAppDistribution-Beta */,
+			);
 			productName = Gato;
 			productReference = CE8748CC29023E65000D40FC /* Gato.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +290,9 @@
 				Base,
 			);
 			mainGroup = CE8748C329023E65000D40FC;
+			packageReferences = (
+				539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = CE8748CD29023E65000D40FC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -313,16 +339,17 @@
 				CE8748D229023E65000D40FC /* ContentView.swift in Sources */,
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
 				531B181629D8678E005731B1 /* AuthModel.swift in Sources */,
-				CECE2176290FA469002986AF /* SignInView.swift in Sources */,
+				CECE2176290FA469002986AF /* AuthSelectionView.swift in Sources */,
 				CE6E8AFD29B19D4900404A7E /* Geometric.swift in Sources */,
 				CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */,
-				CECE217A2920A4A9002986AF /* LogInView.swift in Sources */,
+				CECE217A2920A4A9002986AF /* SignInView.swift in Sources */,
 				CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */,
 				53F60A1A29E296DC009B10A9 /* SignOutModel.swift in Sources */,
 				537F966F29B8CF7600D6BF16 /* MypageView.swift in Sources */,
 				CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */,
 				CE6E8AFB29B1868500404A7E /* ImageFirstView.swift in Sources */,
 				CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */,
+				539E4E6D29ECFB9D007158EF /* SignInModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +677,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		539E4E7329EFB61A007158EF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		539E4E7529EFB61A007158EF /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		539E4E7729EFB61A007158EF /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		539E4E7929EFB61A007158EF /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		539E4E7B29EFB61A007158EF /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		539E4E7D29EFB61A007158EF /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539E4E7229EFB619007158EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE8748C429023E65000D40FC /* Project object */;
 }
