@@ -34,13 +34,13 @@ struct SignInView: View {
 
                 VStack(spacing: 1) {
                     Spacer()
-
+                    
                     ZStack {
                         ImageView()
                     }.frame(height: 195)
-
+                    
                     Spacer()
-
+                    
                     TextField("Email",
                               text: $signInModel.email,
                               prompt: Text("Email").foregroundColor(.gray)
@@ -52,7 +52,7 @@ struct SignInView: View {
                             .stroke(.white, lineWidth: 0.5)
                     }
                     .padding(.vertical)
-
+                    
                     HStack {
                         Group {
                             if showPassword {
@@ -80,11 +80,11 @@ struct SignInView: View {
                                         .foregroundColor(showPassword ? .black : .white)
                                     
                                 }.padding(.leading, 300)
-
+                                
                             }
                         }.padding(.vertical)
                     }
-
+                    
                     Button(
                         action: {
                             signInModel.signIn { result in
@@ -93,8 +93,10 @@ struct SignInView: View {
                                     case .success():
                                         isSignInSuccessful = true
                                     case .failure(let error):
-                                        print("Sign-in failed with error: \(error.localizedDescription)")
+                                        signInModel.errorMessage = "Failed to sign in"
                                         isSignInSuccessful = false
+                                        print("Sign-in failed with error: \(error.localizedDescription)")
+
                                     }
                                 }
                             }
@@ -115,14 +117,19 @@ struct SignInView: View {
                     )
                     .cornerRadius(22)
                     .disabled(isSignInButtonDisabled)
-
+                    
+                    if !signInModel.errorMessage.isEmpty {
+                        signInModel.validationErrorView(signInModel.errorMessage)
+                    }
+                    
                     if isSignInSuccessful {
                         NavigationLink(destination: MypageView(), isActive: $isSignInSuccessful) {
-                           
+                            
                         }
                     }
                 }
-                .padding()
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
             }
         }
         .navigationBarBackButtonHidden(true)

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SignInModel: ObservableObject {
     struct User: Codable {
@@ -15,10 +16,12 @@ class SignInModel: ObservableObject {
     
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var errorMessage: String = ""
     
     struct TokenResponse: Codable {
         let token: String
     }
+    
     
     // Save the authentication token to user defaults or keychain
     func saveAuthToken(_ token: String) {
@@ -43,16 +46,20 @@ class SignInModel: ObservableObject {
             completion(.failure(error))
             return
         }
-
+        
         // Send the request and handle the response
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
+                DispatchQueue.main.async {
+                    self.errorMessage = "Failed to sign in."
+
+                }
                 completion(.failure(error))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(NSError(domain: "SignInError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                completion(.failure(NSError(domain: "SignInError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to sign in"])))
                 return
             }
             
@@ -69,9 +76,8 @@ class SignInModel: ObservableObject {
         }.resume()
     }
     
-    // 成功したらsaveCurrentUser
-     private func saveCurrentUser(_ user: User) {
-        // Here it Save user info to UserDefaults
+    // Save current user to UserDefaults
+    private func saveCurrentUser(_ user: User) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(user)
@@ -80,4 +86,15 @@ class SignInModel: ObservableObject {
             print("Error saving user to UserDefaults: \(error.localizedDescription)")
         }
     }
+    
+    // Return a view to show validation errors
+    func validationErrorView(_ errorMessage: String) -> some View {
+        Text(errorMessage)
+            .foregroundColor(.yellow)
+            .bold()
+    }
 }
+
+
+
+
