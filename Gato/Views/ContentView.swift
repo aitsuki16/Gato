@@ -109,20 +109,7 @@ struct ContentView : View {
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
 
-    }
-    ////////////////
-    /* func link() {
-     Link(destination: URL (string: "https://www.facebook.com/")!) // <- Add your link here
-     {
-     Image(systemName: "link.circle.fill") // <- Change icon to your preferred one
-     .font(.largeTitle)
-     }
-     
-     
-     
-     }*/
-    
-    
+    } 
 }
 
 struct ContentView_Previews : PreviewProvider {

@@ -28,6 +28,8 @@ struct ImageView: View {
                     })
                 }
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 

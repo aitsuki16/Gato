@@ -173,7 +173,7 @@ struct SignUp: View {
             }
 
         }
-        .navigationBarBackButtonHidden(true)
+        //.navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
 
     }

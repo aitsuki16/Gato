@@ -112,6 +112,7 @@ struct MypageView: View {
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
         }
+       
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
         
