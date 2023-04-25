@@ -39,12 +39,7 @@ struct ContentView : View {
                             
                             
                         }
-                        //geometry was here
-                        Geometric()
-                        
-                        
-                        
-                        //
+
                         HStack(alignment: .center) {
                             //here kono
                             ImageFirstView()

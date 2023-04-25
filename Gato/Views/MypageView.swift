@@ -24,13 +24,41 @@ struct MypageView: View {
                         startPoint: .trailing,
                         endPoint: .topLeading
                     )
-                    .ignoresSafeArea(.all)
-                    //Spacer()
-                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Button(action: {
+                                // Action for first button
+                            }) {
+                                Image(systemName: "pawprint.fill")
+                                    .resizable()
+                                    .foregroundColor(.black)
+                                    .frame(width: 50, height: 50)
+                            }
+                            
+                            Button(action: {
+                                // Action for second button
+                            }) {
+                                Image(systemName: "pawprint.fill")
+                                    .resizable()
+                                    .foregroundColor(.black)
+                                    .frame(width: 50, height: 50)
+                                
+                            }
+                            
+                            Button(action: {
+                                // Action for third button
+                            }) {
+                                Image(systemName: "pawprint.fill")
+                                    .resizable()
+                                    .foregroundColor(.black)
+                                    .frame(width: 50, height: 50)
+                            }
+                        }
+                    }
                     VStack(alignment: .leading) {
                         Button(action: {
                         }) {
-                            Image(systemName: "pawprint")
+                            Image(systemName: "pawprint.fill")
                                 .font(.system(size: 24))
                                 .foregroundColor(.white)
                                 .padding()
@@ -48,7 +76,7 @@ struct MypageView: View {
                         
                         Button(action: {
                         }) {
-                            Image(systemName: "pawprint")
+                            Image(systemName: "pawprint.fill")
                                 .font(.system(size: 24))
                                 .foregroundColor(.white)
                                 .padding()
@@ -65,7 +93,7 @@ struct MypageView: View {
                         }
                         Button(action: {
                         }) {
-                            Image(systemName: "pawprint")
+                            Image(systemName: "pawprint.fill")
                                 .font(.system(size: 24))
                                 .foregroundColor(.white)
                                 .padding()
@@ -107,13 +135,17 @@ struct MypageView: View {
                         .padding(.trailing, 20)
                     }
                     
+                        Spacer()
                     NavigationLink("",destination: ContentView(),isActive: $shouldNavigateBack).opacity(0)
                 }
+                .ignoresSafeArea(.all)
+
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
+            .navigationBarBackButtonHidden(true)
+
         }
        
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
         
         
