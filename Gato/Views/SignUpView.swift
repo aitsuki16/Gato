@@ -10,6 +10,8 @@ import Combine
 
 struct SignUp: View {
     //trying
+    @Environment(\.dismiss) private var dismiss
+
     @State var zoom = false
     @State var name: String = ""
     @State var email: String = ""
@@ -162,7 +164,6 @@ struct SignUp: View {
                     .cornerRadius(22)
                     .disabled(isSignUpButtonDisabled)
                 }
-                // disable while some condition is applied
                 
                 .padding()
                 
@@ -173,7 +174,26 @@ struct SignUp: View {
             }
 
         }
-        .navigationBarBackButtonHidden(false)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+
+            ToolbarItem(placement: .navigationBarLeading) {
+
+                Button {
+                    dismiss()
+
+                } label: {
+                    HStack {
+
+                        Image(systemName: "pawprint.fill")
+                            .foregroundColor(.yellow)
+                        Text("Back")
+                            .foregroundColor(.white)
+                            
+                    }
+                }
+            }
+        }
         .ignoresSafeArea()
 
     }

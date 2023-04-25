@@ -50,7 +50,7 @@ struct ContentView : View {
                 }
                 
                 VStack {
-                    Text("Moff Cafe")
+                    Text("GaTo")
                         .font(Font.system(size: 50, weight: .heavy))
                         .multilineTextAlignment(.center)
                         .overlay {
@@ -60,7 +60,7 @@ struct ContentView : View {
                                 endPoint: .topLeading
                             )
                             .mask(
-                                Text("Moff Cafe")
+                                Text("GaTo")
                                     .font(Font.system(size: 50, weight: .heavy))
                                     .multilineTextAlignment(.center)
                             )

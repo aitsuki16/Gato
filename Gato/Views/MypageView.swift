@@ -145,7 +145,7 @@ struct MypageView: View {
             .navigationBarBackButtonHidden(true)
 
         }
-       
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
         
         
