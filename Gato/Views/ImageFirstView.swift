@@ -11,16 +11,12 @@ struct ImageFirstView: View {
     
     var body: some View {
         VStack {
-            
-            Image("catIcon1")
+        
+            Image("Mycat1")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding()
-                .foregroundColor(Color.white)
-                .background(Color.yellow)
-                .clipShape(Circle())
-                .shadow(radius: 20)
-                .overlay(Circle().stroke(Color.yellow, lineWidth: 5))
+                        .scaledToFill()
+                        .frame(width: 450, height: 260)
+                        .clipShape(Circle())
                 
         }
     }

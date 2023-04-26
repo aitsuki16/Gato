@@ -21,21 +21,22 @@ struct ContentView : View {
                         endPoint: .center
                     )
                     
-                    .cornerRadius(18)
+                    .cornerRadius(70)
                     .ignoresSafeArea()
-                    
+                
                     //alingment change to the left after...
                     VStack (alignment: .center, spacing: 60) {
                         //text here
+                        Spacer()
                         HStack {
-                            Text("Do you want to play with fluffy cats while enjoying drinking delicious and cute drinks?")
-                                .font(.title3)
+                            Text("Welcome To GaTo")
+                                .font(.largeTitle)
                                 .fontWeight(.semibold)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("Color-1"))
                                 .padding(10)
-                                .lineLimit(5)
                                 .fixedSize(horizontal: false, vertical: true)
-                                .shadow(radius: 10)
+                                .shadow(radius: 1)
+                                .opacity(5)
                             
                             
                         }
@@ -74,7 +75,7 @@ struct ContentView : View {
                     
                     HStack {
                         
-                        Text("Click on the paw to log In or sign In")
+                        Text("Click on the paw to log Up or sign In")
                             .font(.caption)
                             .foregroundColor(.indigo)
                             .padding()
