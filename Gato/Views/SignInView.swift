@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignInView: View {
+    @Environment(\.dismiss) private var dismiss
+
     @State var isAtMaxScale = false
     @State var showPassword: Bool = false
     @State private var joke: String = ""
@@ -133,6 +135,25 @@ struct SignInView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+//        .toolbar {
+//
+//            ToolbarItem(placement: .navigationBarLeading) {
+//
+//                Button {
+//                    dismiss()
+//
+//                } label: {
+//                    HStack {
+//
+//                        Image(systemName: "pawprint.fill")
+//                            .foregroundColor(.yellow)
+//                        Text("Back")
+//                            .foregroundColor(.white)
+//                            
+//                    }
+//                }
+//            }
+//        }
 
     }
 }
