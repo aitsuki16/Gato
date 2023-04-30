@@ -9,17 +9,33 @@ import SwiftUI
 
 struct ImageView: View {
     @State private var isAtMaxScale: Bool = false
-    private let maxScale: CGFloat = 1.5
-    private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
+    private let maxScale: CGFloat = 0.5
+    private let animation = Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true)
     var body: some View {
         ZStack {
-            Image(systemName:"pawprint.fill")
-                .resizable()
-                        //.scaledToFit()
-                        .frame(width: 80, height: 80)
             
             //try
-                .scaleEffect(isAtMaxScale ? maxScale : 1)
+            VStack {
+                Text("GaTo")
+                    .font(Font.system(size: 70, weight: .heavy))
+                    .multilineTextAlignment(.center)
+                    .overlay {
+                        LinearGradient(
+                            colors: [.pink, .teal, .purple, .blue],
+                            startPoint: .bottomTrailing,
+                            endPoint: .topLeading
+                        )
+                        .mask(
+                            Text("GaTo")
+                                .font(Font.system(size: 70, weight: .heavy))
+                                .multilineTextAlignment(.center)
+                        )
+                    }
+                
+                
+            }
+
+            .scaleEffect(isAtMaxScale ? maxScale : 1)
                 .onAppear {
                     withAnimation(self.animation, {
                         self.isAtMaxScale.toggle()
