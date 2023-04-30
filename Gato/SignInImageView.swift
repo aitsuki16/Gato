@@ -11,10 +11,16 @@ struct SignInImageView: View {
     
     var body: some View {
         ZStack {
-            Image("kit")
+            Image("Mycat5")
+                .resizable()
+                .frame(width: 250, height: 250)
+
                 .clipShape(Circle())
+                //.scaledToFit()
+
                 .shadow(radius: 15)
-                .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                .overlay(Circle().stroke(Color.indigo, lineWidth: 5))
+
         }
     }
 }

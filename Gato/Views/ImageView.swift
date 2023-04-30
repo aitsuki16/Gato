@@ -13,12 +13,10 @@ struct ImageView: View {
     private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
     var body: some View {
         ZStack {
-            Image("moff")
+            Image(systemName:"pawprint.fill")
                 .resizable()
-                .scaledToFit()
-                .clipShape(Circle())
-                .frame(width: 130)
-            
+                        //.scaledToFit()
+                        .frame(width: 80, height: 80)
             
             //try
                 .scaleEffect(isAtMaxScale ? maxScale : 1)

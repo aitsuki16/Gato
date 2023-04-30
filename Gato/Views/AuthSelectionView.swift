@@ -24,8 +24,7 @@ struct AuthSelectionView: View {
                 .cornerRadius(18)
                 .ignoresSafeArea()
                 
-                VStack(spacing: 150) {
-                    //image here
+                VStack(spacing: 100) {
                     SignInImageView()
                     
                     
