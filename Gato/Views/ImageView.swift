@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ImageView: View {
     @State private var isAtMaxScale: Bool = false
-    private let maxScale: CGFloat = 0.5
-    private let animation = Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true)
+//    private let maxScale: CGFloat = 0.5
+//    private let animation = Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true)
     var body: some View {
         ZStack {
             
@@ -35,12 +35,11 @@ struct ImageView: View {
                 
             }
 
-            .scaleEffect(isAtMaxScale ? maxScale : 1)
-                .onAppear {
-                    withAnimation(self.animation, {
-                        self.isAtMaxScale.toggle()
-                    })
-                }
+            .opacity(isAtMaxScale ? 1.0 : 0.3)
+                        .animation(Animation.easeInOut(duration: 2.0).repeatForever())
+                        .onAppear {
+                            self.isAtMaxScale = true
+                        }
         }
         .navigationBarBackButtonHidden(true)
 
