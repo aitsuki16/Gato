@@ -14,6 +14,7 @@ struct PawView: View {
     let animationDuration: Double = 3.0
     
     var body: some View {
+        
         Image(systemName: "pawprint.fill")
             .resizable()
             .foregroundColor(.indigo)
@@ -24,7 +25,7 @@ struct PawView: View {
                     .repeatForever(autoreverses: true)
             )
             .onAppear {
-                self.scale = CGFloat.random(in: 0.5...1.5)
+                self.scale = CGFloat.random(in: 0.5...0.7)
                 self.position = CGPoint(
                     x: CGFloat.random(in: 0..<UIScreen.main.bounds.width),
                     y: CGFloat.random(in: 0..<UIScreen.main.bounds.height)

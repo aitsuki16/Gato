@@ -32,11 +32,11 @@ struct ContentView : View {
                             Text("Welcome To GaTo")
                                 .font(.largeTitle)
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color("Color-1"))
+                                .foregroundColor(.indigo)
                                 .padding(10)
                                 .fixedSize(horizontal: false, vertical: true)
-                                .shadow(radius: 1)
-                                .opacity(5)
+                                .shadow(radius: 0.7)
+                                .opacity(0.6)
                             
                             
                         }
@@ -75,7 +75,7 @@ struct ContentView : View {
                     
                     HStack {
                         
-                        Text("Click on the paw to log Up or sign In")
+                        Text("Click on the paw to sign Up or sign In")
                             .font(.caption)
                             .foregroundColor(.indigo)
                             .padding()

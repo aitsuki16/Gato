@@ -11,6 +11,8 @@ struct MypageView: View {
     @State private var shouldNavigateBack: Bool = false
     @State private var isClicked = false
     @State private var isShowingAnimation = false
+    @State private var animationAmount: CGFloat = 0.8
+
     
     let signOutModel = SignOutModel()
     
@@ -23,6 +25,25 @@ struct MypageView: View {
                     startPoint: .trailing,
                     endPoint: .topLeading
                 )
+                
+                HStack {
+                    Spacer()
+                    Image(systemName: "pawprint.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.indigo)
+                        .scaleEffect(animationAmount)
+                        .animation(
+                            Animation.linear(duration: 0.1)
+                                .delay(0.2)
+                                .repeatForever(autoreverses: true),
+                            value: animationAmount
+                        )
+                        .onAppear {
+                            animationAmount = 1.2
+                        }
+                }
+                //Spacer()
                 VStack {
                     Spacer()
                     HStack {
@@ -99,13 +120,12 @@ struct MypageView: View {
                     }.padding()
                 }
                 NavigationLink("",destination: ContentView(),isActive: $shouldNavigateBack).opacity(0)
-                               
-                
-                if isShowingAnimation {
-                    PawView()
-                        .frame(width: 50, height: 50)
-                        .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+                Button(action: {
+
+                }) {
+
                 }
+                Spacer()
             }
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
