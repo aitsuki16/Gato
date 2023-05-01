@@ -28,22 +28,10 @@ struct MypageView: View {
                 
                 HStack {
                     Spacer()
-                    Image(systemName: "pawprint.fill")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.indigo)
-                        .scaleEffect(animationAmount)
-                        .animation(
-                            Animation.linear(duration: 0.1)
-                                .delay(0.2)
-                                .repeatForever(autoreverses: true),
-                            value: animationAmount
-                        )
-                        .onAppear {
-                            animationAmount = 1.2
-                        }
+                    
+                    PawView()
                 }
-                //Spacer()
+                    Spacer()
                 VStack {
                     Spacer()
                     HStack {

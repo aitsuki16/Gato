@@ -16,7 +16,7 @@ struct ContentView : View {
             VStack(spacing: 60) {
                 ZStack {
                     LinearGradient(
-                        colors: [Color("Color-1"), Color("Color")],
+                        colors: [Color("Color-2"), Color("Color")],
                         startPoint: .trailing,
                         endPoint: .center
                     )
@@ -76,8 +76,9 @@ struct ContentView : View {
                     HStack {
                         
                         Text("Click on the paw to sign Up or sign In")
-                            .font(.caption)
-                            .foregroundColor(.indigo)
+                            .font(.caption2)
+                            .bold()
+                            .foregroundColor(Color("Color-2"))
                             .padding()
                     }
                     
@@ -93,9 +94,9 @@ struct ContentView : View {
                         
                         Image("paw")
                     }
-                    .padding(3)
-                    .background(Color(red: 0.8, green: 0.5, blue: 0.8))
-                    .clipShape(RoundedRectangle(cornerRadius :  80))
+                    .padding(0.1)
+                    .background(Color(red: 0.7, green: 0.5, blue: 0.7))
+                    .clipShape(RoundedRectangle(cornerRadius : 70))
                 }
                 Spacer()
                 

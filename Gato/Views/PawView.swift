@@ -8,29 +8,22 @@
 import SwiftUI
 
 struct PawView: View {
-    @State private var scale: CGFloat = 1.0
-    @State private var position: CGPoint = .zero
+    //@State private var scale: CGFloat = 1.0
+    @State private var position: CGFloat = 200.0
     
     let animationDuration: Double = 3.0
     
     var body: some View {
         
-        Image(systemName: "pawprint.fill")
-            .resizable()
-            .foregroundColor(.indigo)
-            .scaleEffect(scale)
-            .offset(x: position.x, y: position.y) // Use `position.x` and `position.y`
-            .animation(
-                Animation.easeOut(duration: animationDuration)
-                    .repeatForever(autoreverses: true)
-            )
-            .onAppear {
-                self.scale = CGFloat.random(in: 0.5...0.7)
-                self.position = CGPoint(
-                    x: CGFloat.random(in: 0..<UIScreen.main.bounds.width),
-                    y: CGFloat.random(in: 0..<UIScreen.main.bounds.height)
-                )
-            }
+        VStack(alignment: .center) {
+            Image(systemName: "pawprint.fill")
+                .foregroundColor(Color("Color"))
+                .font(Font.system(size: 50.0))
+                            .offset(y: position)
+                            .shadow(radius: 10.0)
+                            .onTapGesture { position -= 50.0 }
+                        .animation(Animation.easeInOut(duration: 2.0), value: position)
+        }
     }
 }
 

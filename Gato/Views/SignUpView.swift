@@ -35,7 +35,7 @@ struct SignUp: View {
             ZStack {
                 //custom background color here
                 LinearGradient(
-                    colors: [Color.blue, Color("Color")],
+                    colors: [Color("Color"), Color("Color-2")],
                     startPoint: .topLeading,
                     endPoint: .center
                 )

@@ -24,7 +24,7 @@ struct SignInView: View {
         NavigationView {
             ZStack {
                 LinearGradient(
-                    colors: [Color("Color-1"), Color("Color")],
+                    colors: [Color("Color-2"), Color("Color")],
                     startPoint: .trailing,
                     endPoint: .bottomTrailing
                 )
@@ -100,7 +100,7 @@ struct SignInView: View {
                             }
                         },
                         label: {
-                            Text("Log In")
+                            Text("Sign In")
                                 .font(.title2)
                                 .bold()
                                 .foregroundColor(.white)

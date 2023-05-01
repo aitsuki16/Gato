@@ -17,8 +17,8 @@ struct AuthSelectionView: View {
             ZStack {
                 //custom background color here
                 LinearGradient(
-                    colors: [Color("Color-1"), Color("Color")],
-                    startPoint: .trailing,
+                    colors: [Color("Color-1"), Color("Color-2")],
+                    startPoint: .topLeading,
                     endPoint: .center
                 )
                 .cornerRadius(18)
@@ -40,7 +40,7 @@ struct AuthSelectionView: View {
                             self.Log = 1
                             
                             print("Log in button clicked") }) {
-                                Text("Log In")
+                                Text("Sign In")
                                     .foregroundColor(.white)
                                     .font(.system(size: 22))
                             }.frame(width: screenSize.width - 40, height: 50)
