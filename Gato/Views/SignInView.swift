@@ -10,12 +10,8 @@ import SwiftUI
 struct SignInView: View {
     @Environment(\.dismiss) private var dismiss
 
-    @State var isAtMaxScale = false
     @State var showPassword: Bool = false
-    @State private var joke: String = ""
-
     @ObservedObject var signInModel = SignInModel()
-
     @State private var shouldNavigateToMyPage = false
     @State private var isSignedIn = false
     @State private var isSignInSuccessful = false
@@ -39,8 +35,8 @@ struct SignInView: View {
                     
                     ZStack {
                         ImageView()
-                    }.frame(height: 195)
-                    
+                    }.frame(height: 200)
+
                     Spacer()
                     
                     TextField("Email",

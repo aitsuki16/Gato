@@ -35,11 +35,12 @@ struct ImageView: View {
                 
             }
 
-            .opacity(isAtMaxScale ? 1.0 : 0.3)
+                        .opacity(isAtMaxScale ? 1.0 : 0.3)
                         .animation(Animation.easeInOut(duration: 2.0).repeatForever())
                         .onAppear {
                             self.isAtMaxScale = true
                         }
+            
         }
         .navigationBarBackButtonHidden(true)
 
