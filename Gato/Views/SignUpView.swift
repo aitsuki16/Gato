@@ -11,7 +11,6 @@ import Combine
 struct SignUp: View {
     //trying
     @Environment(\.dismiss) private var dismiss
-
     @State var zoom = false
     @State var name: String = ""
     @State var email: String = ""
@@ -22,6 +21,7 @@ struct SignUp: View {
     @State var signUpResult: Result<User, Error>? = nil as Result<User, Error>?
     @State var cancellable: AnyCancellable?
     @State var isSignUpSuccessful = false
+    @State var hasError = false
     
     let timer = Timer.publish(every: 2.1, on: .main, in: .common).autoconnect()
     var isSignUpButtonDisabled: Bool {
@@ -100,13 +100,11 @@ struct SignUp: View {
                                           // create a secure text field
                                           text: $password,
                                           prompt: Text("Password").foregroundColor(.white))
-
                             } else {
                                 SecureField("Password",
-
+                                            
                                             text: $password,
                                             prompt: Text("Password").foregroundColor(.white))
-
                             }
                         }
                         .font(Font.system(size: 23))
@@ -123,7 +121,6 @@ struct SignUp: View {
                                         .foregroundColor(showPassword ? .black : .white)
                                     
                                 }.padding(.leading, 300)
-
                             }
                         }.padding(.vertical)
                     }
@@ -136,6 +133,8 @@ struct SignUp: View {
                                     case .failure(let error):
                                         signUpResult = .failure(error)
                                         print("Sign-up failed with error: \(error)")
+                                        hasError = true
+                                        break
                                     case .finished:
                                         break
                                     }
@@ -164,38 +163,36 @@ struct SignUp: View {
                     .cornerRadius(22)
                     .disabled(isSignUpButtonDisabled)
                 }
-                
                 .padding()
-                
+                if hasError {
+                    Text(model.errorMessage ?? "")
+                        .foregroundColor(.red)
+                        .font(.callout)
+                }
                 //navigationlink
                 NavigationLink(destination: MypageView(), isActive: $isSignUpSuccessful) {
                     EmptyView()
                 }
             }
-
+            
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
-
             ToolbarItem(placement: .navigationBarLeading) {
-
                 Button {
                     dismiss()
-
+                    
                 } label: {
                     HStack {
-
                         Image(systemName: "pawprint.fill")
                             .foregroundColor(.yellow)
                         Text("Back")
                             .foregroundColor(.white)
-                            
                     }
                 }
             }
         }
         .ignoresSafeArea()
-
     }
 }
 
@@ -204,6 +201,3 @@ struct SignUp_Previews: PreviewProvider {
         SignUp()
     }
 }
-
-
-
