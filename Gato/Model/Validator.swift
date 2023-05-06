@@ -20,4 +20,30 @@ class Validator {
         // Check if the email matches the predicate
         return emailPredicate.evaluate(with: email)
     }
+    
+    static func isValidName(_ name: String) -> Bool {
+        // Regular expression for name validation (4-12 letters, no spaces)
+        let nameRegex = "\\A\\w{4,12}\\z"
+        
+        // Create a predicate with the name regex
+        let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
+        
+        // Check if the name matches the predicate
+        return namePredicate.evaluate(with: name)
+    }
+    
+    class Validator {
+        
+        static func isValidPassword(_ password: String) -> Bool {
+            
+            // Regular expression for password validation
+            let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$"
+            
+            // Create a predicate with the password regex
+            let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+            
+            // Check if the password matches the predicate
+            return passwordPredicate.evaluate(with: password)
+        }
+    }
 }

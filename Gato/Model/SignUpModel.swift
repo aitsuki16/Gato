@@ -23,8 +23,14 @@ class SignUpModel: ObservableObject {
     func signUp(user: User) -> AnyPublisher<User, Error> {
         if let email = user.email {
             if !Validator.isValidEmail(email) {
-                errorMessage = "please input valid email address"
+                errorMessage = "Please input valid email address"
                 return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
+            }
+            if let name = user.name {
+                if !Validator.isValidName(name) {
+                    errorMessage = "Please input valid name"
+                    return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
+                }
             }
         }
         let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
