@@ -32,6 +32,12 @@ class SignUpModel: ObservableObject {
                     return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
                 }
             }
+            if let password = user.password {
+                if !Validator.isValidPassword(password) {
+                    errorMessage = "Please input valid password"
+                    return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
+                }
+            }
         }
         let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
         var request = URLRequest(url: url)

@@ -32,7 +32,6 @@ class Validator {
         return namePredicate.evaluate(with: name)
     }
     
-    class Validator {
         
         static func isValidPassword(_ password: String) -> Bool {
             
@@ -44,6 +43,5 @@ class Validator {
             
             // Check if the password matches the predicate
             return passwordPredicate.evaluate(with: password)
-        }
     }
 }
