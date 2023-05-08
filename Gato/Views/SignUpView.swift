@@ -162,13 +162,16 @@ struct SignUp: View {
                     )
                     .cornerRadius(22)
                     .disabled(isSignUpButtonDisabled)
+                    
+                    if hasError {
+                        Text(model.errorMessage ?? "")
+                            .foregroundColor(.pink)
+                            .font(.callout)
+                            .bold()
+                    }
                 }
                 .padding()
-                if hasError {
-                    Text(model.errorMessage ?? "")
-                        .foregroundColor(.red)
-                        .font(.callout)
-                }
+                
                 //navigationlink
                 NavigationLink(destination: MypageView(), isActive: $isSignUpSuccessful) {
                     EmptyView()
@@ -181,7 +184,7 @@ struct SignUp: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     dismiss()
-                    
+
                 } label: {
                     HStack {
                         Image(systemName: "pawprint.fill")
