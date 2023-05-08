@@ -95,7 +95,8 @@ struct ContentView : View {
                         Image("paw")
                     }
                     .padding(0.1)
-                    .background(Color(red: 0.7, green: 0.5, blue: 0.7))
+                    .background(Color(red: 0.7, green: 0.5, blue: 0.7
+                                     ))
                     .clipShape(RoundedRectangle(cornerRadius : 70))
                 }
                 Spacer()
