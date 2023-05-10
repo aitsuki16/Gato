@@ -104,8 +104,9 @@ struct ContentView : View {
             }
 
         }
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden(true)
+
 
     } 
 }

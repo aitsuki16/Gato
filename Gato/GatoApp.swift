@@ -22,7 +22,7 @@ struct App: SwiftUI.App {
                 ContentView()
                 
             .environmentObject(authModel)
-
+            
             }
         }
     }

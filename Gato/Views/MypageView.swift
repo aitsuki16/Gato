@@ -116,13 +116,13 @@ struct MypageView: View {
                 Spacer()
             }
             .ignoresSafeArea()
-            .navigationBarBackButtonHidden(true)
-            .onAppear {
-                self.isShowingAnimation.toggle()
-            }
-            
+//            .navigationBarBackButtonHidden(true)
+//            .onAppear {
+//                self.isShowingAnimation.toggle()
+//            }
         }
         .navigationBarBackButtonHidden(true)
+
         
         
     }

@@ -57,14 +57,14 @@ struct AuthSelectionView: View {
                             print("Sign Up button clicked")
                             UserDefaults.standard.set(Log, forKey:"logData")
                         }) {
-                                Text("Sign Up")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 22))
-                            }.frame(width: screenSize.width - 40, height: 50)
+                            Text("Sign Up")
+                                .foregroundColor(.white)
+                                .font(.system(size: 22))
+                        }.frame(width: screenSize.width - 40, height: 50)
                             .background(Color(red: 0.6, green: 0.4, blue: 0.8))
                             .clipShape(RoundedRectangle(cornerRadius :  30))
-
-
+                        
+                        
                     }
                 }
                 
