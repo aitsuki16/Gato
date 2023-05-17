@@ -1,41 +1,49 @@
 {
   "images" : [
     {
+      "filename" : "M1.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "M2.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
+      "filename" : "M3.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "M4.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "M5.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "M6.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "M6 1.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "M7.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -46,6 +54,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "M1 1.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
@@ -56,6 +65,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "M9.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
@@ -66,6 +76,7 @@
       "size" : "40x40"
     },
     {
+      "filename" : "M5 1.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
@@ -76,19 +87,28 @@
       "size" : "76x76"
     },
     {
+      "filename" : "My13.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "M14.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "M15.jpg",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
+    },
+    {
+      "filename" : "M8 (1).jpg",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "32x32"
     }
   ],
   "info" : {

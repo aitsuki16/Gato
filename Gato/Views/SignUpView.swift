@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 struct SignUp: View {
-    //trying
+
+
     @Environment(\.dismiss) private var dismiss
     @State var zoom = false
     @State var name: String = ""
@@ -41,8 +42,8 @@ struct SignUp: View {
             .cornerRadius(18)
             .ignoresSafeArea()
             
-            VStack(spacing: 17) {
-                
+            VStack(spacing: 20) {
+                Spacer()
                 ImageView()
                 Spacer()
                 
@@ -171,7 +172,6 @@ struct SignUp: View {
             }
             .padding()
             
-            //navigationlink
             NavigationLink(destination: MypageView(), isActive: $isSignUpSuccessful) {
                 EmptyView()
             }

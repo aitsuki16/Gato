@@ -27,6 +27,8 @@
 		CE8748EB29023E68000D40FC /* GatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748EA29023E68000D40FC /* GatoUITests.swift */; };
 		CE8748ED29023E68000D40FC /* GatoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */; };
 		CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4C7132931CE56003421BF /* SignUpView.swift */; };
+		CEB52C4F2A0DB6E300F0A847 /* ColorpickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB52C4E2A0DB6E300F0A847 /* ColorpickerView.swift */; };
+		CEB52C512A0DC0B800F0A847 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB52C502A0DC0B800F0A847 /* SettingsView.swift */; };
 		CECE2176290FA469002986AF /* AuthSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2175290FA468002986AF /* AuthSelectionView.swift */; };
 		CECE217A2920A4A9002986AF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE21792920A4A9002986AF /* SignInView.swift */; };
 		CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFB7942956A78A002B4762 /* SignUpModel.swift */; };
@@ -73,6 +75,8 @@
 		CE8748EA29023E68000D40FC /* GatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoUITests.swift; sourceTree = "<group>"; };
 		CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CEB4C7132931CE56003421BF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		CEB52C4E2A0DB6E300F0A847 /* ColorpickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorpickerView.swift; sourceTree = "<group>"; };
+		CEB52C502A0DC0B800F0A847 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CECE2175290FA468002986AF /* AuthSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSelectionView.swift; sourceTree = "<group>"; };
 		CECE21792920A4A9002986AF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CEDFB7942956A78A002B4762 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
@@ -118,14 +122,16 @@
 		CE6E8AF729AB8AC200404A7E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE8748D129023E65000D40FC /* ContentView.swift */,
+				CECE2175290FA468002986AF /* AuthSelectionView.swift */,
 				CEB4C7132931CE56003421BF /* SignUpView.swift */,
 				CECE21792920A4A9002986AF /* SignInView.swift */,
-				CECE2175290FA468002986AF /* AuthSelectionView.swift */,
-				CE8748D129023E65000D40FC /* ContentView.swift */,
+				537F966E29B8CF7600D6BF16 /* MypageView.swift */,
+				CEB52C4E2A0DB6E300F0A847 /* ColorpickerView.swift */,
+				CEB52C502A0DC0B800F0A847 /* SettingsView.swift */,
 				CE6E8AF529AB8A7A00404A7E /* ImageView.swift */,
 				CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */,
 				CE6E8AFC29B19D4900404A7E /* Geometric.swift */,
-				537F966E29B8CF7600D6BF16 /* MypageView.swift */,
 				535C835829FA07E20018AF4F /* PawView.swift */,
 				5394393629FE3772005D7A7F /* ImagePicker.swift */,
 			);
@@ -330,6 +336,7 @@
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
 				5394393729FE3772005D7A7F /* ImagePicker.swift in Sources */,
 				531B181629D8678E005731B1 /* AuthModel.swift in Sources */,
+				CEB52C512A0DC0B800F0A847 /* SettingsView.swift in Sources */,
 				CECE2176290FA469002986AF /* AuthSelectionView.swift in Sources */,
 				CE6E8AFD29B19D4900404A7E /* Geometric.swift in Sources */,
 				CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */,
@@ -337,6 +344,7 @@
 				CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */,
 				5394393D2A054832005D7A7F /* Validator.swift in Sources */,
 				53F60A1A29E296DC009B10A9 /* SignOutModel.swift in Sources */,
+				CEB52C4F2A0DB6E300F0A847 /* ColorpickerView.swift in Sources */,
 				537F966F29B8CF7600D6BF16 /* MypageView.swift in Sources */,
 				535C835929FA07E20018AF4F /* PawView.swift in Sources */,
 				CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */,
