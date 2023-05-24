@@ -8,17 +8,18 @@
 import Foundation
 
 class AuthModel: ObservableObject {
-    private let loggedInKey = "isLoggedIn"
     var isLoggedIn: Bool {
         get {
-            UserDefaults.standard.bool(forKey: loggedInKey)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: loggedInKey)
-            objectWillChange.send()
+            UserDefaults.standard.loginUserToken != nil
         }
     }
     
-
-
+    var loginUserToken: String? {
+        get {
+            UserDefaults.standard.loginUserToken
+        }
+        set {
+            UserDefaults.standard.loginUserToken = newValue
+        }
+    }
 }

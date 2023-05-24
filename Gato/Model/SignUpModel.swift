@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 struct User: Decodable, Encodable {
-
     let name: String?
     let email: String?
     let password: String?
@@ -50,19 +49,10 @@ class SignUpModel: ObservableObject {
                 .map { $0.data }
                 .decode(type: User.self, decoder: JSONDecoder())
                 .eraseToAnyPublisher()
-            print(response)
-            print(decoded)
-            loginStatusToTrue()
             return decoded
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }
-    }
-    
-    func loginStatusToTrue() {
-        let loggedInKey = "isLoggedIn"
-        isLoggedIn = true
-        UserDefaults.standard.set(true, forKey: loggedInKey)
     }
     
     //added new function to try json

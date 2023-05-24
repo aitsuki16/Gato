@@ -8,43 +8,26 @@
 import SwiftUI
 
 struct MypageView: View {
-    @State private var shouldNavigateBack: Bool = false
+    @Binding var isFirstViewActive: Bool
+    
     @State private var isClicked = false
     @State private var isShowingAnimation = false
     @State private var animationAmount: CGFloat = 0.8
-    //@State var backgroundColor = Color.white
     @State var showSettings = false
-    @State var backgroundColor = Color.white
-    
-    
-    init() {
-        if let savedColor = UserDefaults.standard.colorForKey("BackgroundColor") {
-            backgroundColor = savedColor
-            print("Background color loaded: \(backgroundColor)")
-        } else {
-            backgroundColor = .white
-        }
-    }
+    @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
     
     
     let signOutModel = SignOutModel()
     
     var body: some View {
-        
         //NavigationView {
         ZStack {
-            
             LinearGradient(
                 colors: [Color("Color-1"), Color("Color")],
                 startPoint: .trailing,
                 endPoint: .topLeading
             )
-            
-            
-            
-            //
             VStack {
-                
                 Button(action: { showSettings = true }) {
                     Text("Settings")
                     NavigationLink(destination: ColorpickerView()) {
@@ -53,23 +36,18 @@ struct MypageView: View {
                     
                 }
             }
-            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(backgroundColor)
             .sheet(isPresented: $showSettings) {
                 SettingsView(backgroundColor: $backgroundColor)
             }
-            
             .navigationBarTitle("My Page")
-            
             HStack {
-                
                 PawView()
             }
             Spacer()
             VStack {
                 Spacer()
-                
                 HStack {
                     Button(action: {
                         // Action for first button
@@ -102,39 +80,13 @@ struct MypageView: View {
                 .padding()
             }
             VStack {
-                
-                //                    Button(action: {
-                //                    }) {
-                //                        Image(systemName: "pawprint.fill")
-                //                            .font(.system(size: 24))
-                //                            .foregroundColor(.white)
-                //                            .padding()
-                //                            .background(Color.black)
-                //                            .cornerRadius(16)
-                //
-                //                        Text("My account")
-                //                            .fontWeight(.bold)
-                //                            .foregroundColor(.white)
-                //                            .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
-                //                            .background(Color.indigo)
-                //                            .cornerRadius(8)
-                //                    }
-            }
-            .padding()
-            VStack {
-//                
-//                //NavigationLink(destination: ColorPickerView()) {
-//                //Text("Change Background Color")
-//                //
-//}
                 Spacer()
                 HStack {
                     Spacer()
                     Button(action: {
-                        
                         self.isClicked.toggle()
                         signOutModel.signOut()
-                        shouldNavigateBack = true
+                        isFirstViewActive = false
                     }) {
                         Text("Sign Out")
                             .foregroundColor(.indigo)
@@ -148,7 +100,6 @@ struct MypageView: View {
                     }
                 }.padding()
             }
-            NavigationLink("",destination: ContentView(),isActive: $shouldNavigateBack).opacity(0)
             Button(action: {
                 
             }) {
@@ -157,20 +108,14 @@ struct MypageView: View {
             Spacer()
         }
         .ignoresSafeArea()
-        //            .navigationBarBackButtonHidden(true)
-        //            .onAppear {
-        //                self.isShowingAnimation.toggle()
-        //            }
-        //}
         .navigationBarBackButtonHidden(true)
-        
-        
-        
     }
 }
 
 struct MypageView_Previews: PreviewProvider {
+    @State static var isFirstViewActive: Bool = false
+    
     static var previews: some View {
-        MypageView()
+        MypageView(isFirstViewActive: $isFirstViewActive)
     }
 }

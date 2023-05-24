@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
     @Environment(\.dismiss) private var dismiss
+    @Binding var isFirstViewActive: Bool
     
     @State var showPassword: Bool = false
     @ObservedObject var signInModel = SignInModel()
@@ -120,7 +121,7 @@ struct SignInView: View {
                 }
                 
                 if isSignInSuccessful {
-                    NavigationLink(destination: MypageView(), isActive: $isSignInSuccessful) {
+                    NavigationLink(destination: MypageView(isFirstViewActive: $isFirstViewActive), isActive: $isSignInSuccessful) {
                         
                     }
                 }
@@ -130,7 +131,6 @@ struct SignInView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
-                        
                     } label: {
                         HStack {
                             Image(systemName: "pawprint.fill")
@@ -149,7 +149,9 @@ struct SignInView: View {
 }
 
 struct SignInView_Previews: PreviewProvider {
+    @State static var isFirstViewActive: Bool = false
+    
     static var previews: some View {
-        SignInView()
+        SignInView(isFirstViewActive: $isFirstViewActive)
     }
 }

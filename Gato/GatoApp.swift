@@ -16,14 +16,8 @@ struct App: SwiftUI.App {
     
     var body: some Scene {
         WindowGroup{
-            if authModel.isLoggedIn {
-                MypageView()
-            } else {
-                ContentView()
-                
-            .environmentObject(authModel)
-            
-            }
+            ContentView()
+                .environmentObject(authModel)
         }
     }
 }
