@@ -9,21 +9,22 @@ import SwiftUI
 
 struct SettingsView: View {
     @Binding var backgroundColor: Color
-
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack {
-            
-           
             ColorPicker("Choose a color", selection: $backgroundColor)
+                .padding()
+            
             Button("Save") {
                 UserDefaults.standard.setColor(backgroundColor, forKey: "BackgroundColor")
-                print("background color \(backgroundColor)")
+                print("Background color: \(backgroundColor)")
                 
-                //saved color back binding
+                // Saved color binding
                 backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
                 
-
+                // Dismiss
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }
@@ -42,6 +43,7 @@ extension UserDefaults {
         return color
     }
 }
+
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(backgroundColor: .constant(Color.white))

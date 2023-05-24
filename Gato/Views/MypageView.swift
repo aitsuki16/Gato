@@ -16,24 +16,23 @@ struct MypageView: View {
     @State var showSettings = false
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
     
-    
     let signOutModel = SignOutModel()
     
     var body: some View {
-        //NavigationView {
         ZStack {
             LinearGradient(
-                colors: [Color("Color-1"), Color("Color")],
+                colors: [Color(""), Color("")],
                 startPoint: .trailing,
                 endPoint: .topLeading
             )
             VStack {
                 Button(action: { showSettings = true }) {
-                    Text("Settings")
+                    Text("Setting")
                     NavigationLink(destination: ColorpickerView()) {
                         
                     }
-                    
+                   Spacer()
+
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -44,13 +43,39 @@ struct MypageView: View {
             .navigationBarTitle("My Page")
             HStack {
                 PawView()
+           
+                    Text("Upload")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .frame(width: 100, height: 50)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.262745098, green: 0.0862745098, blue: 0.8588235294, alpha: 1)), Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1))]), startPoint: .top, endPoint: .bottom))
+                        .cornerRadius(16)
+                        .foregroundColor(.white)
+                .sheet(isPresented: $showSheet) {
+                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                }.onTapGesture {
+                    showSheet = true
+                }
+                
+                Image(uiImage: self.image)
+                        .resizable()
+                        .cornerRadius(50)
+                        .padding(.all, 4)
+                        .frame(width: 100, height: 100)
+                        .background(Color.black.opacity(0.2))
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .padding(8)
             }
-            Spacer()
+            
+            .padding()
+            
             VStack {
+
                 Spacer()
                 HStack {
                     Button(action: {
-                        // Action for first button
+                        
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
@@ -59,7 +84,6 @@ struct MypageView: View {
                     }
                     
                     Button(action: {
-                        // Action for second button
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
@@ -69,7 +93,6 @@ struct MypageView: View {
                     }
                     
                     Button(action: {
-                        // Action for third button
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
@@ -79,6 +102,7 @@ struct MypageView: View {
                 }
                 .padding()
             }
+           
             VStack {
                 Spacer()
                 HStack {
