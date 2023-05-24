@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class SignInModel: ObservableObject {
+class SignInModel: AuthModel {
     struct User: Codable {
         let email: String
         let password: String
@@ -20,14 +20,6 @@ class SignInModel: ObservableObject {
     
     struct TokenResponse: Codable {
         let token: String
-    }
-    
-    
-    // Save the authentication token to user defaults or keychain
-    func saveAuthToken(_ token: String) {
-        // Here you would implement code to save the token to user defaults or keychain
-        // For example:
-        UserDefaults.standard.set(token, forKey: "AuthToken")
     }
     
     // Call Api
@@ -52,7 +44,6 @@ class SignInModel: ObservableObject {
             if let error = error {
                 DispatchQueue.main.async {
                     self.errorMessage = "Failed to sign in."
-
                 }
                 completion(.failure(error))
                 return
@@ -68,7 +59,7 @@ class SignInModel: ObservableObject {
             do {
                 let tokenResponse = try decoder.decode(TokenResponse.self, from: data)
                 // Save the token to user defaults or keychain
-                self.saveAuthToken(tokenResponse.token)
+                self.loginUserToken = tokenResponse.token
                 completion(.success(()))
             } catch {
                 completion(.failure(error))

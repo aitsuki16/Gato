@@ -9,9 +9,9 @@ import SwiftUI
 import Combine
 
 struct SignUp: View {
-
-
     @Environment(\.dismiss) private var dismiss
+    @Binding var isFirstViewActive: Bool
+    
     @State var zoom = false
     @State var name: String = ""
     @State var email: String = ""
@@ -172,7 +172,7 @@ struct SignUp: View {
             }
             .padding()
             
-            NavigationLink(destination: MypageView(), isActive: $isSignUpSuccessful) {
+            NavigationLink(destination: MypageView(isFirstViewActive: $isFirstViewActive), isActive: $isSignUpSuccessful) {
                 EmptyView()
             }
         }
@@ -199,7 +199,9 @@ struct SignUp: View {
 }
 
 struct SignUp_Previews: PreviewProvider {
+    @State static var isFirstViewActive: Bool = false
+    
     static var previews: some View {
-        SignUp()
+        SignUp(isFirstViewActive: $isFirstViewActive)
     }
 }

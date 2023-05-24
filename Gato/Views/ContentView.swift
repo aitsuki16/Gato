@@ -7,11 +7,13 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State var page : Int? = 0
+    @State private var isActive = false
+    @State private var isActiveMyPage = false
     @State var ImageKono: Bool = false
     
+    @EnvironmentObject var authModel: AuthModel
+    
     var body: some View {
-        
         NavigationView {
             VStack(spacing: 60) {
                 ZStack {
@@ -72,9 +74,7 @@ struct ContentView : View {
                
                 
                 VStack{
-                    
                     HStack {
-                        
                         Text("Click on the paw to sign Up or sign In")
                             .font(.caption2)
                             .bold()
@@ -82,14 +82,17 @@ struct ContentView : View {
                             .padding()
                     }
                     
-                    NavigationLink(destination : AuthSelectionView(),
-                                   tag: 1, selection: $page) {
+                    NavigationLink(destination : AuthSelectionView(isFirstViewActive: $isActive),
+                                   isActive: $isActive) {
                         EmptyView()
-                        
+                    }
+                    NavigationLink(destination : MypageView(isFirstViewActive: $isActiveMyPage),
+                                   isActive: $isActiveMyPage) {
+                        EmptyView()
                     }
                     
                     Button(action: {
-                        self.page = 1
+                        isActive = true
                     }) {
                         
                         Image("paw")
@@ -106,8 +109,11 @@ struct ContentView : View {
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
-
-
+        .onAppear {
+            if authModel.isLoggedIn {
+                isActiveMyPage = true
+            }
+        }
     } 
 }
 

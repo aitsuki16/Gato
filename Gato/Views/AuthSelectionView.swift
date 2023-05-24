@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AuthSelectionView: View {
+    @Binding var isFirstViewActive: Bool
+    
     @State var Log : Int? = 0
     @State var Sign: Int? = 0
     var screenSize = UIScreen.main.bounds
@@ -31,10 +33,9 @@ struct AuthSelectionView: View {
                     //trying
                     
                     VStack(spacing: 20) {
-                        NavigationLink(destination : SignInView(),
+                        NavigationLink(destination : SignInView(isFirstViewActive: $isFirstViewActive),
                                        tag: 1, selection: $Log) {
                             EmptyView()
-                            
                         }
                         Button(action: {
                             self.Log = 1
@@ -48,7 +49,7 @@ struct AuthSelectionView: View {
                             .clipShape(RoundedRectangle(cornerRadius :  30))
                         
                         //here
-                        NavigationLink(destination : SignUp(),
+                        NavigationLink(destination : SignUp(isFirstViewActive: $isFirstViewActive),
                                        tag: 1, selection: $Sign) {
                             EmptyView()
                         }
@@ -77,7 +78,9 @@ struct AuthSelectionView: View {
 }
 
 struct SignSecondView_Previews: PreviewProvider {
+    @State static var isFirstViewActive: Bool = false
+    
     static var previews: some View {
-        AuthSelectionView()
+        AuthSelectionView(isFirstViewActive: $isFirstViewActive)
     }
 }
