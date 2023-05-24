@@ -16,20 +16,14 @@ struct MypageView: View {
     @State var showSettings = false
     @State var backgroundColor = Color.white
     
-    
-    init() {
-        if let savedColor = UserDefaults.standard.colorForKey("BackgroundColor") {
-            backgroundColor = savedColor
-            print("Background color loaded: \(backgroundColor)")
-        } else {
-            backgroundColor = .white
-        }
-    }
-    
+    //
+
     
     let signOutModel = SignOutModel()
     
     var body: some View {
+        
+        
         
         //NavigationView {
         ZStack {
@@ -40,9 +34,15 @@ struct MypageView: View {
                 endPoint: .topLeading
             )
             
+            .onAppear {
+                if let savedColor = UserDefaults.standard.colorForKey("BackgroundColor") {
+                    backgroundColor = savedColor
+                    print("Background color loaded: \(backgroundColor)")
+                } else {
+                    backgroundColor = .white
+                }
+            }
             
-            
-            //
             VStack {
                 
                 Button(action: { showSettings = true }) {
@@ -162,6 +162,7 @@ struct MypageView: View {
         //                self.isShowingAnimation.toggle()
         //            }
         //}
+        
         .navigationBarBackButtonHidden(true)
         
         

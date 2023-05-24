@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ColorpickerView: View {
+    @State private var selectedColor: Color = .white
     
     var body: some View {
-        Text("Choose color")
-            .navigationBarTitle("Background Color")
+        VStack {
+            Text("Choose color")
+                .navigationBarTitle("Background Color")
+            
+            ColorPicker("Color", selection: $selectedColor)
+                .padding()
+            
+            Image(systemName: "pawprint.fill") // Replace with your desired image name
+                           .resizable()
+                           .aspectRatio(contentMode: .fit)
+                           .foregroundColor(selectedColor)
+                           .frame(width: 100, height: 100)
+        }
         
     }
 }
