@@ -12,24 +12,21 @@ struct MypageView: View {
     @State private var isClicked = false
     @State private var isShowingAnimation = false
     @State private var animationAmount: CGFloat = 0.8
-    //@State var backgroundColor = Color.white
     @State var showSettings = false
-    @State var backgroundColor = Color.white
-    
+    @State var backgroundColor = Color.black
     //
+    @State private var image = UIImage()
+    @State private var showSheet = false
 
     
     let signOutModel = SignOutModel()
     
     var body: some View {
         
-        
-        
-        //NavigationView {
         ZStack {
             
             LinearGradient(
-                colors: [Color("Color-1"), Color("Color")],
+                colors: [Color(""), Color("")],
                 startPoint: .trailing,
                 endPoint: .topLeading
             )
@@ -42,18 +39,17 @@ struct MypageView: View {
                     backgroundColor = .white
                 }
             }
-            
-            VStack {
-                
+  
+            VStack (alignment: .trailing) {
                 Button(action: { showSettings = true }) {
-                    Text("Settings")
+                    Text("Setting")
                     NavigationLink(destination: ColorpickerView()) {
                         
                     }
-                    
+                   Spacer()
+
                 }
             }
-            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(backgroundColor)
             .sheet(isPresented: $showSettings) {
@@ -63,16 +59,41 @@ struct MypageView: View {
             .navigationBarTitle("My Page")
             
             HStack {
+           
+                    Text("Upload")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .frame(width: 100, height: 50)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.262745098, green: 0.0862745098, blue: 0.8588235294, alpha: 1)), Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1))]), startPoint: .top, endPoint: .bottom))
+                        .cornerRadius(16)
+                        .foregroundColor(.white)
+                .sheet(isPresented: $showSheet) {
+                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                }.onTapGesture {
+                    showSheet = true
+                }
+                
+                Image(uiImage: self.image)
+                        .resizable()
+                        .cornerRadius(50)
+                        .padding(.all, 4)
+                        .frame(width: 100, height: 100)
+                        .background(Color.black.opacity(0.2))
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .padding(8)
+            }
+            
+            .padding()
+            
+            VStack {
                 
                 PawView()
-            }
-            Spacer()
-            VStack {
+
                 Spacer()
-                
                 HStack {
                     Button(action: {
-                        // Action for first button
+                        
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
@@ -81,7 +102,6 @@ struct MypageView: View {
                     }
                     
                     Button(action: {
-                        // Action for second button
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
@@ -91,7 +111,6 @@ struct MypageView: View {
                     }
                     
                     Button(action: {
-                        // Action for third button
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
@@ -101,32 +120,9 @@ struct MypageView: View {
                 }
                 .padding()
             }
+           
             VStack {
-                
-                //                    Button(action: {
-                //                    }) {
-                //                        Image(systemName: "pawprint.fill")
-                //                            .font(.system(size: 24))
-                //                            .foregroundColor(.white)
-                //                            .padding()
-                //                            .background(Color.black)
-                //                            .cornerRadius(16)
-                //
-                //                        Text("My account")
-                //                            .fontWeight(.bold)
-                //                            .foregroundColor(.white)
-                //                            .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
-                //                            .background(Color.indigo)
-                //                            .cornerRadius(8)
-                //                    }
-            }
-            .padding()
-            VStack {
-//                
-//                //NavigationLink(destination: ColorPickerView()) {
-//                //Text("Change Background Color")
-//                //
-//}
+
                 Spacer()
                 HStack {
                     Spacer()
@@ -149,19 +145,9 @@ struct MypageView: View {
                 }.padding()
             }
             NavigationLink("",destination: ContentView(),isActive: $shouldNavigateBack).opacity(0)
-            Button(action: {
-                
-            }) {
-                
-            }
-            Spacer()
+
         }
         .ignoresSafeArea()
-        //            .navigationBarBackButtonHidden(true)
-        //            .onAppear {
-        //                self.isShowingAnimation.toggle()
-        //            }
-        //}
         
         .navigationBarBackButtonHidden(true)
         
