@@ -17,6 +17,7 @@ struct PawView: View {
         
         VStack(alignment: .center) {
             Image(systemName: "pawprint.fill")
+            
                 .foregroundColor(Color("Color"))
                 .font(Font.system(size: 50.0))
                             .offset(y: position)
