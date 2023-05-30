@@ -29,15 +29,15 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 
     final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        var parent: ImagePicker
+        var imagePickerWrapper: ImagePicker
 
         init(_ parent: ImagePicker) {
-            self.parent = parent
+            self.imagePickerWrapper = parent
         }
 
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                parent.selectedImage = image
+                imagePickerWrapper.selectedImage = image
 
                 // Store the selected image in UserDefaults
                 if let imageData = image.pngData() {
@@ -45,7 +45,7 @@ struct ImagePicker: UIViewControllerRepresentable {
                 }
             }
 
-            parent.presentationMode.wrappedValue.dismiss()
+            imagePickerWrapper.presentationMode.wrappedValue.dismiss()
         }
     }
 }
