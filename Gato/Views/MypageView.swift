@@ -15,6 +15,7 @@ struct MypageView: View {
     @State private var animationAmount: CGFloat = 0.8
     @State var showSettings = false
     @State var showSheet = false
+    @State private var diaryEntry = ""
     @State private var image = UIImage()
     @State private var selectedImage = UIImage()
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
@@ -24,7 +25,6 @@ struct MypageView: View {
     var body: some View {
         
         ZStack {
-
             VStack {
                 LinearGradient(
                     colors: [Color(""), Color("")],
@@ -40,7 +40,6 @@ struct MypageView: View {
                         }
                     }
                 }
-                
                 VStack {
                     HStack{
                         Button(action: { showSettings = true }) {
@@ -50,7 +49,6 @@ struct MypageView: View {
                             }
                             
                         }
-                        
                         Spacer()
                             .frame(width: 95)
                         Text("Upload")
@@ -79,49 +77,51 @@ struct MypageView: View {
                     Spacer()
                         .frame(height: 560)
                 }
-
+                //
+                
+                
                 HStack {
                     Button(action: {
-                                
-                            }) {
-                                Image(systemName: "pawprint.fill")
-                                    .resizable()
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 50)
-                            }
-                            
-                            Button(action: {
-                            }) {
-                                Image(systemName: "pawprint.fill")
-                                    .resizable()
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 50)
-                                
-                            }
-                            
-                            Button(action: {
-                            }) {
-                                Image(systemName: "pawprint.fill")
-                                    .resizable()
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 50)
-                            }
-                       
-                        Spacer()
-                        Button(action: {
-                            self.isClicked.toggle()
-                            signOutModel.signOut()
-                            isFirstViewActive = false
-                        }) {
-                            Text("Sign Out")
-                                .foregroundColor(.indigo)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
-                                .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color.white.opacity(isClicked ?0.2 : 1.0)))
-                        }
-                        }.padding()
+                        
+                    }) {
+                        Image(systemName: "pawprint.fill")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 50, height: 50)
+                    }
+                    
+                    Button(action: {
+                    }) {
+                        Image(systemName: "pawprint.fill")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
+                    
+                    Button(action: {
+                    }) {
+                        Image(systemName: "pawprint.fill")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 50, height: 50)
+                    }
+                    
+                    Spacer()
+                    Button(action: {
+                        self.isClicked.toggle()
+                        signOutModel.signOut()
+                        isFirstViewActive = false
+                    }) {
+                        Text("Sign Out")
+                            .foregroundColor(.indigo)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.white.opacity(isClicked ?0.2 : 1.0)))
+                    }
+                }.padding()
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -129,6 +129,8 @@ struct MypageView: View {
             .sheet(isPresented: $showSettings) {
                 SettingsView(backgroundColor: $backgroundColor)
             }
+            PawView()
+
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
         }
