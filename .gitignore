@@ -1,36 +1,21 @@
-# Xcode
-## Mac OS X
-.DS_Store
-## Xcode build files
-build/
-DerivedData/
-## Xcode settings
-*.pbxuser
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-!default.pbxuser
-!default.mode1v3
-!default.mode2v3
-!default.perspectivev3*.xcodeproj/*
-## App packaging
-*.ipa
-*.dSYM.zip
-*.dSYM
-## Xcode Patch
+# Created by https://www.toptal.com/developers/gitignore/api/xcode
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode
+
+### Xcode ###
+## User settings
+xcuserdata/
+
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+
+### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
 !*.xcworkspace/contents.xcworkspacedata
-## library
-Pods/*
-Carthage/Build/
-## Other
-*.moved-aside
-*.xccheckout
-*.xcscmblueprint
-*.xcuserstate
-*.swp
-xcuserdata/
-*.moved-aside
-!.gitkeep
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# End of https://www.toptal.com/developers/gitignore/api/xcode
