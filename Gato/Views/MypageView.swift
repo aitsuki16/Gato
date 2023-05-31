@@ -16,10 +16,8 @@ struct MypageView: View {
     @State var showSettings = false
     @State var showSheet = false
     @State private var image = UIImage()
-    
-    // Add this state variable to hold the selected image
+    // Add selected image
     @State private var selectedImage = UIImage()
-
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
     
     let signOutModel = SignOutModel()
@@ -35,21 +33,21 @@ struct MypageView: View {
             )
             
             .onAppear {
-                   // Retrieve the selected image from UserDefaults
-                   if let imageData = UserDefaults.standard.data(forKey: "SelectedImage") {
-                       if let image = UIImage(data: imageData) {
-                           self.selectedImage = image
-                       }
-                   }
-               }
-            VStack {
+                // Retrieve
+                if let imageData = UserDefaults.standard.data(forKey: "SelectedImage") {
+                    if let image = UIImage(data: imageData) {
+                        self.selectedImage = image
+                    }
+                }
+            }
+
+            HStack {
                 Button(action: { showSettings = true }) {
                     Text("Setting")
+                        .foregroundColor(.indigo)
                     NavigationLink(destination: ColorpickerView()) {
                         
                     }
-                    Spacer()
-                    
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -57,40 +55,36 @@ struct MypageView: View {
             .sheet(isPresented: $showSettings) {
                 SettingsView(backgroundColor: $backgroundColor)
             }
-            .navigationBarTitle("My Page")
-            HStack {
-                PawView()
-                
-                Text("Upload")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .frame(width: 100, height: 50)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.745902535, green: 0.4011192239, blue: 0.7434588389, alpha: 1)), Color(#colorLiteral(red: 0.3841236888, green: 0.2625975893, blue: 0.7434588389, alpha: 1))]), startPoint: .top, endPoint: .bottomLeading))
-                    .cornerRadius(16)
-                    .foregroundColor(.white)
-                    .sheet(isPresented: $showSheet) {
-                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$selectedImage)
-                    }.onTapGesture {
-                        showSheet = true
-                    }
-                
-                Image(uiImage: selectedImage)
-                    .resizable()
-                    .cornerRadius(50)
-                    .padding(.all, 4)
-                    .frame(width: 100, height: 100)
-                    .background(Color.black.opacity(0.2))
-                    .aspectRatio(contentMode: .fill)
-                    .clipShape(Circle())
-                    .padding(8)
-            }
-            
-            .padding()
             
             VStack {
-
+                
+                HStack{
+                    Spacer()
+                    Text("Upload")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .frame(width: 70, height: 35)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.745902535, green: 0.4011192239, blue: 0.7434588389, alpha: 1)), Color(#colorLiteral(red: 0.3841236888, green: 0.2625975893, blue: 0.7434588389, alpha: 1))]), startPoint: .top, endPoint: .bottomLeading))
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .sheet(isPresented: $showSheet) {
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$selectedImage)
+                        }.onTapGesture {
+                            showSheet = true
+                        }
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .cornerRadius(50)
+                        .padding(.all, 6)
+                        .frame(width: 120, height: 120)
+                        .background(Color.black.opacity(0.2))
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .padding(8)
+                }
                 Spacer()
+                    .frame(height: 600)
                 HStack {
                     Button(action: {
                         
@@ -118,9 +112,8 @@ struct MypageView: View {
                             .frame(width: 50, height: 50)
                     }
                 }
-                .padding()
             }
-           
+            
             VStack {
                 Spacer()
                 HStack {
@@ -132,22 +125,18 @@ struct MypageView: View {
                     }) {
                         Text("Sign Out")
                             .foregroundColor(.indigo)
-                            .padding(.horizontal, 11)
-                            .padding(.vertical, 7)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
                             .background(
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
+                                    RoundedRectangle(cornerRadius: 8)
                                         .fill(Color.white.opacity(isClicked ?0.2 : 1.0))
                                 })
                     }
                 }.padding()
             }
-            Button(action: {
-                
-            }) {
-                
-            }
-            Spacer()
+            PawView()
+            
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
