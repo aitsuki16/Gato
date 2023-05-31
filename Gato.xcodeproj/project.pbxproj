@@ -32,6 +32,8 @@
 		CEB52C512A0DC0B800F0A847 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB52C502A0DC0B800F0A847 /* SettingsView.swift */; };
 		CECE2176290FA469002986AF /* AuthSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2175290FA468002986AF /* AuthSelectionView.swift */; };
 		CECE217A2920A4A9002986AF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE21792920A4A9002986AF /* SignInView.swift */; };
+		CECFDD2F2A27316C0097E1AD /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFDD2E2A27316C0097E1AD /* DiaryEntry.swift */; };
+		CECFDD312A2731B10097E1AD /* DiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFDD302A2731B10097E1AD /* DiaryViewModel.swift */; };
 		CEDFB7952956A78A002B4762 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFB7942956A78A002B4762 /* SignUpModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		CEB52C502A0DC0B800F0A847 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CECE2175290FA468002986AF /* AuthSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSelectionView.swift; sourceTree = "<group>"; };
 		CECE21792920A4A9002986AF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CECFDD2E2A27316C0097E1AD /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
+		CECFDD302A2731B10097E1AD /* DiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewModel.swift; sourceTree = "<group>"; };
 		CEDFB7942956A78A002B4762 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,7 @@
 				53F60A1929E296DC009B10A9 /* SignOutModel.swift */,
 				539E4E6C29ECFB9D007158EF /* SignInModel.swift */,
 				5394393C2A054831005D7A7F /* Validator.swift */,
+				CECFDD302A2731B10097E1AD /* DiaryViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,13 +142,14 @@
 				CEB4C7132931CE56003421BF /* SignUpView.swift */,
 				CECE21792920A4A9002986AF /* SignInView.swift */,
 				537F966E29B8CF7600D6BF16 /* MypageView.swift */,
+				5394393629FE3772005D7A7F /* ImagePicker.swift */,
 				CEB52C4E2A0DB6E300F0A847 /* ColorpickerView.swift */,
 				CEB52C502A0DC0B800F0A847 /* SettingsView.swift */,
 				CE6E8AF529AB8A7A00404A7E /* ImageView.swift */,
 				CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */,
 				CE6E8AFC29B19D4900404A7E /* Geometric.swift */,
 				535C835829FA07E20018AF4F /* PawView.swift */,
-				5394393629FE3772005D7A7F /* ImagePicker.swift */,
+				CECFDD2E2A27316C0097E1AD /* DiaryEntry.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECFDD2F2A27316C0097E1AD /* DiaryEntry.swift in Sources */,
 				53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */,
 				CE8748D229023E65000D40FC /* ContentView.swift in Sources */,
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
@@ -361,6 +368,7 @@
 				535C835929FA07E20018AF4F /* PawView.swift in Sources */,
 				CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */,
 				CE6E8AFB29B1868500404A7E /* ImageFirstView.swift in Sources */,
+				CECFDD312A2731B10097E1AD /* DiaryViewModel.swift in Sources */,
 				CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */,
 				539E4E6D29ECFB9D007158EF /* SignInModel.swift in Sources */,
 			);
