@@ -16,26 +16,40 @@ struct MypageView: View {
     @State var showSettings = false
     @State var showSheet = false
     @State private var image = UIImage()
+    
+    // Add this state variable to hold the selected image
+    @State private var selectedImage = UIImage()
 
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
     
     let signOutModel = SignOutModel()
     
     var body: some View {
+        
+        
         ZStack {
             LinearGradient(
                 colors: [Color(""), Color("")],
                 startPoint: .trailing,
                 endPoint: .topLeading
             )
+            
+            .onAppear {
+                   // Retrieve the selected image from UserDefaults
+                   if let imageData = UserDefaults.standard.data(forKey: "SelectedImage") {
+                       if let image = UIImage(data: imageData) {
+                           self.selectedImage = image
+                       }
+                   }
+               }
             VStack {
                 Button(action: { showSettings = true }) {
                     Text("Setting")
                     NavigationLink(destination: ColorpickerView()) {
                         
                     }
-                   Spacer()
-
+                    Spacer()
+                    
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -46,29 +60,30 @@ struct MypageView: View {
             .navigationBarTitle("My Page")
             HStack {
                 PawView()
-           
-                    Text("Upload")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .frame(width: 100, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.262745098, green: 0.0862745098, blue: 0.8588235294, alpha: 1)), Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1))]), startPoint: .top, endPoint: .bottom))
-                        .cornerRadius(16)
-                        .foregroundColor(.white)
-                .sheet(isPresented: $showSheet) {
-                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-                }.onTapGesture {
-                    showSheet = true
-                }
                 
-                Image(uiImage: self.image)
-                        .resizable()
-                        .cornerRadius(50)
-                        .padding(.all, 4)
-                        .frame(width: 100, height: 100)
-                        .background(Color.black.opacity(0.2))
-                        .aspectRatio(contentMode: .fill)
-                        .clipShape(Circle())
-                        .padding(8)
+                Text("Upload")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .frame(width: 100, height: 50)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.745902535, green: 0.4011192239, blue: 0.7434588389, alpha: 1)), Color(#colorLiteral(red: 0.3841236888, green: 0.2625975893, blue: 0.7434588389, alpha: 1))]), startPoint: .top, endPoint: .bottomLeading))
+                    .cornerRadius(16)
+                    .foregroundColor(.white)
+                    .sheet(isPresented: $showSheet) {
+                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$selectedImage)
+                    }.onTapGesture {
+                        showSheet = true
+                    }
+                
+                Image(uiImage: selectedImage)
+                    .resizable()
+                    .cornerRadius(50)
+                    .padding(.all, 4)
+                    .frame(width: 100, height: 100)
+                    .background(Color.black.opacity(0.2))
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                    .padding(8)
             }
             
             .padding()
