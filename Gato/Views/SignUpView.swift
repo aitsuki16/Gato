@@ -18,7 +18,6 @@ struct SignUp: View {
     @State var password: String = ""
     @State var comfirmPassword = ""
     @State var showPassword: Bool = false
-    @State var phone: String = ""
     @State var signUpResult: Result<User, Error>? = nil as Result<User, Error>?
     @State var cancellable: AnyCancellable?
     @State var isSignUpSuccessful = false
@@ -26,7 +25,7 @@ struct SignUp: View {
     
     let timer = Timer.publish(every: 2.1, on: .main, in: .common).autoconnect()
     var isSignUpButtonDisabled: Bool {
-        [name,email, password,phone].contains(where: \.isEmpty)
+        [name,email, password].contains(where: \.isEmpty)
     }
     let model = SignUpModel()
     
@@ -71,28 +70,6 @@ struct SignUp: View {
                     RoundedRectangle(cornerRadius: 15)
                         .stroke(.white, lineWidth: 1)
                 }
-                
-                TextField("Phone",
-                          text: $phone,
-                          prompt: Text("Phone").foregroundColor(.white)
-                )
-                .font(Font.system(size: 25))
-                
-                .padding(10)
-                
-                .onReceive(Just(phone)) {
-                    newValue in
-                    let allowedCharacters = "0123456789"
-                    let filtered = newValue.filter { allowedCharacters.contains($0) }
-                    if filtered != newValue {
-                        self.phone = filtered
-                    }
-                }
-                
-                .overlay {
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(.white, lineWidth: 1)
-                }
                 HStack {
                     Group {
                         if showPassword {
@@ -126,7 +103,7 @@ struct SignUp: View {
                 }
                 Button {
                     print("do sign Up action")
-                    cancellable = model.signUp(user: User(name: name, email: email, password: password, phone: phone))
+                    cancellable = model.signUp(user: User(name: name, email: email, password: password))
                         .sink(
                             receiveCompletion: { result in
                                 switch result {
@@ -151,10 +128,8 @@ struct SignUp: View {
                 }
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
-                // make a button fill all the space available horizontaly
                 .background(
                     isSignUpButtonDisabled ?
-                    //add a gradient to a button in SwiftUI if the button is disabled
                     LinearGradient(colors: [.indigo], startPoint: .topLeading, endPoint: .bottomTrailing) :
                         LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                     

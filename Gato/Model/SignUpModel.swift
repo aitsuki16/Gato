@@ -12,7 +12,6 @@ struct User: Decodable, Encodable {
     let name: String?
     let email: String?
     let password: String?
-    let phone: String?
 }
 
 class SignUpModel: ObservableObject {
@@ -56,14 +55,13 @@ class SignUpModel: ObservableObject {
     }
     
     //added new function to try json
-    func login(email: String,name: String,phone: String?, password: String) {
+    func login(email: String,name: String, password: String) {
         var request = URLRequest(url: URL(string: "https://divine-flower-4961.fly.dev/api/signin/?email=a@a.com&password=hoge")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: [
             "name": "test2",
             "email": "test2@a.com",
-            "phone": "123",
             "password": "password"
         ])
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
