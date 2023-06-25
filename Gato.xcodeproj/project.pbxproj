@@ -29,6 +29,9 @@
 		CE8748ED29023E68000D40FC /* GatoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */; };
 		CE985FF12A345E0500864E81 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE985FF02A345E0500864E81 /* Photo.swift */; };
 		CE985FF32A345F1C00864E81 /* PhotoManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE985FF22A345F1C00864E81 /* PhotoManagment.swift */; };
+		CEA2B5FB2A42D22A002F261C /* Wallview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2B5FA2A42D22A002F261C /* Wallview.swift */; };
+		CEA2B5FD2A42D892002F261C /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2B5FC2A42D892002F261C /* PostModel.swift */; };
+		CEA2B5FF2A42D8B4002F261C /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2B5FE2A42D8B4002F261C /* PostView.swift */; };
 		CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4C7132931CE56003421BF /* SignUpView.swift */; };
 		CEB52C4F2A0DB6E300F0A847 /* ColorpickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB52C4E2A0DB6E300F0A847 /* ColorpickerView.swift */; };
 		CEB52C512A0DC0B800F0A847 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB52C502A0DC0B800F0A847 /* SettingsView.swift */; };
@@ -80,6 +83,9 @@
 		CE8748EC29023E68000D40FC /* GatoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE985FF02A345E0500864E81 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		CE985FF22A345F1C00864E81 /* PhotoManagment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagment.swift; sourceTree = "<group>"; };
+		CEA2B5FA2A42D22A002F261C /* Wallview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallview.swift; sourceTree = "<group>"; };
+		CEA2B5FC2A42D892002F261C /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		CEA2B5FE2A42D8B4002F261C /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		CEB4C7132931CE56003421BF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		CEB52C4E2A0DB6E300F0A847 /* ColorpickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorpickerView.swift; sourceTree = "<group>"; };
 		CEB52C502A0DC0B800F0A847 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 				CE6E8AFC29B19D4900404A7E /* Geometric.swift */,
 				535C835829FA07E20018AF4F /* PawView.swift */,
 				5394393629FE3772005D7A7F /* ImagePicker.swift */,
+				CEA2B5FA2A42D22A002F261C /* Wallview.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +192,8 @@
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
 				53AC205F29CAF0D10012303B /* AppDelegate.swift */,
+				CEA2B5FC2A42D892002F261C /* PostModel.swift */,
+				CEA2B5FE2A42D8B4002F261C /* PostView.swift */,
 			);
 			path = Gato;
 			sourceTree = "<group>";
@@ -368,8 +377,11 @@
 				535C835929FA07E20018AF4F /* PawView.swift in Sources */,
 				CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */,
 				CE985FF12A345E0500864E81 /* Photo.swift in Sources */,
+				CEA2B5FB2A42D22A002F261C /* Wallview.swift in Sources */,
+				CEA2B5FD2A42D892002F261C /* PostModel.swift in Sources */,
 				CE6E8AFB29B1868500404A7E /* ImageFirstView.swift in Sources */,
 				CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */,
+				CEA2B5FF2A42D8B4002F261C /* PostView.swift in Sources */,
 				539E4E6D29ECFB9D007158EF /* SignInModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
