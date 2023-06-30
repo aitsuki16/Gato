@@ -16,9 +16,10 @@ struct MypageView: View {
     @State var showSettings = false
     @State var showSheet = false
     @State private var image = UIImage()
-    @State private var selectedImage = UIImage()
+    @State private var selectedImage: UIImage?
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
-    
+    @State private var showWallpage = false
+
     let signOutModel = SignOutModel()
     
     var body: some View {
@@ -66,7 +67,7 @@ struct MypageView: View {
                             }.onTapGesture {
                                 showSheet = true
                             }
-                        Image(uiImage: selectedImage)
+                        Image(uiImage: selectedImage ?? UIImage())
                             .resizable()
                             .cornerRadius(50)
                             .padding(.all, 6)
@@ -100,14 +101,25 @@ struct MypageView: View {
                             }
                             
                             Button(action: {
+                                self.showWallpage = true
+
                             }) {
                                 Image(systemName: "pawprint.fill")
-                                    .resizable()
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 50)
+                                Text("Wallpage")
+                                    foregroundColor(.black)
+                                    
                             }
-                       
+                            .sheet(isPresented: $showWallpage) {
+                                WallpageView()
+                            
                         Spacer()
+                    
+                    //
+              
+                         
+                             
+                              Spacer()
+                          }
                         Button(action: {
                             self.isClicked.toggle()
                             signOutModel.signOut()
@@ -132,6 +144,7 @@ struct MypageView: View {
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
         }
+              .padding()
     }
 }
 
