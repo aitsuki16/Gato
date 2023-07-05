@@ -74,7 +74,6 @@ struct SignUp: View {
                     Group {
                         if showPassword {
                             TextField("Password",
-                                      // create a secure text field
                                       text: $password,
                                       prompt: Text("Password").foregroundColor(.white))
                         } else {

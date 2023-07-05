@@ -19,13 +19,13 @@ struct MypageView: View {
     @State private var selectedImage: UIImage?
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
     @State private var showWallpage = false
-
+    
     let signOutModel = SignOutModel()
     
     var body: some View {
         
         ZStack {
-
+            
             VStack {
                 LinearGradient(
                     colors: [Color(""), Color("")],
@@ -80,61 +80,54 @@ struct MypageView: View {
                     Spacer()
                         .frame(height: 560)
                 }
-
+                
                 HStack {
                     Button(action: {
-                                
-                            }) {
-                                Image(systemName: "pawprint.fill")
-                                    .resizable()
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 50)
-                            }
-                            
-                            Button(action: {
-                            }) {
-                                Image(systemName: "pawprint.fill")
-                                    .resizable()
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 50)
-                                
-                            }
-                            
-                            Button(action: {
-                                self.showWallpage = true
-
-                            }) {
-                                Image(systemName: "pawprint.fill")
-                                Text("Wallpage")
-                                    foregroundColor(.black)
-                                    
-                            }
-                            .sheet(isPresented: $showWallpage) {
-                                WallpageView()
-                            
-                        Spacer()
+                        
+                    }) {
+                        Image(systemName: "pawprint.fill")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 50, height: 50)
+                    }
                     
-                    //
-              
-                         
-                             
-                              Spacer()
-                          }
-                        Button(action: {
-                            self.isClicked.toggle()
-                            signOutModel.signOut()
-                            isFirstViewActive = false
-                        }) {
-                            Text("Sign Out")
-                                .foregroundColor(.indigo)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
-                                .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color.white.opacity(isClicked ?0.2 : 1.0)))
-                        }
-                        }.padding()
-                
+                    Button(action: {
+                    }) {
+                        Image(systemName: "pawprint.fill")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 50, height: 50)
+                        
+                    }
+                    
+                    Button(action: {
+                        self.showWallpage = true
+                        
+                    }) {
+                        Image(systemName: "pawprint.fill")
+                        Text("Wall")
+                        //foregroundColor(.black)
+                    }
+                    .sheet(isPresented: $showWallpage) {
+                        WallpageView()
+                        
+                        Spacer()
+                    }
+                    Button(action: {
+                        self.isClicked.toggle()
+                        signOutModel.signOut()
+                        isFirstViewActive = false
+                    }) {
+                        Text("Sign Out")
+                            .foregroundColor(.indigo)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.white.opacity(isClicked ?0.2 : 1.0)))
+                    }
+                }
+                .padding()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(backgroundColor)
@@ -144,7 +137,7 @@ struct MypageView: View {
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
         }
-              .padding()
+        //.padding()
     }
 }
 

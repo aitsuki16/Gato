@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 struct ImagePost: Identifiable {
+    
     let id = UUID()
-    let content: String
+    let body: String
     let photo: UIImage?
 }

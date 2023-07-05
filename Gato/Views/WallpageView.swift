@@ -17,10 +17,9 @@ struct WallpageView: View {
         VStack {
             List(wallPosts) { post in
                 VStack(alignment: .leading) {
-                    Text(post.content)
+                    Text(post.body)
                         .font(.body)
                     
-                    // Display post photo if available
                     if let postImage = post.photo {
                         Image(uiImage: postImage)
                             .resizable()
@@ -48,11 +47,9 @@ struct WallpageView: View {
                 Spacer()
                 
                 Button(action: {
-                    // Logic to add a new post with text and selectedImage
-                    let newPost = ImagePost(content: postText, photo: selectedImage)
+                    let newPost = ImagePost(body: postText, photo: selectedImage)
                     wallPosts.append(newPost)
                     
-                    // Reset postText and selectedImage
                     postText = ""
                     selectedImage = nil
                 }) {

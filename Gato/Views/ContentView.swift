@@ -25,7 +25,7 @@ struct ContentView : View {
                     
                     .cornerRadius(70)
                     .ignoresSafeArea()
-                
+                    
                     //alingment change to the left after...
                     VStack (alignment: .center, spacing: 60) {
                         //text here
@@ -42,7 +42,7 @@ struct ContentView : View {
                             
                             
                         }
-
+                        
                         HStack(alignment: .center) {
                             //here kono
                             ImageFirstView()
@@ -68,8 +68,6 @@ struct ContentView : View {
                                     .multilineTextAlignment(.center)
                             )
                         }
-                    
-                    
                 }
                 
                 VStack{
@@ -104,7 +102,6 @@ struct ContentView : View {
                 Spacer()
                 
             }
-
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
@@ -113,7 +110,7 @@ struct ContentView : View {
                 isActiveMyPage = true
             }
         }
-    } 
+    }
 }
 
 struct ContentView_Previews : PreviewProvider {

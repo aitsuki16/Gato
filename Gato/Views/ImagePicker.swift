@@ -39,7 +39,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 imagePickerWrapper.selectedImage = image
 
-                // Store to UserDefaults
+                // UserDefaults
                 if let imageData = image.pngData() {
                     UserDefaults.standard.set(imageData, forKey: "SelectedImage")
                 }
