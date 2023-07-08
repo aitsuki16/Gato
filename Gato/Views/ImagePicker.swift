@@ -37,7 +37,7 @@ struct ImagePicker: UIViewControllerRepresentable {
 
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                imagePickerWrapper.selectedImage = image
+                imagePickerWrapper.selectedImage 
 
                 // UserDefaults
                 if let imageData = image.pngData() {

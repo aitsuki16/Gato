@@ -20,6 +20,10 @@
 		CE6E8AF929B17FFC00404A7E /* SignInImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */; };
 		CE6E8AFB29B1868500404A7E /* ImageFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */; };
 		CE6E8AFD29B19D4900404A7E /* Geometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E8AFC29B19D4900404A7E /* Geometric.swift */; };
+		CE7CD92A2A550B7000064282 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CD9292A550B7000064282 /* TimelineView.swift */; };
+		CE7CD92C2A550C9800064282 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CD92B2A550C9800064282 /* APIClient.swift */; };
+		CE7CD92E2A55202B00064282 /* TimelineItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CD92D2A55202B00064282 /* TimelineItemView.swift */; };
+		CE7CD9302A55575500064282 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CD92F2A55575500064282 /* URLSession.swift */; };
 		CE8748D029023E65000D40FC /* GatoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748CF29023E65000D40FC /* GatoApp.swift */; };
 		CE8748D229023E65000D40FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8748D129023E65000D40FC /* ContentView.swift */; };
 		CE8748D429023E68000D40FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8748D329023E68000D40FC /* Assets.xcassets */; };
@@ -71,6 +75,10 @@
 		CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInImageView.swift; sourceTree = "<group>"; };
 		CE6E8AFA29B1868500404A7E /* ImageFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFirstView.swift; sourceTree = "<group>"; };
 		CE6E8AFC29B19D4900404A7E /* Geometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometric.swift; sourceTree = "<group>"; };
+		CE7CD9292A550B7000064282 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		CE7CD92B2A550C9800064282 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		CE7CD92D2A55202B00064282 /* TimelineItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineItemView.swift; sourceTree = "<group>"; };
+		CE7CD92F2A55575500064282 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		CE8748CC29023E65000D40FC /* Gato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8748CF29023E65000D40FC /* GatoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatoApp.swift; sourceTree = "<group>"; };
 		CE8748D129023E65000D40FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,7 +135,9 @@
 				CEDFB7942956A78A002B4762 /* SignUpModel.swift */,
 				53F60A1929E296DC009B10A9 /* SignOutModel.swift */,
 				539E4E6C29ECFB9D007158EF /* SignInModel.swift */,
+				CEA2B5FC2A42D892002F261C /* PostModel.swift */,
 				5394393C2A054831005D7A7F /* Validator.swift */,
+				53AC205F29CAF0D10012303B /* AppDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				B2D36E982A1DDDD900E88A7A /* UserDefaults.swift */,
+				CE7CD92F2A55575500064282 /* URLSession.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,6 +168,9 @@
 				535C835829FA07E20018AF4F /* PawView.swift */,
 				5394393629FE3772005D7A7F /* ImagePicker.swift */,
 				CE8B72D22A4D316500169EFA /* WallpageView.swift */,
+				CE7CD9292A550B7000064282 /* TimelineView.swift */,
+				CE7CD92D2A55202B00064282 /* TimelineItemView.swift */,
+				CE7CD92B2A550C9800064282 /* APIClient.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,14 +200,12 @@
 			children = (
 				CE6E8AF729AB8AC200404A7E /* Views */,
 				CE8748CF29023E65000D40FC /* GatoApp.swift */,
+				CEA2B5FE2A42D8B4002F261C /* PostView.swift */,
 				CE6E8AF829B17FFC00404A7E /* SignInImageView.swift */,
 				B2D36E972A1DDDC800E88A7A /* Extensions */,
 				531B181729D8679A005731B1 /* Model */,
 				CE8748D329023E68000D40FC /* Assets.xcassets */,
 				CE8748D529023E68000D40FC /* Preview Content */,
-				53AC205F29CAF0D10012303B /* AppDelegate.swift */,
-				CEA2B5FC2A42D892002F261C /* PostModel.swift */,
-				CEA2B5FE2A42D8B4002F261C /* PostView.swift */,
 			);
 			path = Gato;
 			sourceTree = "<group>";
@@ -359,8 +371,10 @@
 			files = (
 				53AC206029CAF0D10012303B /* AppDelegate.swift in Sources */,
 				CE8748D229023E65000D40FC /* ContentView.swift in Sources */,
+				CE7CD9302A55575500064282 /* URLSession.swift in Sources */,
 				CE8B72D32A4D316500169EFA /* WallpageView.swift in Sources */,
 				CE8B72D52A4E59D500169EFA /* WallPost.swift in Sources */,
+				CE7CD92E2A55202B00064282 /* TimelineItemView.swift in Sources */,
 				CE8748D029023E65000D40FC /* GatoApp.swift in Sources */,
 				5394393729FE3772005D7A7F /* ImagePicker.swift in Sources */,
 				531B181629D8678E005731B1 /* AuthModel.swift in Sources */,
@@ -372,6 +386,7 @@
 				CECE217A2920A4A9002986AF /* SignInView.swift in Sources */,
 				CE6E8AF629AB8A7A00404A7E /* ImageView.swift in Sources */,
 				5394393D2A054832005D7A7F /* Validator.swift in Sources */,
+				CE7CD92C2A550C9800064282 /* APIClient.swift in Sources */,
 				53F60A1A29E296DC009B10A9 /* SignOutModel.swift in Sources */,
 				CEB52C4F2A0DB6E300F0A847 /* ColorpickerView.swift in Sources */,
 				537F966F29B8CF7600D6BF16 /* MypageView.swift in Sources */,
@@ -382,6 +397,7 @@
 				CEB4C7142931CE56003421BF /* SignUpView.swift in Sources */,
 				CEA2B5FF2A42D8B4002F261C /* PostView.swift in Sources */,
 				CE8B72D12A4D30CE00169EFA /* APIResponse.swift in Sources */,
+				CE7CD92A2A550B7000064282 /* TimelineView.swift in Sources */,
 				539E4E6D29ECFB9D007158EF /* SignInModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,10 +555,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gato/Preview Content\"";
-				DEVELOPMENT_TEAM = W2HXTK2662;
+				DEVELOPMENT_TEAM = 6FL7354HD3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -550,6 +567,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,6 +575,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgarashiAi.Gato;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -569,10 +588,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gato/Preview Content\"";
-				DEVELOPMENT_TEAM = W2HXTK2662;
+				DEVELOPMENT_TEAM = 6FL7354HD3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_FILE[sdk=*]" = "";
@@ -581,6 +601,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,6 +609,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgarashiAi.Gato;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

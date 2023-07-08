@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 
-struct ImagePost: Identifiable {
-    
-    let id = UUID()
-    let body: String
-    let photo: UIImage?
+struct WallPost: Codable {
+    //added optional because of error asking to make it optional
+    let id: String?
+    let body: String?
+    let image: UIImage?
 }

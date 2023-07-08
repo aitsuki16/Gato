@@ -15,7 +15,8 @@ struct MypageView: View {
     @State private var animationAmount: CGFloat = 0.8
     @State var showSettings = false
     @State var showSheet = false
-    @State private var image = UIImage()
+    //@State private var image = UIImage()
+    @State private var image = String()
     @State private var selectedImage: UIImage?
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
     @State private var showWallpage = false

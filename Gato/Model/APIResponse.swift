@@ -8,8 +8,8 @@
 import Foundation
 
 
-
-struct APIResponse: Codable {
-    let body: String
-    let image: URL
-}
+//
+//struct APIResponse: Codable {
+//    let body: String
+//    let image: URL
+//}
