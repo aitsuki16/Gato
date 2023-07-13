@@ -11,8 +11,8 @@ struct WallpageView: View {
     @State private var postText = ""
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
-    //@State private var wallPosts: [WallPost] = []
     @Binding var wallPosts: [WallPost]
+    
     var body: some View {
         VStack {
             List(wallPosts, id: \.image) { posting in
@@ -43,16 +43,28 @@ struct WallpageView: View {
                 ImagePicker(selectedImage: $selectedImage)
             }
             .navigationBarTitle("Wall Page")
-            .onAppear {
-                fetchWallPosts()
+        }
+        .onAppear {
+            fetchWallPosts()
+        }
+    }
+    
+    private func fetchWallPosts() {
+        let apiTimeline = APITimeline()
+        apiTimeline.fetchWallPosts { result in
+            switch result {
+            case .success(let posts):
+                DispatchQueue.main.async {
+                    self.wallPosts = posts
+                }
+            case .failure(let error):
+                // Handle the error
+                print("Error fetching wall posts: \(error)")
             }
         }
     }
-        func fetchWallPosts() {
-            // Make an API call to fetch wall posts
-            // Assign the response to the `wallPosts` property
-        }
-        
+
+    
     private func uploadPost(_ post: WallPost) {
         let apiTimeline = APITimeline()
         apiTimeline.uploadImageToWallPage(post: post) { result in
@@ -69,7 +81,6 @@ struct WallpageView: View {
             }
         }
     }
-
 }
 
 //struct WallpageView_Previews: PreviewProvider {

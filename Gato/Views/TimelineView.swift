@@ -27,18 +27,15 @@ class TimelineViewModel: ObservableObject {
     let apiTimeline = APITimeline() 
     private var cancellables = Set<AnyCancellable>()
     
-//        func fetchWallPosts() {
-//            apiTimeline.fetchWallPosts()
-//                .sink(receiveCompletion: { completion in
-//                    switch completion {
-//                    case .finished:
-//                        break
-//                    case .failure(let error):
-//                        print("Error fetching wall posts: \(error)")
-//                    }
-//                }, receiveValue: { [weak self] posts in
-//                    self?.wallPosts = posts
-//                })
-//                .store(in: &cancellables)
-//        }
+    func fetchWallPosts() {
+        apiTimeline.fetchWallPosts { [weak self] result in
+            switch result {
+            case .success(let posts):
+                self?.wallPosts = posts
+            case .failure(let error):
+                // Handle the error
+                print("Error fetching wall posts: \(error)")
+            }
+        }
+    }
 }

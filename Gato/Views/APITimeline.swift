@@ -74,7 +74,14 @@ struct APITimeline {
         
         return body
     }
+    
+    func fetchWallPosts(completion: @escaping (Result<[WallPost], Error>) -> Void) {
+          // Perform the API request to fetch wall posts
+          // Upon receiving the response, call the completion handler with the appropriate result
+      }
+
 }
+
 
 enum APIError: Error {
     case invalidURL
