@@ -9,28 +9,27 @@ import SwiftUI
 
 struct TimelineItemView: View {
     let post: WallPost
+    @State private var imageURL: URL? = nil
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text(post.body ?? "")
+            Text(post.body)
                 .font(.body)
-            if let imageURL = URL(string: post.image ?? "") {
+            
+            if let imageURL = imageURL {
                 AsyncImage(url: imageURL) { phase in
                     switch phase {
                     case .empty:
                         Rectangle()
                             .fill(Color.gray)
-                            //.aspectRatio(contentMode: .fit)
-                            //.frame(maxWidth: .infinity)
                             .cornerRadius(10)
                     case .success(let image):
-                        //image
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: .infinity)
                             .cornerRadius(10)
                     default:
-                        // Placeholder image on failure
                         Rectangle()
                             .fill(Color.gray)
                             .aspectRatio(contentMode: .fit)
@@ -38,6 +37,28 @@ struct TimelineItemView: View {
                             .cornerRadius(10)
                     }
                 }
+            } else {
+                Rectangle()
+                    .fill(Color.gray)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(10)
+            }
+        }
+        .onAppear {
+            loadImage()
+        }
+    }
+    
+    private func loadImage() {
+        if let image = post.image {
+            let imageName = UUID().uuidString + ".jpg"
+            let imagePath = FileManager.default.temporaryDirectory.appendingPathComponent(imageName)
+            do {
+                try image.jpegData(compressionQuality: 0.8)?.write(to: imagePath)
+                imageURL = URL(string: imagePath.path)
+            } catch {
+                print("Error saving image: \(error)")
             }
         }
     }
@@ -45,6 +66,6 @@ struct TimelineItemView: View {
 
 struct TimelineItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TimelineItemView(post: WallPost(id: "1", body: "Body", image: "https://thumb.ac-illust.com/d7/d79bd6078773c70c65a9eb6c5a18b895_t.jpeg"))
+        TimelineItemView(post: WallPost(body: "Sample post", image: UIImage(named: "")!))
     }
 }

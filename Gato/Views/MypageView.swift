@@ -6,34 +6,29 @@
 //
 
 import SwiftUI
-
 struct MypageView: View {
-    
     @Binding var isFirstViewActive: Bool
     @State private var isClicked = false
     @State private var isShowingAnimation = false
     @State private var animationAmount: CGFloat = 0.8
     @State var showSettings = false
     @State var showSheet = false
-    //@State private var image = UIImage()
     @State private var image = String()
     @State private var selectedImage: UIImage?
     @State var backgroundColor = UserDefaults.standard.colorForKey("BackgroundColor") ?? .white
     @State private var showWallpage = false
-    
+    @StateObject private var timelineViewModel = TimelineViewModel()
+
     let signOutModel = SignOutModel()
-    
+
     var body: some View {
-        
         ZStack {
-            
             VStack {
                 LinearGradient(
                     colors: [Color(""), Color("")],
                     startPoint: .trailing,
                     endPoint: .topLeading
                 )
-                
                 .onAppear {
                     // Retrieve
                     if let imageData = UserDefaults.standard.data(forKey: "SelectedImage") {
@@ -42,7 +37,6 @@ struct MypageView: View {
                         }
                     }
                 }
-                
                 VStack {
                     HStack{
                         Button(action: { showSettings = true }) {
@@ -50,9 +44,7 @@ struct MypageView: View {
                                 .foregroundColor(.indigo)
                             NavigationLink(destination: ColorpickerView()) {
                             }
-                            
                         }
-                        
                         Spacer()
                             .frame(width: 95)
                         Text("Upload")
@@ -81,37 +73,35 @@ struct MypageView: View {
                     Spacer()
                         .frame(height: 560)
                 }
-                
                 HStack {
                     Button(action: {
-                        
+
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
                             .foregroundColor(.black)
                             .frame(width: 50, height: 50)
                     }
-                    
+
                     Button(action: {
+
                     }) {
                         Image(systemName: "pawprint.fill")
                             .resizable()
                             .foregroundColor(.black)
                             .frame(width: 50, height: 50)
-                        
                     }
-                    
+
                     Button(action: {
                         self.showWallpage = true
-                        
+
                     }) {
                         Image(systemName: "pawprint.fill")
                         Text("Wall")
-                        //foregroundColor(.black)
                     }
                     .sheet(isPresented: $showWallpage) {
-                        WallpageView()
-                        
+                        WallpageView(wallPosts: $timelineViewModel.wallPosts)
+
                         Spacer()
                     }
                     Button(action: {
@@ -138,13 +128,12 @@ struct MypageView: View {
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
         }
-        //.padding()
     }
 }
 
 struct MypageView_Previews: PreviewProvider {
     @State static var isFirstViewActive: Bool = false
-    
+
     static var previews: some View {
         MypageView(isFirstViewActive: $isFirstViewActive)
     }
