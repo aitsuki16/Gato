@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct WallpageView: View {
     @State private var postText = ""
@@ -19,14 +18,12 @@ struct WallpageView: View {
     var body: some View {
         VStack {
             List(wallPosts, id: \.image) { posting in
-                // Display the posts
             }
             
             Button(action: {
                 self.showImagePicker = true
             }) {
                 Text("Add Photo")
-                // Button styling
             }
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(selectedImage: $selectedImage) { image in
@@ -35,17 +32,22 @@ struct WallpageView: View {
                 }
             }
             
+            TextEditor(text: $postText)
+                .frame(height: 300)
+                                .border(Color.gray, width: 1)
+                                .padding()
+            
             Button(action: {
                 guard let image = selectedImage else {
+                
                     return
                 }
                 let newPost = WallPost(body: postText, image: image)
                 uploadPost(newPost)
             }) {
                 Text("Post")
-                // Button styling
             }
-            .disabled(postText.isEmpty || !isImageSelected)
+            .disabled(postText.isEmpty && !isImageSelected)
             
             .navigationBarTitle("Wall Page")
         }
@@ -81,7 +83,6 @@ struct WallpageView: View {
                     self.wallPosts = posts
                 }
             case .failure(let error):
-                // Handle the error
                 print("Error fetching wall posts: \(error)")
             }
         }
@@ -93,26 +94,24 @@ struct WallpageView: View {
         apiTimeline.uploadImageToWallPage(post: post) { result in
             switch result {
             case .success:
-                // Clear the text and selected image after successful upload
                 DispatchQueue.main.async {
                     self.postText = ""
                     self.selectedImage = nil
                     self.isImageSelected = false
                     self.isUploadComplete = true
                 }
-                // Fetch wall posts again to update the list
+            
                 self.fetchWallPosts()
             case .failure(let error):
-                // Handle the error
                 print("Error uploading post: \(error)")
             }
         }
     }
-
 }
 
-//struct WallpageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WallpageView(wallPosts: )
-//    }
-//}
+struct WallpageView_Previews: PreviewProvider {
+    static var previews: some View {
+        WallpageView(wallPosts: .constant([]))
+    }
+}
+
