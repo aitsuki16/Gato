@@ -66,6 +66,6 @@ struct TimelineItemView: View {
 
 struct TimelineItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TimelineItemView(post: WallPost(body: "Sample post", image: UIImage(named: "")!))
+        TimelineItemView(post: WallPost(body: "Sample", image: UIImage(named: "")!))
     }
 }

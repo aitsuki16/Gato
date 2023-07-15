@@ -14,15 +14,10 @@ struct APITimeline {
             completion(.failure(APIError.invalidURL))
             return
         }
-        
-        // Create a multipart form data request
-        // Set the appropriate headers and body
-        // Use URLSession to make the request
-        
-        // Example implementation using URLSession.shared.dataTask:
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        // Set the appropriate headers
+        // Set headers
         let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         

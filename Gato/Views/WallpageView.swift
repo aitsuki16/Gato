@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import Combine
 
 struct WallpageView: View {
     @State private var postText = ""
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
     @Binding var wallPosts: [WallPost]
-    
+    @State private var isImageSelected = false
+    @State private var isUploadComplete = false
+
     var body: some View {
         VStack {
             List(wallPosts, id: \.image) { posting in
@@ -25,10 +28,15 @@ struct WallpageView: View {
                 Text("Add Photo")
                 // Button styling
             }
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(selectedImage: $selectedImage) { image in
+                    selectedImage = image
+                    isImageSelected = true
+                }
+            }
             
             Button(action: {
                 guard let image = selectedImage else {
-                    // Handle the case when selectedImage is nil
                     return
                 }
                 let newPost = WallPost(body: postText, image: image)
@@ -37,15 +45,30 @@ struct WallpageView: View {
                 Text("Post")
                 // Button styling
             }
-            .disabled(postText.isEmpty)
+            .disabled(postText.isEmpty || !isImageSelected)
             
-            .sheet(isPresented: $showImagePicker) {
-                ImagePicker(selectedImage: $selectedImage)
-            }
             .navigationBarTitle("Wall Page")
         }
         .onAppear {
             fetchWallPosts()
+        }
+        .sheet(isPresented: $isUploadComplete) {
+            VStack {
+                Text("Image uploaded successfully!")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding()
+                
+                Button(action: {
+                    isUploadComplete = false
+                }) {
+                    Text("OK")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+            }
         }
     }
     
@@ -71,8 +94,12 @@ struct WallpageView: View {
             switch result {
             case .success:
                 // Clear the text and selected image after successful upload
-                self.postText = ""
-                self.selectedImage = nil
+                DispatchQueue.main.async {
+                    self.postText = ""
+                    self.selectedImage = nil
+                    self.isImageSelected = false
+                    self.isUploadComplete = true
+                }
                 // Fetch wall posts again to update the list
                 self.fetchWallPosts()
             case .failure(let error):
@@ -81,6 +108,7 @@ struct WallpageView: View {
             }
         }
     }
+
 }
 
 //struct WallpageView_Previews: PreviewProvider {
