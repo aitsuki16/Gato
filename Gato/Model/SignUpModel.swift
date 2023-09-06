@@ -53,37 +53,4 @@ class SignUpModel: ObservableObject {
             return Fail(error: error).eraseToAnyPublisher()
         }
     }
-    
-    //added new function to try json
-    func login(email: String,name: String, password: String) {
-        var request = URLRequest(url: URL(string: "https://divine-flower-4961.fly.dev/api/signin/?email=a@a.com&password=hoge")!)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONSerialization.data(withJSONObject: [
-            "name": "test2",
-            "email": "test2@a.com",
-            "password": "password"
-        ])
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            if let response = response {
-                print(response)
-            }
-            if let data = data {
-                do {
-                    let user = try JSONDecoder().decode(User.self, from: data)
-                    print(user)
-                }
-                catch {
-                    print("Could not decode the data. Error: \(error)")
-                }
-            }
-        }
-        task.resume()
-    }
 }
-
-

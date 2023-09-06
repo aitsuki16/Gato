@@ -60,6 +60,7 @@ class SignInModel: AuthModel {
                 let tokenResponse = try decoder.decode(TokenResponse.self, from: data)
                 // Save the token to user defaults or keychain
                 self.loginUserToken = tokenResponse.token
+                print(String(UserDefaults.standard.loginUserToken ?? ""))
                 completion(.success(()))
             } catch {
                 completion(.failure(error))
