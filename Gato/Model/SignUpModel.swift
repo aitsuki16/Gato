@@ -14,63 +14,65 @@ struct User: Decodable, Encodable {
     let password: String?
 }
 
-enum SignUpError {
+enum SignUpError: Error {
     case name
     case email
     case password
     
     var errorMessage: String {
         switch self {
-        case.name:
+        case .name:
             return "Please input a valid name"
-        case.email:
+        case .email:
             return "Please input a valid email"
-        case.password:
-            return "please input a valid password"
+        case .password:
+            return "Please input a valid password"
         }
     }
 }
 
-
 class SignUpModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
     @Published var errorMessage: String?
- 
-    func signUp(user: User) -> AnyPublisher<User, Error> {
-        if let email = user.email {
-            if !Validator.isValidEmail(email) {
-                errorMessage = SignUpError.email.errorMessage
-                return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
-            }
-            if let name = user.name {
-                if !Validator.isValidName(name) {
-                    errorMessage = SignUpError.name.errorMessage
-                    return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
-                }
-            }
-            if let password = user.password {
-                if !Validator.isValidPassword(password) {
-                    errorMessage = SignUpError.password.errorMessage
-                    return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
-                }
-            }
-            errorMessage = nil
 
+    private func validateUser(_ user: User) -> AnyPublisher<User, Error> {
+        if let email = user.email, !Validator.isValidEmail(email) {
+            errorMessage = SignUpError.email.errorMessage
+            return Fail(error: SignUpError.email).eraseToAnyPublisher()
         }
-        let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        do {
-            request.httpBody = try JSONEncoder().encode(user)
-            let response = URLSession.shared.dataTaskPublisher(for: request)
-            let decoded = response
-                .map { $0.data }
-                .decode(type: User.self, decoder: JSONDecoder())
-                .eraseToAnyPublisher()
-            return decoded
-        } catch {
-            return Fail(error: error).eraseToAnyPublisher()
+
+        if let name = user.name, !Validator.isValidName(name) {
+            errorMessage = SignUpError.name.errorMessage
+            return Fail(error: SignUpError.name).eraseToAnyPublisher()
         }
+
+        if let password = user.password, !Validator.isValidPassword(password) {
+            errorMessage = SignUpError.password.errorMessage
+            return Fail(error: SignUpError.password).eraseToAnyPublisher()
+        }
+
+        errorMessage = nil
+        return Just(user).setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
+
+    func signUp(user: User) -> AnyPublisher<User, Error> {
+        return validateUser(user)
+            .flatMap { validUser in
+                let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                do {
+                    request.httpBody = try JSONEncoder().encode(validUser)
+                    return URLSession.shared.dataTaskPublisher(for: request)
+                        .map { $0.data }
+                        .decode(type: User.self, decoder: JSONDecoder())
+                        .eraseToAnyPublisher()
+                } catch {
+                    return Fail(error: error).eraseToAnyPublisher()
+                }
+            }
+            .eraseToAnyPublisher()
     }
 }
