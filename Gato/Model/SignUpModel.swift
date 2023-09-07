@@ -14,6 +14,10 @@ struct User: Decodable, Encodable {
     let password: String?
 }
 
+struct TokenResponse: Decodable {
+    let token: String
+}
+
 enum SignUpError: Error {
     case name
     case email
@@ -55,7 +59,7 @@ class SignUpModel: ObservableObject {
         return Just(user).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 
-    func signUp(user: User) -> AnyPublisher<User, Error> {
+    func signUp(user: User) -> AnyPublisher<TokenResponse, Error> {
         return validateUser(user)
             .flatMap { validUser in
                 let url = URL(string: "https://divine-flower-4961.fly.dev/api/register")!
@@ -67,7 +71,7 @@ class SignUpModel: ObservableObject {
                     request.httpBody = try JSONEncoder().encode(validUser)
                     return URLSession.shared.dataTaskPublisher(for: request)
                         .map { $0.data }
-                        .decode(type: User.self, decoder: JSONDecoder())
+                        .decode(type: TokenResponse.self, decoder: JSONDecoder())
                         .eraseToAnyPublisher()
                 } catch {
                     return Fail(error: error).eraseToAnyPublisher()

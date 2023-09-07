@@ -18,7 +18,7 @@ struct SignUp: View {
     @State var password: String = ""
     @State var comfirmPassword = ""
     @State var showPassword: Bool = false
-    @State var signUpResult: Result<User, Error>? = nil as Result<User, Error>?
+    @State var signUpResult: Result<TokenResponse, Error>? = nil as Result<TokenResponse, Error>?
     @State var cancellable: AnyCancellable?
     @State var isSignUpSuccessful = false
     @State var hasError = false
@@ -110,14 +110,13 @@ struct SignUp: View {
                                     signUpResult = .failure(error)
                                     print("Sign-up failed with error: \(error)")
                                     hasError = true
-                                    break
                                 case .finished:
-                                    break
+                                    print("Sign-up operation completed.")
                                 }
-                            }, receiveValue: { user in
-                                signUpResult = .success(user)
+                            }, receiveValue: { tokenResponse in
+                                signUpResult = .success(tokenResponse)
                                 isSignUpSuccessful = true
-                                print("Sign-up successful. User: \(user)")
+                                print("Sign-up successful. Token: \(tokenResponse.token)")
                             })
                 } label: {
                     Text("Sign Up")
