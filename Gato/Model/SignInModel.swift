@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class SignInModel: AuthModel {
-    struct User: Codable {
+    struct SignInCredetials: Codable {
         let email: String
         let password: String
     }
@@ -29,10 +29,9 @@ class SignInModel: AuthModel {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let user = User(email: email, password: password)
+        let credetials = SignInCredetials(email: email, password: password)
         do {
-            let jsonData = try JSONEncoder().encode(user)
+            let jsonData = try JSONEncoder().encode(credetials)
             request.httpBody = jsonData
         } catch {
             completion(.failure(error))

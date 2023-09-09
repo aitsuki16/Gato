@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct User: Decodable, Encodable {
+struct User: Codable {
     let name: String?
     let email: String?
     let password: String?
