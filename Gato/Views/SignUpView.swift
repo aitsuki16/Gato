@@ -114,9 +114,11 @@ struct SignUp: View {
                                     print("Sign-up operation completed.")
                                 }
                             }, receiveValue: { tokenResponse in
+                                model.loginUserToken = tokenResponse.token
                                 signUpResult = .success(tokenResponse)
                                 isSignUpSuccessful = true
                                 print("Sign-up successful. Token: \(tokenResponse.token)")
+                                print("User default value:\(String(UserDefaults.standard.loginUserToken ?? ""))")
                             })
                 } label: {
                     Text("Sign Up")
