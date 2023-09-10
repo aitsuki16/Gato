@@ -14,10 +14,6 @@ struct User: Codable {
     let password: String?
 }
 
-struct TokenResponse: Decodable {
-    let token: String
-}
-
 enum SignUpError: Error {
     case name
     case email

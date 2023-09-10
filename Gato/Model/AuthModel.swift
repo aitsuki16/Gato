@@ -23,3 +23,7 @@ class AuthModel: ObservableObject {
         }
     }
 }
+
+struct TokenResponse: Decodable {
+    let token: String
+}

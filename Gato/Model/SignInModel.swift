@@ -46,7 +46,10 @@ class SignInModel: AuthModel {
                 do {
                     request.httpBody = try JSONEncoder().encode(validCredentials)
                     return URLSession.shared.dataTaskPublisher(for: request)
-                        .map { $0.data }
+                        .map { data, _ in
+                            print(String(data: data, encoding: .utf8) ?? "Data could not be printed")
+                            return data
+                        }
                         .decode(type: TokenResponse.self, decoder: JSONDecoder())
                         .eraseToAnyPublisher()
                 } catch {
@@ -76,7 +79,7 @@ class SignInModel: AuthModel {
     
     private func validateCredentials(_ credentials: SignInCredentials) -> AnyPublisher<SignInCredentials, Error> {
    
-        if let email = credentials.email, !Validator.isValidName(email) {
+        if let email = credentials.email, !Validator.isValidEmail(email) {
             errorMessage = SignInError.email.errorMessage
             return Fail(error: SignInError.email).eraseToAnyPublisher()
         }

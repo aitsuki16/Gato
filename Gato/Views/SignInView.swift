@@ -88,15 +88,14 @@ struct SignInView: View {
                     }.padding(.vertical)
                 }
                 
-                Button(
-                    action: {
-                        cancellable = signInModel.signIn(credentials: SignInCredentials(email:signInModel.$email , password: signInModel.$password))
+                Button {
+                        cancellable = signInModel.signIn(credentials: SignInCredentials(email:signInModel.email , password: signInModel.password))
                             .sink(
                                 receiveCompletion: { result in
                                     switch result {
                                     case .failure(let error):
                                         signInResult = .failure(error)
-                                        print("Sign-up failed with error: \(error)")
+                                        print("Sign-In failed with error: \(error)")
                                         hasError = true
                                     case .finished:
                                         print("Sign-up operation completed.")
@@ -105,19 +104,16 @@ struct SignInView: View {
                                     signInModel.loginUserToken = tokenResponse.token
                                     signInResult = .success(tokenResponse)
                                     isSignUpSuccessful = true
-                                    print("Sign-up successful. Token: \(tokenResponse.token)")
+                                    print("Sign-In successful. Token: \(tokenResponse.token)")
                                     print("User default value:\(String(UserDefaults.standard.loginUserToken ?? ""))")
                                 })
-                        }
-                    
-                    },
-                    label: {
-                        Text("Sign In")
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(.white)
                     }
-                )
+            label: {
+                Text("Sign In")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.white)
+            }
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
                 .background(
