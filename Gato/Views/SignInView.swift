@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignInView: View {
     @Environment(\.dismiss) private var dismiss
@@ -16,6 +17,10 @@ struct SignInView: View {
     @State private var shouldNavigateToMyPage = false
     @State private var isSignedIn = false
     @State private var isSignInSuccessful = false
+    @State var cancellable: AnyCancellable?
+    @State var isSignUpSuccessful = false
+    @State var signInResult: Result<TokenResponse, Error>? = nil as Result<TokenResponse, Error>?
+    @State var hasError = false
     
     var isSignInButtonDisabled: Bool {
         [signInModel.email, signInModel.password].contains(where: \.isEmpty)
@@ -85,19 +90,26 @@ struct SignInView: View {
                 
                 Button(
                     action: {
-                        signInModel.signIn { result in
-                            DispatchQueue.main.async {
-                                switch result {
-                                case .success():
-                                    isSignInSuccessful = true
-                                case .failure(let error):
-                                    signInModel.errorMessage = "Failed to sign in"
-                                    isSignInSuccessful = false
-                                    print("Sign-in failed with error: \(error.localizedDescription)")
-                                    
-                                }
-                            }
+                        cancellable = signInModel.signIn(credentials: SignInCredentials(email:signInModel.$email , password: signInModel.$password))
+                            .sink(
+                                receiveCompletion: { result in
+                                    switch result {
+                                    case .failure(let error):
+                                        signInResult = .failure(error)
+                                        print("Sign-up failed with error: \(error)")
+                                        hasError = true
+                                    case .finished:
+                                        print("Sign-up operation completed.")
+                                    }
+                                }, receiveValue: { tokenResponse in
+                                    signInModel.loginUserToken = tokenResponse.token
+                                    signInResult = .success(tokenResponse)
+                                    isSignUpSuccessful = true
+                                    print("Sign-up successful. Token: \(tokenResponse.token)")
+                                    print("User default value:\(String(UserDefaults.standard.loginUserToken ?? ""))")
+                                })
                         }
+                    
                     },
                     label: {
                         Text("Sign In")

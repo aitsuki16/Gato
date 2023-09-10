@@ -39,26 +39,6 @@ class SignUpModel: AuthModel {
     @Published var didSignUp: Bool = false
     @Published var errorMessage: String?
 
-    private func validateUser(_ user: User) -> AnyPublisher<User, Error> {
-        if let email = user.email, !Validator.isValidEmail(email) {
-            errorMessage = SignUpError.email.errorMessage
-            return Fail(error: SignUpError.email).eraseToAnyPublisher()
-        }
-
-        if let name = user.name, !Validator.isValidName(name) {
-            errorMessage = SignUpError.name.errorMessage
-            return Fail(error: SignUpError.name).eraseToAnyPublisher()
-        }
-
-        if let password = user.password, !Validator.isValidPassword(password) {
-            errorMessage = SignUpError.password.errorMessage
-            return Fail(error: SignUpError.password).eraseToAnyPublisher()
-        }
-
-        errorMessage = nil
-        return Just(user).setFailureType(to: Error.self).eraseToAnyPublisher()
-    }
-
     func signUp(user: User) -> AnyPublisher<TokenResponse, Error> {
         return validateUser(user)
             .flatMap { validUser in
@@ -78,5 +58,25 @@ class SignUpModel: AuthModel {
                 }
             }
             .eraseToAnyPublisher()
+    }
+    
+    private func validateUser(_ user: User) -> AnyPublisher<User, Error> {
+        if let email = user.email, !Validator.isValidEmail(email) {
+            errorMessage = SignUpError.email.errorMessage
+            return Fail(error: SignUpError.email).eraseToAnyPublisher()
+        }
+
+        if let name = user.name, !Validator.isValidName(name) {
+            errorMessage = SignUpError.name.errorMessage
+            return Fail(error: SignUpError.name).eraseToAnyPublisher()
+        }
+
+        if let password = user.password, !Validator.isValidPassword(password) {
+            errorMessage = SignUpError.password.errorMessage
+            return Fail(error: SignUpError.password).eraseToAnyPublisher()
+        }
+
+        errorMessage = nil
+        return Just(user).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
