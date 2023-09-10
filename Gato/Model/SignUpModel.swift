@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct User: Decodable, Encodable {
+struct User: Codable {
     let name: String?
     let email: String?
     let password: String?
@@ -35,8 +35,8 @@ enum SignUpError: Error {
     }
 }
 
-class SignUpModel: ObservableObject {
-    @Published var isLoggedIn: Bool = false
+class SignUpModel: AuthModel {
+    @Published var didSignUp: Bool = false
     @Published var errorMessage: String?
 
     private func validateUser(_ user: User) -> AnyPublisher<User, Error> {
