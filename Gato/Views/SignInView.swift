@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+
 struct SignInView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var isFirstViewActive: Bool
@@ -18,13 +19,16 @@ struct SignInView: View {
     @State private var isSignedIn = false
     @State private var isSignInSuccessful = false
     @State var cancellable: AnyCancellable?
-    @State var isSignUpSuccessful = false
     @State var signInResult: Result<TokenResponse, Error>? = nil as Result<TokenResponse, Error>?
+    @State var cancellablly: AnyCancellable?
+    @State var isSignUpSuccessfully = false
     @State var hasError = false
     
     var isSignInButtonDisabled: Bool {
         [signInModel.email, signInModel.password].contains(where: \.isEmpty)
     }
+    let model = SignInModel()
+
     
     var body: some View {
         ZStack {
@@ -89,7 +93,7 @@ struct SignInView: View {
                 }
                 
                 Button {
-                        cancellable = signInModel.signIn(credentials: SignInCredentials(email:signInModel.email , password: signInModel.password))
+                        cancellable = model.signIn(credentials: SignInCredentials(email:signInModel.email , password: signInModel.password))
                             .sink(
                                 receiveCompletion: { result in
                                     switch result {
@@ -98,12 +102,12 @@ struct SignInView: View {
                                         print("Sign-In failed with error: \(error)")
                                         hasError = true
                                     case .finished:
-                                        print("Sign-up operation completed.")
+                                        print("Sign-In operation completed.")
                                     }
                                 }, receiveValue: { tokenResponse in
-                                    signInModel.loginUserToken = tokenResponse.token
+                                    model.loginUserToken = tokenResponse.token
                                     signInResult = .success(tokenResponse)
-                                    isSignUpSuccessful = true
+                                    isSignInSuccessful = true
                                     print("Sign-In successful. Token: \(tokenResponse.token)")
                                     print("User default value:\(String(UserDefaults.standard.loginUserToken ?? ""))")
                                 })

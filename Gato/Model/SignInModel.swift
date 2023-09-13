@@ -60,15 +60,15 @@ class SignInModel: AuthModel {
     }
     
     // Save current user to UserDefaults
-    private func saveCurrentUser(_ credentials: SignInCredentials) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(credentials)
-            UserDefaults.standard.set(data, forKey: "CurrentUser")
-        } catch {
-            print("Error saving user to UserDefaults: \(error.localizedDescription)")
-        }
-    }
+//    private func saveCurrentUser(_ credentials: SignInCredentials) {
+//        do {
+//            let encoder = JSONEncoder()
+//            let data = try encoder.encode(credentials)
+//            UserDefaults.standard.set(data, forKey: "CurrentUser")
+//        } catch {
+//            print("Error saving user to UserDefaults: \(error.localizedDescription)")
+//        }
+//    }
     
     // Return a view to show validation errors
     func validationErrorView(_ errorMessage: String) -> some View {
